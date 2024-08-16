@@ -1,8 +1,8 @@
 class Bullet {
-  constructor(x, y, size = 200, speed = 5) {
+  constructor(x, y, size = 200, speed_x = 0, speed_y = 5) {
     this.pos = createVector(x, y);
     this.size = size;
-    this.speed = speed;
+    this.speed = [speed_x, speed_y];
     this.hitbox = new HitBox(this.pos, [size, size]);
   }
 
@@ -20,7 +20,7 @@ class Bullet {
   }
 
   update() {
-    this.pos.add(createVector(0, this.speed));
+    this.pos.add(createVector(...this.speed));
     this.hitbox.set_pos(this.pos);
   }
 }
