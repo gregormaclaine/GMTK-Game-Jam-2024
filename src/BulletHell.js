@@ -31,17 +31,190 @@ class BulletHell {
   }
 
   // MAKE LOADS OF THESE FUNCTIONS STEPAN
+  split_bullet(bullet){
+    //Creates 2 bullets at the location of the original one
+    const x = bullet.pos.x;
+    const y = bullet.pos.y;
+    this.bullets.push(new Bullet(x, y, bullet.size*0.75, 2.5, bullet.speed.y));
+    this.bullets.push(new Bullet(x, y, bullet.size*0.75, -2.5, bullet.speed.y));
+    bullet.pos.y = height+100;
+  }
+  
   async spawn_bullets() {
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 5; i++) {
       // const x = width * 0.03 + (width * 0.94 * (i % 4)) / 3;
       const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
       this.bullets.push(new Bullet(x, -100));
       await timeout(250);
     }
+    this.bullets.forEach((bullet) => {
+      this.split_bullet(bullet)
+    })
   }
 
+
+  async pattern1(){ 
+    //Makes the player zigzag
+    for (let setsdd = 0; setsdd<10;setsdd++){
+    for (let i = 0; i<10; i++){
+      if (i%4 !=0){
+        const x = width/10 * i;
+        this.bullets.push(new Bullet(x, -100, 150));
+      }
+    }
+    await timeout(1500)
+    for(let j =0;j<10;j++){
+      if (j%4 !=0){
+        const x = width/10 * j + 150;
+        this.bullets.push(new Bullet(x, -100, 150));
+      }
+    }
+    await timeout(1500)
+    for(let k =0;k<10;k++){
+      if (k%4 !=0){
+        const x = width/10 * k + 300;
+        this.bullets.push(new Bullet(x, -100, 150));
+      }
+    }
+    await timeout(1500)
+  }
+  }
+
+  async pattern2(){
+    //Spawns 'shotgun' blasts of asteroids from 5 alternating locations
+    for (let sets =0;sets<5;sets++){
+      const x = random(1000)/1000 * width;
+      for (let i = 0; i < 10; i++){
+        const theta = 0.2*Math.PI*i;
+        this.bullets.push(new Bullet(x, -100, 200, 10*Math.cos(theta), 10*Math.sin(theta)));
+      }
+      await timeout(500)
+    }
+    }
+
+    async pattern3(){
+      //One slow moving asteroid which spawns smaller ones
+      let spawner = new Bullet(width * 0.5, -100, 300);
+      this.bullets.push(spawner);
+      for (let i = 0; i<20;i++){
+        const x = spawner.pos.x;
+        const y = spawner.pos.y;
+        this.bullets.push(new Bullet(x, y, 150, 5,5));
+        this.bullets.push(new Bullet(x, y, 150, -5,5));
+        await timeout(1000);
+      }
+    }
+
+    async pattern4(){
+      //Starts a spiral at a random point
+      const spiral_x = random(1000)/1000 * width;
+      const spiral_y =  random(1000)/2300*height;
+      let spiral = new Bullet(spiral_x, spiral_y, 200, 0, 0);
+      this.bullets.push(spiral);
+      await timeout(1000);
+      //spawn up
+      for (let up = 1;up<10;up++){
+        const x = spiral_x;
+        const y = spiral_y-150*up;
+        this.bullets.push(new Bullet(x, y, 150, up, 0));
+        await timeout(50);
+      }
+      //spawn right
+      for (let right = 1;right<10;right++){
+        const x = spiral_x+150*right;
+        const y = spiral_y;
+        this.bullets.push(new Bullet(x, y, 150, 0, right));
+        await timeout(50);
+      }
+      //spawn down
+      for (let down = 1;down<10;down++){
+        const x = spiral_x;
+        const y = spiral_y+150*down;
+        this.bullets.push(new Bullet(x, y, 150, -down, 0));
+        await timeout(50);
+      }
+      //spawn left
+      for (let left = 1;left<10;left++){
+        const x = spiral_x-150*left;
+        const y = spiral_y;
+        this.bullets.push(new Bullet(x, y, 150, 0, -left));
+        await timeout(50);
+      }
+      await timeout(6000);
+      //Deletes the spawning asteroid after 6 seconds
+      spiral.pos.y = height+100;
+    }
+
+  async pattern5(){
+    //Asteroid pulsing in size
+    for (let set = 0;set <3; set ++){
+    const x = random(1000)/1000 * width;
+    let mode = 0;
+    let astr = new Bullet(x, -100, 400, 0, 3);
+    this.bullets.push(astr);
+    for (let i = 0; i<300;i++){
+    //Don't ask
+      if (mode ==0){
+        if (astr.size == 590){
+          mode =1;
+        }
+        else{
+          mode = 0;
+        }
+      }
+      else if (mode ==1){
+        if (astr.size == 290){
+          mode =0;
+        }
+        else{
+          mode = 1;
+        }
+      }
+      if (mode ===  0){
+        astr.size = astr.size+10;
+      }
+      else if(mode === 1){
+        astr.size = astr.size - 10;
+      }
+      await timeout(25);
+    }
+  }
+  }
+  
+  async pattern6(){
+    //Splitting these nuts
+    for (let i = 0; i<5;i++){
+      const x = 200+ i*width/5
+      this.bullets.push(new Bullet(x, -100, 200))
+      await timeout(random(1000))
+    }
+    await timeout(100)
+    this.bullets.forEach((bullet) =>{
+      this.split_bullet(bullet)
+    })
+    await timeout(1000)
+    this.bullets.forEach((bullet) =>{
+      this.split_bullet(bullet)
+    })
+    await timeout(1000)
+    for (let i = 0; i<5;i++){
+      const x = width-200- i*width/5
+      this.bullets.push(new Bullet(x, -100, 200))
+      await timeout(random(1000))
+    }
+    await timeout(100)
+    this.bullets.forEach((bullet) =>{
+      this.split_bullet(bullet)
+    })
+    await timeout(1000)
+    this.bullets.forEach((bullet) =>{
+      this.split_bullet(bullet)
+    })
+  }
+  
+  
   handle_click() {
-    this.spawn_bullets();
+    this.pattern6() ;
   }
 
   show() {
