@@ -32,7 +32,7 @@ function preload() {
 }
 
 function setup() {
-  const cnv = createCanvas(800, 600);
+  const cnv = createCanvas(1600, 1200);
   textFont(fontRegular);
   Gif.set_canvas(cnv);
   scenes = new SceneManager(images, audio);

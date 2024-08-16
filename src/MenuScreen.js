@@ -35,7 +35,7 @@ class MenuScreen {
 
     background(200);
     imageMode(CORNER);
-    image(this.images['menu-bg'], 0, 0, 800, 600);
+    image(this.images['menu-bg'], 0, 0, width, height);
 
     imageMode(CENTER);
     image(this.images['start-button'], ...this.start_rect);

@@ -1,9 +1,9 @@
 class DialogueManager {
-  static PROFILE_RECT = [125, 475, 150, 150];
-  static INNER_PROFILE_RECT = [125, 475, 125, 125];
-  static DIALOGUE_RECT = [750 - 525 / 2, 475, 525, 150];
-  static TEXT_RECT = [750 - 525 / 2, 475, 500, 125];
-  static SKIP_RECT = [750 - 50, 34, 150, 50];
+  static PROFILE_RECT = [250, 950, 300, 300];
+  static INNER_PROFILE_RECT = [250, 950, 250, 250];
+  static DIALOGUE_RECT = [1500 - 1050 / 2, 950, 1050, 300];
+  static TEXT_RECT = [1500 - 1050 / 2, 950, 1000, 250];
+  static SKIP_RECT = [1500 - 100, 68, 300, 100];
 
   static TEXT_SPEED = 50;
 
