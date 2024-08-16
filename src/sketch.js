@@ -8,6 +8,10 @@ function preload() {
   fontRegular = loadFont('assets/font/Oxygen-Regular.ttf');
   fontBold = loadFont('assets/font/Oxygen-Bold.ttf');
 
+  images['skip-button'] = loadImage('assets/img/skip-button.png');
+  images['dialogue-profile'] = loadImage('assets/img/dialogue-profile.png');
+  images['dialogue-box'] = loadImage('assets/img/dialogue-box.png');
+
   // Main Menu
   images['menu-bg'] = loadImage('assets/img/main_menu/background.jpg');
   images['start-button'] = loadImage('assets/img/main_menu/start_button.png');

@@ -1,14 +1,30 @@
 class GameManager {
-  constructor({ images, audio }) {
+  constructor({ images, audio, dialogue, end_game }) {
     this.images = images;
+    this.audio = audio;
+    this.dialogue = dialogue;
+    this.end_game = end_game;
 
     this.state = 'game';
 
     this.pause_modal = new PauseModal();
   }
 
-  handle_click() {
+  async handle_click() {
     if (this.state === 'pause') return this.pause_modal.handle_click();
+
+    this.dialogue
+      .send([
+        {
+          profile: 'skip-button',
+          text: 'I am some dialogue'
+        },
+        {
+          image: 'menu-bg',
+          jumpscare: true
+        }
+      ])
+      .then(this.end_game);
   }
 
   handle_key_press() {

@@ -9,7 +9,12 @@ class SceneManager {
 
     this.dialogue = new DialogueManager(images, audio);
 
-    this.game_scene = new GameManager({ images, audio });
+    this.game_scene = new GameManager({
+      images,
+      audio,
+      dialogue: this.dialogue,
+      end_game: this.end_game.bind(this)
+    });
 
     this.menu_scene = new MenuScreen(
       images,
@@ -28,6 +33,12 @@ class SceneManager {
     // this.audio.play_track('game.mp3');
     await this.fade('in');
     // await this.dialogue.send(DIALOGUE.BEFORE_GAME);
+  }
+
+  async end_game() {
+    await this.fade('out');
+    this.state = 'menu';
+    await this.fade('in');
   }
 
   async fade(mode) {
