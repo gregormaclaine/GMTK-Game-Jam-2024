@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" />
+
+    <script src="lib/p5.js"></script>
+    <script src="lib/p5.sound.js"></script>
+
+    <!-- 
+        For production using the dependencies below as they are faster,
+        but are less helpful during development.
+        
+        <script src="lib/p5.min.js"></script>
+        <script src="lib/p5.sound.min.js"></script>
+    -->
+
+    <script src="lib/JamLib.js"></script>
+
+    <title>Not a game where you catch fish</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: antiquewhite;
+      }
+
+      .prevent-select {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="src/constants.js" defer></script>
+    <script src="src/Gif.js" defer></script>
+    <script src="src/HitBox.js" defer></script>
+    <script src="src/ParticleEffect.js" defer></script>
+    <script src="src/SceneManager.js" defer></script>
+    <script src="src/sketch.js" defer></script>
+  </body>
+</html>
