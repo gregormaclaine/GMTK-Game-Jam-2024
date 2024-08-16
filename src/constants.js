@@ -3,3 +3,5 @@ const CREDITS = `
 `.split('\n');
 
 const PAUSE_KEY_CODE = 27;
+
+const SHOW_HITBOXES = true;

@@ -8,23 +8,15 @@ class GameManager {
     this.state = 'game';
 
     this.pause_modal = new PauseModal();
+
+    this.player = new Player({ start_pos: [width / 2, height / 2] });
+    this.bullets = new BulletHell();
   }
 
-  async handle_click() {
+  handle_click() {
     if (this.state === 'pause') return this.pause_modal.handle_click();
 
-    this.dialogue
-      .send([
-        {
-          profile: 'skip-button',
-          text: 'I am some dialogue'
-        },
-        {
-          image: 'menu-bg',
-          jumpscare: true
-        }
-      ])
-      .then(this.end_game);
+    this.bullets.handle_click();
   }
 
   handle_key_press() {
@@ -40,12 +32,17 @@ class GameManager {
   }
 
   show() {
+    background(0, 150);
+    this.bullets.show();
+    this.player.show();
     if (this.state === 'pause') this.pause_modal.show();
   }
 
   update() {
     switch (this.state) {
       case 'game':
+        this.bullets.update();
+        this.player.update();
         return;
 
       case 'pause':

@@ -5,7 +5,7 @@ class SceneManager {
     this.images = images;
     this.audio = audio;
 
-    this.state = 'menu';
+    this.state = 'game';
 
     this.dialogue = new DialogueManager(images, audio);
 
@@ -69,8 +69,6 @@ class SceneManager {
   }
 
   show() {
-    background(0);
-
     switch (this.state) {
       case 'game':
         this.game_scene.show();
