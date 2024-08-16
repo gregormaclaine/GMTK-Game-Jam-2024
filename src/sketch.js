@@ -1,16 +1,20 @@
 const images = {};
-const audio = new JL.Audio(
-  ['laugh.mp3', 'game.mp3', 'shop.mp3'],
-  ['cheer.wav', 'boom.wav', 'star.wav', 'angel.wav', 'buy.wav']
-);
+const audio = new JL.Audio([], ['boom.wav']);
 let scenes;
 
 function preload() {
   // Load fonts
-  // fontLight = loadFont('assets/font/Oxygen-Light.ttf');
-  // fontRegular = loadFont('assets/font/Oxygen-Regular.ttf');
-  // fontBold = loadFont('assets/font/Oxygen-Bold.ttf');
-  // images['hook'] = loadImage('assets/img/fish-hook.png');
+  fontLight = loadFont('assets/font/Oxygen-Light.ttf');
+  fontRegular = loadFont('assets/font/Oxygen-Regular.ttf');
+  fontBold = loadFont('assets/font/Oxygen-Bold.ttf');
+
+  // Main Menu
+  images['menu-bg'] = loadImage('assets/img/main_menu/background.jpg');
+  images['start-button'] = loadImage('assets/img/main_menu/start_button.png');
+  images['credits-button'] = loadImage(
+    'assets/img/main_menu/credits_button.png'
+  );
+
   // Gifs
   // images['spinning-fish'] = new Gif({
   //   path: 'assets/img/spinning-fish.gif',
