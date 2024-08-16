@@ -1,24 +1,26 @@
 class Bullet {
-  constructor(x, y) {
+  constructor(x, y, size = 200, speed = 5) {
     this.pos = createVector(x, y);
-    this.hitbox = new HitBox(this.pos, [20, 20]);
+    this.size = size;
+    this.speed = speed;
+    this.hitbox = new HitBox(this.pos, [size, size]);
   }
 
   show() {
-    strokeWeight(0);
-    for (let i = 0; i < 5; i++) {
-      fill(255, 0, 0, 100);
-      circle(this.pos.x, this.pos.y - (5 - i) * 11, 5 + i * 3);
-    }
+    // strokeWeight(0);
+    // for (let i = 0; i < 5; i++) {
+    //   fill(255, 0, 0, 100);
+    //   circle(this.pos.x, this.pos.y - (5 - i) * 11, 5 + i * 3);
+    // }
 
     imageMode('center');
-    image(images['rock'], this.pos.x, this.pos.y, 200, 200);
+    image(images['rock'], this.pos.x, this.pos.y, this.size, this.size);
 
     this.hitbox.show();
   }
 
   update() {
-    this.pos.add(createVector(0, 5));
+    this.pos.add(createVector(0, this.speed));
     this.hitbox.set_pos(this.pos);
   }
 }
