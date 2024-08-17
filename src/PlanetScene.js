@@ -1,11 +1,12 @@
 class PlanetScene {
   static PLAYER_SPEED = 8;
 
-  constructor({ dialogue, start_level, fade, finish_game }) {
+  constructor({ dialogue, start_level, fade, finish_game, set_ability }) {
     this.dialogue = dialogue;
     this.start_level = start_level;
     this.fade = fade;
     this._finish_game = finish_game;
+    this.set_ability = set_ability;
     this.reset();
 
     this.player_pos = [width / 2, height / 2];
@@ -33,23 +34,28 @@ class PlanetScene {
         size: [200, 200],
         interact: async count => {
           if (!this.level_results[1]) {
-            // send some dialogue and start level
             await this.dialogue.send(DIALOGUE.THAT_NPC, {
               skippable: count > 0
             });
             await this.start_level(1);
           } else {
             const result = this.level_results[1];
-            if (result === 'win') {
-              // do some happy dialogue that thanks the char
-              if (count > 2) {
-                // second time speaking to character after winning
-              }
-            } else {
-              this.finish_game({});
-              // you suck
-            }
+            this.finish_game({});
           }
+        }
+      }),
+      new NPC({
+        pos: [150, height - 100],
+        image: images['rock'],
+        size: [80, 80],
+        max_interactions: 1,
+        text: 'Press E to Pickup',
+        text_side: 'bottom',
+        text_width: 250,
+        radius: 2.5,
+        interact: async () => {
+          audio.play_sound('pickup_health_1.wav');
+          this.set_ability('lazer');
         }
       })
     ];

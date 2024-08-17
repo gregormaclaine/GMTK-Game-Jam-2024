@@ -8,9 +8,21 @@ class GameManager {
 
     this.pause_modal = new PauseModal();
     this.background = images['bullet-bg'];
-    this.reset();
     this.level_promise = null;
     this.on_finish_level = null;
+
+    this.hard_reset();
+
+    this.ability_cooldown = new AbilityCooldown(
+      2,
+      'red',
+      this.use_ability.bind(this)
+    );
+  }
+
+  hard_reset() {
+    this.ability = null;
+    this.reset();
   }
 
   reset() {
@@ -42,6 +54,7 @@ class GameManager {
     );
 
     this.reset();
+
     await timeout(1000);
     switch (level) {
       case 1:
@@ -63,6 +76,20 @@ class GameManager {
     }
   }
 
+  set_ability(ability) {
+    this.ability = ability;
+    this.ability_cooldown.cooldown = 2;
+  }
+
+  use_ability() {
+    switch (this.ability) {
+      case 'lazer':
+        this.bullets.shoot();
+      default:
+        return;
+    }
+  }
+
   handle_click() {
     if (this.state === 'pause') return this.pause_modal.handle_click();
 
@@ -77,6 +104,10 @@ class GameManager {
       if (keyCode === PAUSE_KEY_CODE) {
         this.pause_modal.open(() => (this.state = prev_state));
         return (this.state = 'pause');
+      }
+
+      if (keyCode === 80 && this.ability) {
+        this.ability_cooldown.activate();
       }
     }
   }
@@ -109,6 +140,13 @@ class GameManager {
       );
       tint(255, 255);
     }
+
+    if (this.ability) {
+      if (this.ability_cooldown.cooling_down) tint(255, 50);
+      image(images['rock'], 20, height - 100, 80, 80);
+      tint(255, 255);
+      this.ability_cooldown.show();
+    }
   }
 
   show() {
@@ -136,6 +174,8 @@ class GameManager {
             }
           }
         });
+
+        this.ability_cooldown.update();
 
       case 'pause':
         this.pause_modal.update();

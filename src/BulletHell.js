@@ -42,24 +42,39 @@ class Bullet {
   }
 }
 
+class Lazer extends Bullet {
+  constructor(x, y, speed_x, speed_y) {
+    super(x, y, 0, speed_x, speed_y);
+    this.length = 50;
+    this.hitbox = new HitBox([this.pos.x, this.pos.y], [10, 10]);
+  }
+
+  show() {
+    stroke('red');
+    strokeWeight(6);
+    const tail = createVector(...this.speed);
+    tail.mult(-1);
+    tail.setMag(this.length);
+    tail.add(this.pos);
+    line(this.pos.x, this.pos.y, tail.x, tail.y);
+  }
+}
+
 class BulletHell {
   constructor({ player, collected }) {
     this.player = player;
-    this.bullets = [];
     this.collected = collected;
+    this.bullets = [];
+    this.resources = [];
+    this.lazers = [];
+  }
 
-    this.resources = [
-      // new Resource({
-      //   pos: createVector(200, 1000),
-      //   image: images['gigantium'],
-      //   on_collect: () => {
-      //     this.collected.gigantium += Math.floor(random(5, 8));
-      //     this.collected.size += 0.5;
-      //   },
-      // speed: [1, 1],
-      //   sound: 'pickup_gigantium.wav'
-      // }),
-    ];
+  shoot() {
+    const dir = this.player.vel.copy();
+    dir.setMag(15);
+    this.lazers.push(
+      new Lazer(this.player.pos.x, this.player.pos.y, dir.x, dir.y)
+    );
   }
 
   // MAKE LOADS OF THESE FUNCTIONS STEPAN
@@ -428,12 +443,24 @@ class BulletHell {
     for (const bullet of this.bullets) {
       bullet.show();
     }
+    this.lazers.forEach(l => l.show());
   }
 
   update() {
     this.resources.forEach(r => r.update(this.player));
     this.resources = this.resources.filter(r => !r.gone && r.on_screen());
+    this.lazers.forEach(l => {
+      l.update();
+      this.bullets.forEach(b => {
+        if (b.hitbox.is_colliding(l.hitbox)) {
+          l.has_collided = true;
+          b.has_collided = true;
+          audio.play_sound('boom.wav');
+        }
+      });
+    });
     this.bullets.forEach(b => b.update());
+    this.lazers = this.lazers.filter(l => l.on_screen() && !l.has_collided);
     this.bullets = this.bullets.filter(b => b.on_screen() && !b.has_collided);
   }
 }

@@ -19,7 +19,10 @@ class SceneManager {
       dialogue: this.dialogue,
       start_level: this.start_level.bind(this),
       fade: this.fade.bind(this),
-      finish_game: this.finish_game.bind(this)
+      finish_game: this.finish_game.bind(this),
+      set_ability: ability => {
+        this.game_scene.set_ability(ability);
+      }
     });
 
     this.menu_scene = new MenuScreen(
@@ -59,6 +62,7 @@ class SceneManager {
   async start_game() {
     await this.fade('out');
     this.state = 'planet';
+    this.game_scene.hard_reset();
     this.planet_scene.reset();
     this.planet_scene.load_planet_1();
     await this.fade('in');
