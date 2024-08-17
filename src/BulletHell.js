@@ -3,7 +3,10 @@ class Bullet {
     this.pos = createVector(x, y);
     this.size = size;
     this.speed = [speed_x, speed_y];
-    this.hitbox = new HitBox([this.pos.x, this.pos.y], [size, size]);
+    this.hitbox = new HitBox(
+      [this.pos.x, this.pos.y],
+      [size * 0.9, size * 0.9]
+    );
     this.image = random() > 0.96 ? images['asteroid'] : images['rock'];
   }
 
@@ -156,7 +159,7 @@ class BulletHell {
     }
     await timeout(6000);
     //Deletes the spawning asteroid after 6 seconds
-    spiral.pos.y = height + 100;
+    spiral.speed[1] = 6;
   }
 
   async pattern5() {
@@ -281,7 +284,7 @@ class BulletHell {
   }
 
   handle_click() {
-    this.pattern1();
+    this.pattern4();
   }
 
   show() {
