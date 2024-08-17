@@ -8,6 +8,7 @@ class Bullet {
       [size * 0.7, size * 0.7]
     );
     this.image = random() > 0.96 ? images['asteroid'] : images['rock'];
+    this.has_collided = false;
   }
 
   show() {
@@ -28,6 +29,10 @@ class Bullet {
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
 
+  collide() {
+    this.has_collided = true;
+  }
+
   on_screen() {
     if (this.pos.x + this.size / 2 < 0 && this.speed[0] < 0) return false;
     if (this.pos.x - this.size / 2 > width && this.speed[0] > 0) return false;
@@ -38,9 +43,21 @@ class Bullet {
 }
 
 class BulletHell {
-  constructor({ player }) {
+  constructor({ player, collected }) {
     this.player = player;
     this.bullets = [];
+    this.collected = collected;
+
+    this.resources = [
+      // new Resource({
+      //   pos: createVector(200, 1000),
+      //   image: images['gigantium'],
+      //   on_collect: () => {
+      //     this.collected.gigantium += Math.floor(random(5, 8));
+      //     this.collected.size += 0.5;
+      //   }
+      // }),
+    ];
   }
 
   // MAKE LOADS OF THESE FUNCTIONS STEPAN
@@ -70,22 +87,15 @@ class BulletHell {
     //Makes the player zigzag
     for (let sets = 0; sets < 5; sets++) {
       for (let i = 0; i < 10; i++) {
-        if (i % 4 != 0) {
+        if (i % 4 != 0 && i%4!=1) {
           const x = (width / 10) * i;
           this.bullets.push(new Bullet(x, -100, 150));
         }
       }
       await timeout(1500);
       for (let j = 0; j < 10; j++) {
-        if (j % 4 != 0) {
+        if (j % 4 != 0 && j%4!=1) {
           const x = (width / 10) * j + 150;
-          this.bullets.push(new Bullet(x, -100, 150));
-        }
-      }
-      await timeout(1500);
-      for (let k = 0; k < 10; k++) {
-        if (k % 4 != 0) {
-          const x = (width / 10) * k + 300;
           this.bullets.push(new Bullet(x, -100, 150));
         }
       }
@@ -318,21 +328,43 @@ class BulletHell {
     }
   }
 
+  async spawn_resources(){
+    for (let i =0;i<random(2)+1;i++){
+      this.resources.push(new Resource({
+        pos: createVector(random(1000)/1000*width, random(1000)/1000*height),
+        image: images['gigantium'],
+        on_collect: () => {
+        this.collected.gigantium += Math.floor(random(5, 8));
+        this.collected.size += 0.5;}}))
+    }
+    for (let j=0;j<random(random(2)+1);j++){
+      this.resources.push(new Resource({
+        pos: createVector(random(1000), random(1000)),
+        image: images['minimium'],
+        on_collect: () => {
+        this.collected.minimium += Math.floor(random(5, 8));
+        this.collected.size -= 0.5;}}))
+    }
+  }
+
   async level1() {
+    await this.spawn_resources()
     await this.pattern1();
     await timeout(1000);
     for (let p3=0; p3<5;p3++){
       this.pattern3();
       await timeout(2000);
     }
+    await this.spawn_resources()
     for (let p0 = 0;p0<5;p0++){
-      await this.spawn_bullets(5, 150, 300);
+      await this.spawn_bullets(5, 150, 500);
     }
     await timeout(1000);
     await this.pattern1();
     for (let p0 = 0;p0<3;p0++){
       await this.spawn_bullets(5, 150, 300);
     }
+    await this.spawn_resources()
   }
 
   async level2(){
@@ -366,17 +398,20 @@ class BulletHell {
 }
 
   handle_click() {
-    this.level2();
+    this.level1();
   }
 
   show() {
+    this.resources.forEach(r => r.show());
     for (const bullet of this.bullets) {
       bullet.show();
     }
   }
 
   update() {
+    this.resources.forEach(r => r.update(this.player));
+    this.resources = this.resources.filter(r => !r.gone && r.on_screen());
     this.bullets.forEach(b => b.update());
-    this.bullets = this.bullets.filter(b => b.on_screen());
+    this.bullets = this.bullets.filter(b => b.on_screen() && !b.has_collided);
   }
 }

@@ -20,14 +20,16 @@ class Player {
     this.update_hitbox();
 
     this.immune = false;
+    this.ascending = false;
   }
 
   take_damage() {
-    if (this.immune) return;
+    if (this.immune) return false;
     this.immune = true;
 
     audio.play_sound('boom.wav');
     setTimeout(() => (this.immune = false), 1000);
+    return true;
   }
 
   update_hitbox() {
@@ -45,22 +47,18 @@ class Player {
     const size = [this.size[0] * growth, this.size[1] * growth];
     if (this.pos.x + size[0] / 2 > width) {
       this.pos.x = width - size[0] / 2;
-      this.vel.setMag(0.001);
     }
 
     if (this.pos.x - size[0] / 2 < 0) {
       this.pos.x = size[0] / 2;
-      this.vel.setMag(0.001);
     }
 
     if (this.pos.y + size[1] / 2 > height) {
       this.pos.y = height - size[1] / 2;
-      this.vel.setMag(0.001);
     }
 
     if (this.pos.y - size[1] / 2 < 0) {
       this.pos.y = size[1] / 2;
-      this.vel.setMag(0.001);
     }
   }
 
@@ -69,6 +67,11 @@ class Player {
   }
 
   update() {
+    if (this.ascending) {
+      this.vel = createVector(0, -10);
+      this.pos.add(this.vel);
+    }
+
     const acc = createVector(
       keyIsDown(68) - keyIsDown(65),
       keyIsDown(83) - keyIsDown(87)

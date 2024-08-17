@@ -1,11 +1,12 @@
 class Resource {
-  constructor({ pos, size, on_collect, image, remove }) {
+  constructor({ pos, size, on_collect, image, remove, speed }) {
     this.pos = pos;
     this.size = size || [60, 40];
     this.on_collect = on_collect;
     this.remove = remove;
     this.image = image;
     this.angle = 0;
+    this.speed = speed || [0, 0];
 
     this.hitbox = new HitBox([this.pos.x, this.pos.y], this.size);
     this.collected = false;
@@ -52,5 +53,13 @@ class Resource {
     if (this.collected) return;
     this.collected = true;
     this.on_collect();
+  }
+
+  on_screen() {
+    if (this.pos.x + this.size / 2 < 0 && this.speed[0] < 0) return false;
+    if (this.pos.x - this.size / 2 > width && this.speed[0] > 0) return false;
+    if (this.pos.y + this.size / 2 < 0 && this.speed[1] < 0) return false;
+    if (this.pos.y - this.size / 2 > height && this.speed[1] > 0) return false;
+    return true;
   }
 }
