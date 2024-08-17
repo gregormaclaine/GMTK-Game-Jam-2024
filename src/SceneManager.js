@@ -16,6 +16,8 @@ class SceneManager {
       end_game: this.end_game.bind(this)
     });
 
+    this.planet_scene = new PlanetScene({ dialogue: this.dialogue });
+
     this.menu_scene = new MenuScreen(
       images,
       this.dialogue,
@@ -58,6 +60,8 @@ class SceneManager {
         return this.game_scene.handle_click();
       case 'menu':
         return this.menu_scene.handle_click();
+      case 'planet':
+        return this.planet_scene.handle_click();
     }
   }
 
@@ -66,6 +70,7 @@ class SceneManager {
     if (this.dialogue.active) return;
 
     if (this.state === 'game') this.game_scene.handle_key_press();
+    if (this.state === 'planet') this.planet_scene.handle_key_press();
   }
 
   show() {
@@ -76,6 +81,10 @@ class SceneManager {
 
       case 'menu':
         this.menu_scene.show();
+        break;
+
+      case 'planet':
+        this.planet_scene.show();
         break;
     }
 
@@ -101,6 +110,10 @@ class SceneManager {
     switch (this.state) {
       case 'game':
         this.game_scene.update();
+        break;
+
+      case 'planet':
+        this.planet_scene.update();
         break;
 
       case 'menu':

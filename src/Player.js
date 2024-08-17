@@ -18,6 +18,16 @@ class Player {
 
     this.hitbox = new HitBox();
     this.update_hitbox();
+
+    this.immune = false;
+  }
+
+  take_damage() {
+    if (this.immune) return;
+    this.immune = true;
+
+    audio.play_sound('boom.wav');
+    setTimeout(() => (this.immune = false), 1000);
   }
 
   update_hitbox() {
