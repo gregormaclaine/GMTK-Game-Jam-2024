@@ -212,9 +212,66 @@ class BulletHell {
     })
   }
   
+  rocket(x){
+    this.bullets.push(new Bullet(x, -100, 50));
+
+    this.bullets.push(new Bullet(x+50, -125, 50));
+    this.bullets.push(new Bullet(x-50, -125, 50));
+
+    this.bullets.push(new Bullet(x+100, -175, 50));
+    this.bullets.push(new Bullet(x-100, -175, 50));
+    this.bullets.push(new Bullet(x, -175, 50));
+
+    this.bullets.push(new Bullet(x+25, -200, 50));
+    this.bullets.push(new Bullet(x-25, -200, 50));
+    
+    this.bullets.push(new Bullet(x, -225, 50));
+
+    this.bullets.push(new Bullet(x+150, -275, 50));
+    this.bullets.push(new Bullet(x-150, -275, 50));
+
+    this.bullets.push(new Bullet(x+200, -325, 50));
+    this.bullets.push(new Bullet(x-200, -325, 50));
+    this.bullets.push(new Bullet(x+150, -325, 50));
+    this.bullets.push(new Bullet(x-150, -325, 50));
+
+    this.bullets.push(new Bullet(x+225, -375, 50));
+    this.bullets.push(new Bullet(x-225, -375, 50));
+    this.bullets.push(new Bullet(x+150, -375, 50));
+    this.bullets.push(new Bullet(x-150, -375, 50));
+    this.bullets.push(new Bullet(x+100, -375, 50));
+    this.bullets.push(new Bullet(x-100, -375, 50));
+    this.bullets.push(new Bullet(x+50, -375, 50));
+    this.bullets.push(new Bullet(x-50, -375, 50));
+    this.bullets.push(new Bullet(x, -375, 50));
+
+    this.bullets.push(new Bullet(x+50, -400, 50));
+    this.bullets.push(new Bullet(x-50, -400, 50));
+    this.bullets.push(new Bullet(x, -400, 50));
+    this.bullets.push(new Bullet(x+50, -425, 50));
+    this.bullets.push(new Bullet(x-50, -425, 50));
+    this.bullets.push(new Bullet(x, -425, 50));
+    this.bullets.push(new Bullet(x+50, -450, 50));
+    this.bullets.push(new Bullet(x-50, -450, 50));
+    this.bullets.push(new Bullet(x, -450, 50));
+  }
+  async pattern7(){
+    //I dont know, im kinda tired tho
+    for (let set = 0;set < 5;set++){
+    const r_n = Math.floor(Math.random()*3);
+    console.log(r_n)
+    for (let i = 0;i<3;i++){
+      if(i!=r_n){
+      const x = 260+i*width/3;
+      this.rocket(x);
+      }
+    }
+    await timeout(2000)
+  }
+  }
   
   handle_click() {
-    this.pattern6() ;
+    this.pattern7() ;
   }
 
   show() {
