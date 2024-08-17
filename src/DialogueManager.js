@@ -16,6 +16,7 @@ class DialogueManager {
     this.progress = 0;
 
     this.skip = false;
+    this.skippable = false;
   }
 
   contains_mouse() {
@@ -36,9 +37,10 @@ class DialogueManager {
     return true;
   }
 
-  async send(dialogues, wait = 0.5) {
+  async send(dialogues, { wait = 0.5, skippable = true }) {
     if (!dialogues.length) return;
     this.active = true;
+    this.skippable = skippable;
     await timeout(wait * 1000);
     for (const dialogue of dialogues) {
       if (this.skip) {
@@ -69,7 +71,7 @@ class DialogueManager {
       } else {
         this.finished_dialogue();
       }
-    } else if (this.mouse_over_skip()) {
+    } else if (this.skippable && this.mouse_over_skip()) {
       this.skip = true;
       this.finished_dialogue();
     }
@@ -98,7 +100,9 @@ class DialogueManager {
         const text_index = floor(lerp(0, t.length, this.progress));
         text(t.substring(0, text_index), ...DialogueManager.TEXT_RECT);
 
-        image(images['skip-button'], ...DialogueManager.SKIP_RECT);
+        if (this.skippable) {
+          image(images['skip-button'], ...DialogueManager.SKIP_RECT);
+        }
       }
 
       if (this.current_dialogue.jumpscare) {
@@ -121,7 +125,8 @@ class DialogueManager {
         ((1 / frameRate()) * DialogueManager.TEXT_SPEED) /
         this.current_dialogue.text.length;
 
-      if (this.contains_mouse() || this.mouse_over_skip()) cursor('pointer');
+      if (this.contains_mouse() || (this.skippable && this.mouse_over_skip()))
+        cursor('pointer');
     }
   }
 }
