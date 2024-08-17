@@ -1,17 +1,44 @@
 class PlanetScene {
   static PLAYER_SPEED = 8;
 
-  constructor({ dialogue }) {
+  constructor({ dialogue, start_level }) {
     this.dialogue = dialogue;
-    this.player_pos = [width / 2, height / 2];
+    this.start_level = start_level;
+    this.level_results = {};
 
+    this.player_pos = [width / 2, height / 2];
+    this.player_image = images['rock'];
+    this.background = images['bullet-bg'];
+    this.npcs = [];
+  }
+
+  load_planet_1() {
+    this.player_pos = [width / 2, height / 2];
+    this.player_image = images['rock'];
+    this.background = images['bullet-bg'];
     this.npcs = [
       new NPC(
         [width / 2, height / 5],
         images['rocket'],
         [50, 50],
         async count => {
-          await this.dialogue.send(DIALOGUE.THAT_NPC, { skippable: count > 0 });
+          if (!this.level_results[1]) {
+            // send some dialogue and start level
+            await this.dialogue.send(DIALOGUE.THAT_NPC, {
+              skippable: count > 0
+            });
+            await this.start_level(1);
+          } else {
+            const result = this.level_results[1];
+            if (result === 'win') {
+              // do some happy dialogue that thanks the char
+              if (count > 2) {
+                // second time speaking to character after winning
+              }
+            } else {
+              // you suck
+            }
+          }
         }
       )
     ];
@@ -28,12 +55,12 @@ class PlanetScene {
 
   show() {
     imageMode(CORNER);
-    background(images['bullet-bg']);
+    background(this.background);
 
     this.npcs.forEach(n => n.show(this.player_pos));
 
     imageMode(CENTER);
-    image(images['rock'], ...this.player_pos, 50, 50);
+    image(this.player_image, ...this.player_pos, 50, 50);
   }
 
   force_on_screen() {

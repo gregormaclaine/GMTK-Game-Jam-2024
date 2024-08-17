@@ -1,16 +1,23 @@
 class GameManager {
   static SKYSPEED = 1;
 
-  constructor({ images, audio, dialogue, end_game }) {
+  constructor({ images, audio, dialogue, end_game, on_die }) {
     this.images = images;
     this.audio = audio;
     this.dialogue = dialogue;
     this.end_game = end_game;
-
-    this.state = 'game';
+    this.on_die = on_die;
 
     this.pause_modal = new PauseModal();
+    this.background = images['bullet-bg'];
+    this.reset();
+    this.level_promise = null;
+    this.on_finish_level = () => {};
+  }
 
+  reset() {
+    this.sky_pos = 0;
+    this.state = 'game';
     this.collected = {
       gigantium: 0,
       minimium: 0,
@@ -19,16 +26,36 @@ class GameManager {
     };
     this.player = new Player({
       start_pos: [width / 2, height / 2],
-      collected: this.collected
+      collected: this.collected,
+      die: this.on_die
     });
     this.bullets = new BulletHell({
       player: this.player,
       collected: this.collected
     });
+  }
 
-    this.sky_pos = 0;
-    this.background = images['bullet-bg'];
-    this.health = 3;
+  async run_level(level) {
+    this.level_promise = new Promise(
+      resolve => (this.on_finish_level = resolve)
+    );
+
+    this.reset();
+    await timeout(1000);
+    switch (level) {
+      case 1:
+        await this.bullets.level1();
+        break;
+      case 2:
+        await this.bullets.level2();
+        break;
+      case 3:
+        await this.bullets.level3();
+        break;
+    }
+    await timeout(1000);
+
+    this.on_finish_level();
   }
 
   handle_click() {
@@ -51,7 +78,7 @@ class GameManager {
 
   draw_hud() {
     textSize(40);
-    textAlign(CENTER);
+    textAlign(CENTER, BASELINE);
     stroke(0);
     strokeWeight(0);
     fill(255);

@@ -28,14 +28,14 @@ class NPC {
       rect(this.pos.x, this.pos.y - this.size[1], 250, 30);
 
       textAlign(CENTER, CENTER);
-      textSize(25);
+      textSize(20);
       fill(0);
       text(
         'Press E to Interact',
         this.pos.x,
         this.pos.y - this.size[1] - 3,
-        250,
-        40
+        350,
+        80
       );
     }
   }

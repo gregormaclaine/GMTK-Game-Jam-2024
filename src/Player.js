@@ -4,16 +4,17 @@ class Player {
     collected,
     max_vel = 9 ,
     acceleration = 0.3,
-    damping = 0.02
+    damping = 0.02,
+    die = () => {}
   }) {
     this.pos = createVector(...start_pos);
     this.collected = collected;
+    this.die = die;
     this.vel = createVector(0, 0);
     this.max_vel = max_vel;
     this.acceleration = acceleration;
     this.damping = damping;
 
-    this.image = images['plane'];
     this.size = [100, 100];
 
     this.hitbox = new HitBox();
@@ -21,15 +22,44 @@ class Player {
 
     this.immune = false;
     this.ascending = false;
+    this.health = 4;
+  }
+
+  get image() {
+    const index = Math.max(1, Math.min(4, this.health));
+    return images['planes'][index - 1];
   }
 
   take_damage() {
     if (this.immune) return false;
     this.immune = true;
 
-    audio.play_sound('boom.wav');
+    this.health--;
+    if (this.health > 0)
+      audio.play_sound(
+        ['meteor_hit_3.wav', 'meteor_hit_2.wav', 'meteor_hit_1.wav'][
+          this.health - 1
+        ]
+      );
+
+    if (this.health === 0) {
+      audio.play_sound('ship_explosion.wav');
+      this.die();
+    }
+
     setTimeout(() => (this.immune = false), 1000);
     return true;
+  }
+
+  gain_health() {
+    if (this.health >= 4) return;
+    if (this.health <= 0) return;
+    this.health++;
+    audio.play_sound(
+      ['pickup_health_3.wav', 'pickup_health_2.wav', 'pickup_health_1.wav'][
+        this.health - 2
+      ]
+    );
   }
 
   update_hitbox() {

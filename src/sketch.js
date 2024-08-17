@@ -1,15 +1,35 @@
 const images = {};
-const audio = new JL.Audio([], ['boom.wav']);
+const audio = new JL.Audio(
+  [],
+  [
+    'boom.wav',
+    'meteor_hit_1.wav',
+    'meteor_hit_2.wav',
+    'meteor_hit_3.wav',
+    'pickup_gigantium.wav',
+    'pickup_minimium.wav',
+    'pickup_health_3.wav',
+    'pickup_health_2.wav',
+    'pickup_health_1.wav',
+    'ship_explosion.wav'
+  ]
+);
+let fonts = {};
 let scenes;
 
 function preload() {
   // Load fonts
-  fontLight = loadFont('assets/font/Oxygen-Light.ttf');
-  fontRegular = loadFont('assets/font/Oxygen-Regular.ttf');
-  fontBold = loadFont('assets/font/Oxygen-Bold.ttf');
+  fonts['light'] = loadFont('assets/font/Oxygen-Light.ttf');
+  fonts['regular'] = loadFont('assets/font/RobotoMono-Regular.ttf');
+  fonts['bold'] = loadFont('assets/font/Oxygen-Bold.ttf');
 
   images['rocket'] = loadImage('assets/img/rocket.png');
-  images['plane'] = loadImage('assets/img/plane.png');
+  images['planes'] = [
+    loadImage('assets/img/plane/1.png'),
+    loadImage('assets/img/plane/2.png'),
+    loadImage('assets/img/plane/3.png'),
+    loadImage('assets/img/plane/4.png')
+  ];
   images['rock'] = loadImage('assets/img/rock.png');
   images['asteroid'] = loadImage('assets/img/asteroid.png');
   images['gigantium'] = loadImage('assets/img/gigantium.png');
@@ -41,7 +61,7 @@ function preload() {
 
 function setup() {
   const cnv = createCanvas(1600, 1200);
-  textFont(fontRegular);
+  textFont(fonts['regular']);
   Gif.set_canvas(cnv);
   scenes = new SceneManager(images, audio);
 }
