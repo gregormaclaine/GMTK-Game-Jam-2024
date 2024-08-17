@@ -42,7 +42,17 @@ class GameManager {
 
     this.reset();
     await timeout(1000);
-    await this.bullets.level1();
+    switch (level) {
+      case 1:
+        await this.bullets.level1();
+        break;
+      case 2:
+        await this.bullets.level2();
+        break;
+      case 3:
+        await this.bullets.level3();
+        break;
+    }
     await timeout(1000);
 
     this.on_finish_level();

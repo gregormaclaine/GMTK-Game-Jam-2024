@@ -4,11 +4,18 @@ class PlanetScene {
   constructor({ dialogue, start_level }) {
     this.dialogue = dialogue;
     this.start_level = start_level;
-    this.player_pos = [width / 2, height / 2];
+    this.level_results = {};
 
+    this.player_pos = [width / 2, height / 2];
     this.player_image = images['rock'];
     this.background = images['bullet-bg'];
-    this.level_results = {};
+    this.npcs = [];
+  }
+
+  load_planet_1() {
+    this.player_pos = [width / 2, height / 2];
+    this.player_image = images['rock'];
+    this.background = images['bullet-bg'];
     this.npcs = [
       new NPC(
         [width / 2, height / 5],
@@ -36,8 +43,6 @@ class PlanetScene {
       )
     ];
   }
-
-  load_planet_1() {}
 
   handle_click() {}
   handle_key_press() {
