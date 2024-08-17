@@ -38,7 +38,8 @@ class Bullet {
 }
 
 class BulletHell {
-  constructor() {
+  constructor({ player }) {
+    this.player = player;
     this.bullets = [];
   }
 
@@ -123,10 +124,15 @@ class BulletHell {
   }
 
   async pattern4() {
-    //TODO: Can you make it so the "spiral" asteroid has no hitbox until it starts moving. Just so it doesn't spawn on top of the rocket and kill it
-    //Starts a spiral at a random point
-    const spiral_x = (random(1000) / 1000) * width;
-    const spiral_y = (random(1000) / 2300) * height;
+    let spiral_pos;
+
+    while (!spiral_pos || this.player.pos.dist(spiral_pos) < 300) {
+      const spiral_x = (random(1000) / 1000) * width;
+      const spiral_y = (random(1000) / 2300) * height;
+      spiral_pos = createVector(spiral_x, spiral_y);
+    }
+    const { x: spiral_x, y: spiral_y } = spiral_pos;
+
     let spiral = new Bullet(spiral_x, spiral_y, 200, 0, 0);
     this.bullets.push(spiral);
     await timeout(1000);
@@ -284,38 +290,44 @@ class BulletHell {
     }
   }
 
-  bounce(bullet){
+  bounce(bullet) {
     //Checks if the bullet has reached either side of the screen and then changes the direction (assuming perfectly elastic collision)
-    if(bullet.pos.x < 0 || bullet.pos.x > width ){
-      bullet.speed[0]= -bullet.speed[0]
+    if (bullet.pos.x < 0 || bullet.pos.x > width) {
+      bullet.speed[0] = -bullet.speed[0];
     }
-  }
-  
-  async pattern8(){
-    //Side to side bounce
-    for (let i=0;i<6;i++){
-      const x = 150+i*(width/10+100)*random(1000)/1000
-      this.bullets.push(new Bullet(x,-100,150, (-1)**(i+1)*10));
-    }
-    for (let t = 0;t<500;t++){
-    this.bullets.forEach((bullet) =>{
-      this.bounce(bullet)
-    })
-    await timeout(100)
-  }
   }
 
-  async pattern9(){
+  async pattern8() {
+    //Side to side bounce
+    for (let i = 0; i < 6; i++) {
+      const x = 150 + (i * (width / 10 + 100) * random(1000)) / 1000;
+      this.bullets.push(new Bullet(x, -100, 150, (-1) ** (i + 1) * 10));
+    }
+    for (let t = 0; t < 500; t++) {
+      this.bullets.forEach(bullet => {
+        this.bounce(bullet);
+      });
+      await timeout(100);
+    }
+  }
+
+  async pattern9() {
     //Just fast sniper rocks
-    for (let i = 0; i<20;i++){
-    const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
+    for (let i = 0; i < 20; i++) {
+      const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
       this.bullets.push(new Bullet(x, -100, 100, 0, 20));
       await timeout(200);
-      }
     }
+  }
+
+  async level1() {
+    await this.pattern1();
+    await timeout(1000);
+    await this.pattern3();
+  }
 
   handle_click() {
-    this.pattern9();
+    this.pattern4();
   }
 
   show() {
