@@ -123,6 +123,7 @@ class BulletHell {
   }
 
   async pattern4() {
+    //TODO: Can you make it so the "spiral" asteroid has no hitbox until it starts moving. Just so it doesn't spawn on top of the rocket and kill it
     //Starts a spiral at a random point
     const spiral_x = (random(1000) / 1000) * width;
     const spiral_y = (random(1000) / 2300) * height;
@@ -269,7 +270,7 @@ class BulletHell {
     this.bullets.push(new Bullet(x, -450, 50));
   }
   async pattern7() {
-    //I dont know, im kinda tired tho
+    //Spawns rockets in 2 out of 3 thirds of the screen
     for (let set = 0; set < 5; set++) {
       const r_n = Math.floor(Math.random() * 3);
       console.log(r_n);
@@ -283,8 +284,38 @@ class BulletHell {
     }
   }
 
+  bounce(bullet){
+    //Checks if the bullet has reached either side of the screen and then changes the direction (assuming perfectly elastic collision)
+    if(bullet.pos.x < 0 || bullet.pos.x > width ){
+      bullet.speed[0]= -bullet.speed[0]
+    }
+  }
+  
+  async pattern8(){
+    //Side to side bounce
+    for (let i=0;i<6;i++){
+      const x = 150+i*(width/10+100)*random(1000)/1000
+      this.bullets.push(new Bullet(x,-100,150, (-1)**(i+1)*10));
+    }
+    for (let t = 0;t<500;t++){
+    this.bullets.forEach((bullet) =>{
+      this.bounce(bullet)
+    })
+    await timeout(100)
+  }
+  }
+
+  async pattern9(){
+    //Just fast sniper rocks
+    for (let i = 0; i<20;i++){
+    const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
+      this.bullets.push(new Bullet(x, -100, 100, 0, 20));
+      await timeout(200);
+      }
+    }
+
   handle_click() {
-    this.pattern4();
+    this.pattern9();
   }
 
   show() {
