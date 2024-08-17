@@ -59,7 +59,6 @@ class BulletHell {
       // speed: [1, 1],
       //   sound: 'pickup_gigantium.wav'
       // }),
-
     ];
   }
 
@@ -96,14 +95,14 @@ class BulletHell {
     //Makes the player zigzag
     for (let sets = 0; sets < 5; sets++) {
       for (let i = 0; i < 10; i++) {
-        if (i % 4 != 0 && i%4!=1) {
+        if (i % 4 != 0 && i % 4 != 1) {
           const x = (width / 10) * i;
           this.bullets.push(new Bullet(x, -100, 150));
         }
       }
       await timeout(1500);
       for (let j = 0; j < 10; j++) {
-        if (j % 4 != 0 && j%4!=1) {
+        if (j % 4 != 0 && j % 4 != 1) {
           const x = (width / 10) * j + 150;
           this.bullets.push(new Bullet(x, -100, 150));
         }
@@ -121,7 +120,7 @@ class BulletHell {
         this.bullets.push(
           new Bullet(x, -100, 150, 5 * Math.cos(theta), 5 * Math.sin(theta))
         );
-        await timeout(50)
+        await timeout(50);
       }
       await timeout(500);
     }
@@ -337,44 +336,57 @@ class BulletHell {
     }
   }
 
-  async spawn_resources(){
-    for (let i =0;i<random(2)+1;i++){
-      this.resources.push(new Resource({
-        pos: createVector(random(1000)/1000*width, random(1000)/1000*height),
-        image: images['gigantium'],
-        on_collect: () => {
-        this.collected.gigantium += Math.floor(random(5, 8));
-        this.collected.size += 0.5;}}))
+  async spawn_resources() {
+    for (let i = 0; i < random(2) + 1; i++) {
+      this.resources.push(
+        new Resource({
+          pos: createVector(
+            (random(1000) / 1000) * width,
+            (random(1000) / 1000) * height
+          ),
+          image: images['gigantium'],
+          on_collect: () => {
+            this.collected.gigantium += Math.floor(random(5, 8));
+            this.collected.size += 0.5;
+            audio.play_sound('pickup_gigantium.wav');
+          }
+        })
+      );
     }
-    for (let j=0;j<random(random(2)+1);j++){
-      this.resources.push(new Resource({
-        pos: createVector(random(1000), random(1000)),
-        image: images['minimium'],
-        on_collect: () => {
-        this.collected.minimium += Math.floor(random(5, 8));
-        this.collected.size -= 0.5;}}))
+    for (let j = 0; j < random(random(2) + 1); j++) {
+      this.resources.push(
+        new Resource({
+          pos: createVector(random(1000), random(1000)),
+          image: images['minimium'],
+          on_collect: () => {
+            this.collected.minimium += Math.floor(random(5, 8));
+            this.collected.size -= 0.5;
+            audio.play_sound('pickup_minimium.wav');
+          }
+        })
+      );
     }
   }
 
   async level1() {
-    await this.spawn_resources()
+    await this.spawn_resources();
     await this.pattern1();
     await timeout(1000);
     for (let p3 = 0; p3 < 5; p3++) {
       this.pattern3();
       await timeout(2000);
     }
-    await this.spawn_resources()
-    for (let p0 = 0;p0<5;p0++){
+    await this.spawn_resources();
+    for (let p0 = 0; p0 < 5; p0++) {
       await this.spawn_bullets(5, 150, 500);
-
     }
     await timeout(1000);
     await this.pattern1();
     for (let p0 = 0; p0 < 3; p0++) {
       await this.spawn_bullets(5, 150, 300);
     }
-    await this.spawn_resources()
+    await this.spawn_resources();
+    await timeout(2000);
   }
 
   async level2() {

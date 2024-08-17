@@ -32,11 +32,18 @@ function preload() {
   ];
   images['rock'] = loadImage('assets/img/rock.png');
   images['asteroid'] = loadImage('assets/img/asteroid.png');
-  images['gigantium'] = loadImage('assets/img/gigantium.png');
-  images['minimium'] = loadImage('assets/img/minimium.png');
-  images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
-  images['cat-heart'] = loadImage('assets/img/cat-heart.png');
 
+  images['gigantium'] = loadImage('assets/img/items/gigantium.png');
+  images['minimium'] = loadImage('assets/img/items/minimium.png');
+  images['health-crate'] = loadImage('assets/img/items/health-crate.png');
+
+  images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
+  images['wood-bg'] = loadImage('assets/img/wood-bg.png');
+
+  images['cat-profile'] = loadImage('assets/img/profiles/cat.png');
+  images['china-cat-profile'] = loadImage('assets/img/profiles/china-cat.png');
+
+  images['cat-heart'] = loadImage('assets/img/cat-heart.png');
   images['skip-button'] = loadImage('assets/img/skip-button.png');
   images['dialogue-profile'] = loadImage('assets/img/dialogue-profile.png');
   images['dialogue-box'] = loadImage('assets/img/dialogue-box.png');

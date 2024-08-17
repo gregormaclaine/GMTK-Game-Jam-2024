@@ -11,7 +11,7 @@ class GameManager {
     this.background = images['bullet-bg'];
     this.reset();
     this.level_promise = null;
-    this.on_finish_level = () => {};
+    this.on_finish_lveel = null;
   }
 
   reset() {
@@ -26,7 +26,10 @@ class GameManager {
     this.player = new Player({
       start_pos: [width / 2, height / 2],
       collected: this.collected,
-      die: this.on_finish_level
+      die: () => {
+        if (this.on_finish_level) this.on_finish_level();
+        this.on_finish_level = null;
+      }
     });
     this.bullets = new BulletHell({
       player: this.player,
@@ -52,9 +55,13 @@ class GameManager {
         await this.bullets.level3();
         break;
     }
-    await timeout(1000);
 
-    this.on_finish_level();
+    if (this.on_finish_level) {
+      await timeout(1000);
+      this.player.ascending = true;
+      await new Promise(resolve => (this.player.on_ascended = resolve));
+      this.on_finish_level();
+    }
   }
 
   handle_click() {
@@ -90,14 +97,14 @@ class GameManager {
 
     const heart_width = 60;
     const heart_gap = 10;
-    const left_x = width / 2 - heart_gap * 1.5 - heart_width * 2;
+    const left_x = width - heart_gap * 3 - heart_width * 4 - 20;
     imageMode(CORNER);
     for (let i = 0; i < 4; i++) {
       tint(255, this.player.health > i ? 255 : 30);
       image(
         images['cat-heart'],
         left_x + (heart_gap + heart_width) * i,
-        20,
+        height - heart_width - 20,
         heart_width,
         heart_width
       );

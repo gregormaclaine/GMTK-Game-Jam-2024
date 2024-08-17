@@ -2,7 +2,7 @@ class Player {
   constructor({
     start_pos,
     collected,
-    max_vel = 9 ,
+    max_vel = 9,
     acceleration = 0.3,
     damping = 0.02,
     die = () => {}
@@ -22,6 +22,7 @@ class Player {
 
     this.immune = false;
     this.ascending = false;
+    this.on_ascended = () => {};
     this.health = 4;
   }
 
@@ -98,8 +99,11 @@ class Player {
 
   update() {
     if (this.ascending) {
-      this.vel = createVector(0, -10);
+      this.vel = createVector(0, -3);
       this.pos.add(this.vel);
+
+      if (this.pos.y + this.size[1] < 0) this.on_ascended();
+      return;
     }
 
     const acc = createVector(

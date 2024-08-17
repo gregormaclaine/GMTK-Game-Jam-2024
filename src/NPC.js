@@ -1,9 +1,9 @@
 class NPC {
-  constructor(pos, image, size, on_interact) {
+  constructor({ pos, image, size, interact }) {
     this.pos = createVector(...pos);
     this.image = image;
     this.size = size;
-    this.on_interact = on_interact;
+    this.on_interact = interact;
     this.count = -1;
   }
 
@@ -25,7 +25,7 @@ class NPC {
       rectMode(CENTER);
       strokeWeight(0);
       fill(255);
-      rect(this.pos.x, this.pos.y - this.size[1], 250, 30);
+      rect(this.pos.x, this.pos.y - this.size[1] / 2 - 20, 250, 30);
 
       textAlign(CENTER, CENTER);
       textSize(20);
@@ -33,7 +33,7 @@ class NPC {
       text(
         'Press E to Interact',
         this.pos.x,
-        this.pos.y - this.size[1] - 3,
+        this.pos.y - this.size[1] / 2 - 23,
         350,
         80
       );
