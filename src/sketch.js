@@ -35,6 +35,7 @@ function preload() {
   images['gigantium'] = loadImage('assets/img/gigantium.png');
   images['minimium'] = loadImage('assets/img/minimium.png');
   images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
+  images['cat-heart'] = loadImage('assets/img/cat-heart.png');
 
   images['skip-button'] = loadImage('assets/img/skip-button.png');
   images['dialogue-profile'] = loadImage('assets/img/dialogue-profile.png');

@@ -1,12 +1,11 @@
 class GameManager {
   static SKYSPEED = 1;
 
-  constructor({ images, audio, dialogue, end_game, on_die }) {
+  constructor({ images, audio, dialogue, end_game }) {
     this.images = images;
     this.audio = audio;
     this.dialogue = dialogue;
     this.end_game = end_game;
-    this.on_die = on_die;
 
     this.pause_modal = new PauseModal();
     this.background = images['bullet-bg'];
@@ -27,7 +26,7 @@ class GameManager {
     this.player = new Player({
       start_pos: [width / 2, height / 2],
       collected: this.collected,
-      die: this.on_die
+      die: this.on_finish_level
     });
     this.bullets = new BulletHell({
       player: this.player,
@@ -88,6 +87,22 @@ class GameManager {
     imageMode('center');
     image(images['gigantium'], 30, 25, 40, 40);
     image(images['minimium'], 230, 25, 40, 40);
+
+    const heart_width = 60;
+    const heart_gap = 10;
+    const left_x = width / 2 - heart_gap * 1.5 - heart_width * 2;
+    imageMode(CORNER);
+    for (let i = 0; i < 4; i++) {
+      tint(255, this.player.health > i ? 255 : 30);
+      image(
+        images['cat-heart'],
+        left_x + (heart_gap + heart_width) * i,
+        20,
+        heart_width,
+        heart_width
+      );
+      tint(255, 255);
+    }
   }
 
   show() {

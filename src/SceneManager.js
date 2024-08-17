@@ -13,8 +13,7 @@ class SceneManager {
       images,
       audio,
       dialogue: this.dialogue,
-      end_game: this.end_game.bind(this),
-      on_die: this.lose_game.bind(this)
+      end_game: this.end_game.bind(this)
     });
 
     this.planet_scene = new PlanetScene({
@@ -66,12 +65,6 @@ class SceneManager {
   async end_game() {
     await this.fade('out');
     this.state = 'menu';
-    await this.fade('in');
-  }
-
-  async lose_game() {
-    await this.fade('out');
-    this.state = 'gameover';
     await this.fade('in');
   }
 
