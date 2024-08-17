@@ -22,6 +22,9 @@ class SceneManager {
       finish_game: this.finish_game.bind(this),
       set_ability: ability => {
         this.game_scene.set_ability(ability);
+      },
+      add_passive: passive => {
+        this.game_scene.add_passive(passive);
       }
     });
 

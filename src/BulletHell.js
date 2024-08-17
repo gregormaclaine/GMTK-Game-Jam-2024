@@ -24,8 +24,10 @@ class Bullet {
     this.hitbox.show();
   }
 
-  update() {
-    this.pos.add(createVector(...this.speed));
+  update(slow = false) {
+    const vel = createVector(...this.speed);
+    if (slow) vel.mult(0.25);
+    this.pos.add(vel);
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
 
@@ -61,12 +63,14 @@ class Lazer extends Bullet {
 }
 
 class BulletHell {
-  constructor({ player, collected }) {
+  constructor({ player, collected, passives }) {
     this.player = player;
     this.collected = collected;
     this.bullets = [];
     this.resources = [];
     this.lazers = [];
+    this.slow = false;
+    this.magnetic = passives.includes('magnet');
   }
 
   shoot() {
@@ -447,7 +451,7 @@ class BulletHell {
   }
 
   update() {
-    this.resources.forEach(r => r.update(this.player));
+    this.resources.forEach(r => r.update(this.player, this.magnetic));
     this.resources = this.resources.filter(r => !r.gone && r.on_screen());
     this.lazers.forEach(l => {
       l.update();
@@ -459,7 +463,7 @@ class BulletHell {
         }
       });
     });
-    this.bullets.forEach(b => b.update());
+    this.bullets.forEach(b => b.update(this.slow));
     this.lazers = this.lazers.filter(l => l.on_screen() && !l.has_collided);
     this.bullets = this.bullets.filter(b => b.on_screen() && !b.has_collided);
   }

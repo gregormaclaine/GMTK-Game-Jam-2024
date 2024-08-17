@@ -1,12 +1,20 @@
 class PlanetScene {
   static PLAYER_SPEED = 8;
 
-  constructor({ dialogue, start_level, fade, finish_game, set_ability }) {
+  constructor({
+    dialogue,
+    start_level,
+    fade,
+    finish_game,
+    set_ability,
+    add_passive
+  }) {
     this.dialogue = dialogue;
     this.start_level = start_level;
     this.fade = fade;
     this._finish_game = finish_game;
     this.set_ability = set_ability;
+    this.add_passive = add_passive;
     this.reset();
 
     this.player_pos = [width / 2, height / 2];
@@ -54,8 +62,33 @@ class PlanetScene {
         text_width: 250,
         radius: 2.5,
         interact: async () => {
-          audio.play_sound('pickup_health_1.wav');
           this.set_ability('lazer');
+        }
+      }),
+      new NPC({
+        pos: [width / 2, height - 100],
+        image: images['rock'],
+        size: [80, 80],
+        max_interactions: 1,
+        text: 'Press E to Pickup',
+        text_side: 'bottom',
+        text_width: 250,
+        radius: 2.5,
+        interact: async () => {
+          this.set_ability('stealth');
+        }
+      }),
+      new NPC({
+        pos: [width - 150, height - 100],
+        image: images['rock'],
+        size: [80, 80],
+        max_interactions: 1,
+        text: 'Press E to Pickup',
+        text_side: 'bottom',
+        text_width: 250,
+        radius: 2.5,
+        interact: async () => {
+          this.add_passive('magnet');
         }
       })
     ];

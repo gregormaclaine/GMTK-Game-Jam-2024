@@ -3,6 +3,7 @@ const audio = new JL.Audio(
   [],
   [
     'boom.wav',
+    'ability.wav',
     'meteor_hit_1.wav',
     'meteor_hit_2.wav',
     'meteor_hit_3.wav',

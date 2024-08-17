@@ -20,7 +20,8 @@ class Player {
     this.hitbox = new HitBox();
     this.update_hitbox();
 
-    this.immune = false;
+    this.immune = false; // For grace period after damage
+    this.invincible = false; // For ability
     this.ascending = false;
     this.on_ascended = () => {};
     this.health = 4;
@@ -32,7 +33,7 @@ class Player {
   }
 
   take_damage() {
-    if (this.immune) return false;
+    if (this.immune || this.invincible) return false;
     this.immune = true;
 
     this.health--;

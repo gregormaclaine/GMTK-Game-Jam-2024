@@ -22,6 +22,7 @@ class GameManager {
 
   hard_reset() {
     this.ability = null;
+    this.passives = [];
     this.reset();
   }
 
@@ -44,7 +45,8 @@ class GameManager {
     });
     this.bullets = new BulletHell({
       player: this.player,
-      collected: this.collected
+      collected: this.collected,
+      passives: this.passives
     });
   }
 
@@ -77,14 +79,52 @@ class GameManager {
   }
 
   set_ability(ability) {
+    this.audio.play_sound('ability.wav');
     this.ability = ability;
-    this.ability_cooldown.cooldown = 2;
+    switch (this.ability) {
+      case 'lazer':
+        this.ability_cooldown.cooldown = 2;
+        break;
+      case 'stealth':
+        this.ability_cooldown.cooldown = 8;
+        break;
+      case 'time':
+        this.ability_cooldown.cooldown = 7;
+        break;
+      case 'magnet':
+        this.ability_cooldown.cooldown = 5;
+        break;
+    }
+  }
+
+  add_passive(passive) {
+    this.audio.play_sound('ability.wav');
+    this.passives.push(passive);
   }
 
   use_ability() {
     switch (this.ability) {
       case 'lazer':
         this.bullets.shoot();
+        break;
+      case 'stealth':
+        this.player.invincible = true;
+        setTimeout(() => {
+          this.player.invincible = false;
+        }, 1500);
+        break;
+      case 'time':
+        this.bullets.slow = true;
+        setTimeout(() => {
+          this.bullets.slow = false;
+        }, 3000);
+        break;
+      // case 'magnet':
+      //   this.bullets.magnetic = true;
+      //   setTimeout(() => {
+      //     this.bullets.magnetic = false;
+      //   }, 3000);
+      //   break;
       default:
         return;
     }

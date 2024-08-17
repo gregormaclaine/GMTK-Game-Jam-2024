@@ -1,4 +1,6 @@
 class Resource {
+  static ATTRACT_SPEED = 0.4;
+
   constructor({ pos, size, on_collect, image, remove, speed, sound }) {
     this.pos = pos;
     this.size = size || [60, 40];
@@ -34,7 +36,7 @@ class Resource {
     this.hitbox.show();
   }
 
-  update(player) {
+  update(player, attracted = false) {
     if (this.gone) return;
 
     if (this.collected) {
@@ -49,7 +51,14 @@ class Resource {
       this.collect();
     }
 
-    this.pos.add(createVector(...this.speed));
+    const vel = createVector(...this.speed);
+    if (attracted) {
+      const magnetic_effect = player.pos.copy();
+      magnetic_effect.sub(this.pos);
+      magnetic_effect.setMag(Resource.ATTRACT_SPEED);
+      vel.add(magnetic_effect);
+    }
+    this.pos.add(vel);
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
 
