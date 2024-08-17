@@ -100,6 +100,12 @@ class BulletHell {
       // const x = width * 0.03 + (width * 0.94 * (i % 4)) / 3;
       const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
       this.bullets.push(new Bullet(x, -100, size, 0, speed));
+      // const resource = new Resource();
+      // this.resources.push(resource);
+      // setTimeout(() => (resource.gone = true), 1000);
+
+      // OR:
+      // setTimeout(() => this.resources.forEach(r => (r.gone = true)), 1000);
       await timeout(delta);
     }
   }
