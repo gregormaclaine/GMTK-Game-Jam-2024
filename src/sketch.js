@@ -8,8 +8,13 @@ function preload() {
   fontRegular = loadFont('assets/font/Oxygen-Regular.ttf');
   fontBold = loadFont('assets/font/Oxygen-Bold.ttf');
 
-  images['fish'] = loadImage('assets/img/fish.png');
+  images['rocket'] = loadImage('assets/img/rocket.png');
+  images['plane'] = loadImage('assets/img/plane.png');
   images['rock'] = loadImage('assets/img/rock.png');
+  images['asteroid'] = loadImage('assets/img/asteroid.png');
+  images['gigantium'] = loadImage('assets/img/gigantium.png');
+  images['minimium'] = loadImage('assets/img/minimium.png');
+  images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
 
   images['skip-button'] = loadImage('assets/img/skip-button.png');
   images['dialogue-profile'] = loadImage('assets/img/dialogue-profile.png');
@@ -42,16 +47,18 @@ function setup() {
 }
 
 function mouseClicked() {
-  scenes.handle_click();
+  if (scenes) scenes.handle_click();
 }
 
 function keyPressed() {
   // console.log(keyCode);
-  scenes.handle_key_press();
+  if (scenes) scenes.handle_key_press();
 }
 
 function draw() {
   cursor();
-  scenes.show();
-  scenes.update();
+  if (scenes) {
+    scenes.show();
+    scenes.update();
+  }
 }

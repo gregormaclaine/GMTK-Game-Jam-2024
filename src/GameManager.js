@@ -1,4 +1,6 @@
 class GameManager {
+  static SKYSPEED = 1;
+
   constructor({ images, audio, dialogue, end_game }) {
     this.images = images;
     this.audio = audio;
@@ -9,8 +11,70 @@ class GameManager {
 
     this.pause_modal = new PauseModal();
 
-    this.player = new Player({ start_pos: [width / 2, height / 2] });
-    this.bullets = new BulletHell();
+    this.collected = {
+      gigantium: 0,
+      minimium: 0,
+      size: 0
+    };
+    this.player = new Player({
+      start_pos: [width / 2, height / 2],
+      collected: this.collected
+    });
+    this.bullets = new BulletHell({ player: this.player });
+    this.resources = [
+      new Resource({
+        pos: createVector(200, 200),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(200, 300),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(200, 400),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(200, 500),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(200, 600),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(400, 200),
+        image: images['minimium'],
+        on_collect: () => {
+          this.collected.minimium += Math.floor(random(5, 8));
+          this.collected.size -= 1;
+        }
+      })
+    ];
+    this.sky_pos = 0;
+    this.background = images['bullet-bg'];
+
+    this.health = 100;
   }
 
   handle_click() {
@@ -31,18 +95,40 @@ class GameManager {
     }
   }
 
+  draw_hud() {
+    textSize(40);
+    textAlign(CENTER);
+    stroke(0);
+    strokeWeight(0);
+    fill(255);
+    text('' + this.collected.gigantium, 70, 40);
+    text('' + this.collected.minimium, 270, 40);
+
+    imageMode('center');
+    image(images['gigantium'], 30, 25, 40, 40);
+    image(images['minimium'], 230, 25, 40, 40);
+  }
+
   show() {
-    background(0, 150);
+    imageMode(CORNER);
+    image(this.background, 0, this.sky_pos - this.background.height);
+    image(this.background, 0, this.sky_pos);
+    this.resources.forEach(r => r.show());
     this.bullets.show();
     this.player.show();
+    this.draw_hud();
     if (this.state === 'pause') this.pause_modal.show();
   }
 
   update() {
     switch (this.state) {
       case 'game':
+        this.sky_pos =
+          (this.sky_pos + GameManager.SKYSPEED) % this.background.height;
         this.bullets.update();
         this.player.update();
+        this.resources.forEach(r => r.update(this.player));
+        this.resources = this.resources.filter(r => !r.gone);
         return;
 
       case 'pause':

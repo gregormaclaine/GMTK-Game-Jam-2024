@@ -86,7 +86,6 @@ class HitBox {
 
     stroke('red');
     strokeWeight(1);
-
     HitBox.triangles_from_points(this.points()).forEach(triangle => {
       for (let i = 0; i < 3; i++) {
         line(
