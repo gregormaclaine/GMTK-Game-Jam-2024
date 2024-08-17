@@ -14,7 +14,8 @@ class GameManager {
     this.collected = {
       gigantium: 0,
       minimium: 0,
-      size: 0
+      size: 0,
+      coins: 0
     };
     this.player = new Player({
       start_pos: [width / 2, height / 2],
@@ -129,7 +130,12 @@ class GameManager {
         this.player.update();
         this.resources.forEach(r => r.update(this.player));
         this.resources = this.resources.filter(r => !r.gone);
-        return;
+
+        this.bullets.bullets.forEach(b => {
+          if (b.hitbox.is_colliding(this.player.hitbox)) {
+            this.player.take_damage();
+          }
+        });
 
       case 'pause':
         this.pause_modal.update();
