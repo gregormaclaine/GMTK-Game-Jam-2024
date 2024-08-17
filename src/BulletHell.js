@@ -55,7 +55,10 @@ class BulletHell {
         on_collect: () => {
           this.collected.gigantium += Math.floor(random(5, 8));
           this.collected.size += 1;
-        }
+          this.player.gain_health();
+        },
+        speed: [1, 1],
+        sound: 'pickup_gigantium.wav'
       }),
       new Resource({
         pos: createVector(200, 300),
@@ -63,7 +66,8 @@ class BulletHell {
         on_collect: () => {
           this.collected.gigantium += Math.floor(random(5, 8));
           this.collected.size += 1;
-        }
+        },
+        sound: 'pickup_gigantium.wav'
       }),
       new Resource({
         pos: createVector(400, 200),
@@ -71,7 +75,8 @@ class BulletHell {
         on_collect: () => {
           this.collected.minimium += Math.floor(random(5, 8));
           this.collected.size -= 1;
-        }
+        },
+        sound: 'pickup_minimium.wav'
       })
     ];
   }
@@ -353,49 +358,49 @@ class BulletHell {
   async level1() {
     await this.pattern1();
     await timeout(1000);
-    for (let p3=0; p3<5;p3++){
+    for (let p3 = 0; p3 < 5; p3++) {
       this.pattern3();
       await timeout(2000);
     }
-    for (let p0 = 0;p0<5;p0++){
+    for (let p0 = 0; p0 < 5; p0++) {
       await this.spawn_bullets(5, 150, 300);
     }
     await timeout(1000);
     await this.pattern1();
-    for (let p0 = 0;p0<3;p0++){
+    for (let p0 = 0; p0 < 3; p0++) {
       await this.spawn_bullets(5, 150, 300);
     }
   }
 
-  async level2(){
-    for (let set = 0;set<3;set++){
-    for (let p0 = 0;p0<6;p0++){
-      await this.spawn_bullets(7, 100, 200);
+  async level2() {
+    for (let set = 0; set < 3; set++) {
+      for (let p0 = 0; p0 < 6; p0++) {
+        await this.spawn_bullets(7, 100, 200);
+      }
+      this.pattern2();
+    }
+    for (let p3 = 0; p3 < 3; p3++) {
+      this.pattern3();
+      await timeout(2000);
     }
     this.pattern2();
-  }
-  for (let p3=0; p3<3;p3++){
-    this.pattern3();
-    await timeout(2000);
-  }
-    this.pattern2()
     await timeout(1000);
     await this.pattern1();
     this.pattern2();
   }
-  async level3(){
-    for (let set = 0;set <2; set++){
-    for (let p0 = 0;p0<2;p0++){
-      this.pattern4()
-      await this.spawn_bullets(2, 100, 250);
-      await timeout(1000)
+  async level3() {
+    for (let set = 0; set < 2; set++) {
+      for (let p0 = 0; p0 < 2; p0++) {
+        this.pattern4();
+        await this.spawn_bullets(2, 100, 250);
+        await timeout(1000);
+      }
+      await timeout(6000);
+      await this.pattern1();
+      this.pattern2();
+      await timeout(1000);
     }
-    await timeout(6000)
-    await this.pattern1()
-    this.pattern2()
-    await timeout(1000)
   }
-}
 
   handle_click() {
     this.level3();

@@ -21,15 +21,33 @@ class Player {
 
     this.immune = false;
     this.ascending = false;
+    this.health = 4;
   }
 
   take_damage() {
     if (this.immune) return false;
     this.immune = true;
 
-    audio.play_sound('boom.wav');
+    this.health--;
+    if (this.health > 0)
+      audio.play_sound(
+        ['meteor_hit_3.wav', 'meteor_hit_2.wav', 'meteor_hit_1.wav'][
+          this.health - 1
+        ]
+      );
     setTimeout(() => (this.immune = false), 1000);
     return true;
+  }
+
+  gain_health() {
+    if (this.health >= 4) return;
+    if (this.health <= 0) return;
+    this.health++;
+    audio.play_sound(
+      ['pickup_health_3.wav', 'pickup_health_2.wav', 'pickup_health_1.wav'][
+        this.health - 2
+      ]
+    );
   }
 
   update_hitbox() {

@@ -1,5 +1,5 @@
 class Resource {
-  constructor({ pos, size, on_collect, image, remove, speed }) {
+  constructor({ pos, size, on_collect, image, remove, speed, sound }) {
     this.pos = pos;
     this.size = size || [60, 40];
     this.on_collect = on_collect;
@@ -7,6 +7,7 @@ class Resource {
     this.image = image;
     this.angle = 0;
     this.speed = speed || [0, 0];
+    this.sound = sound;
 
     this.hitbox = new HitBox([this.pos.x, this.pos.y], this.size);
     this.collected = false;
@@ -47,11 +48,15 @@ class Resource {
     if (this.hitbox.is_colliding(player.hitbox)) {
       this.collect();
     }
+
+    this.pos.add(createVector(...this.speed));
+    this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
 
   collect() {
     if (this.collected) return;
     this.collected = true;
+    if (this.sound) audio.play_sound(this.sound);
     this.on_collect();
   }
 

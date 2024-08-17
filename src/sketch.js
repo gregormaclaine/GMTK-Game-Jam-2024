@@ -1,5 +1,18 @@
 const images = {};
-const audio = new JL.Audio([], ['boom.wav']);
+const audio = new JL.Audio(
+  [],
+  [
+    'boom.wav',
+    'meteor_hit_1.wav',
+    'meteor_hit_2.wav',
+    'meteor_hit_3.wav',
+    'pickup_gigantium.wav',
+    'pickup_minimium.wav',
+    'pickup_health_3.wav',
+    'pickup_health_2.wav',
+    'pickup_health_1.wav'
+  ]
+);
 let scenes;
 
 function preload() {

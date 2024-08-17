@@ -51,7 +51,7 @@ class GameManager {
 
   draw_hud() {
     textSize(40);
-    textAlign(CENTER);
+    textAlign(CENTER, BASELINE);
     stroke(0);
     strokeWeight(0);
     fill(255);
