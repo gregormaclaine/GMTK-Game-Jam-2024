@@ -51,9 +51,9 @@ function preload() {
 
   // Main Menu
   images['menu-bg'] = loadImage('assets/img/main_menu/background.jpg');
-  images['start-button'] = loadImage('assets/img/main_menu/start_button.png');
+  images['start-button'] = loadImage('assets/img/main_menu/start-button.png');
   images['credits-button'] = loadImage(
-    'assets/img/main_menu/credits_button.png'
+    'assets/img/main_menu/credits-button.png'
   );
 
   // Gifs
