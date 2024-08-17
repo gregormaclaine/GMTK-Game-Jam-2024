@@ -1,6 +1,6 @@
 class GameOverScene {
   constructor(return_to_menu) {
-    this.main_menu_button = new JL.Button(
+    this.back_button = new JL.Button(
       'Return to World',
       [width / 2, height * 0.55, 400, 100],
       return_to_menu
@@ -8,7 +8,7 @@ class GameOverScene {
   }
 
   handle_click() {
-    this.main_menu_button.handle_click();
+    this.back_button.handle_click();
   }
 
   show() {
@@ -22,7 +22,7 @@ class GameOverScene {
     fill(0);
     stroke(0);
     strokeWeight(3);
-    this.main_menu_button.show();
+    this.back_button.show();
   }
 
   update() {}

@@ -1,10 +1,12 @@
 class PlanetScene {
   static PLAYER_SPEED = 8;
 
-  constructor({ dialogue, start_level }) {
+  constructor({ dialogue, start_level, fade, finish_game }) {
     this.dialogue = dialogue;
     this.start_level = start_level;
-    this.level_results = {};
+    this.fade = fade;
+    this._finish_game = finish_game;
+    this.reset();
 
     this.player_pos = [width / 2, height / 2];
     this.player_size = [50, 50];
@@ -12,6 +14,10 @@ class PlanetScene {
     this.background = images['bullet-bg'];
     this.npcs = [];
     this.invisible_ceiling = 0;
+  }
+
+  reset() {
+    this.level_results = {};
   }
 
   load_planet_1() {
@@ -40,12 +46,33 @@ class PlanetScene {
                 // second time speaking to character after winning
               }
             } else {
+              this.finish_game({});
               // you suck
             }
           }
         }
       })
     ];
+  }
+
+  load_planet_2() {}
+  load_planet_3() {}
+
+  async go_to_planet(num) {
+    await this.fade('out');
+    if (num == 2) {
+      this.load_planet_2();
+    } else {
+      this.load_planet_3();
+    }
+    await this.fade('in');
+  }
+
+  finish_game() {
+    this._finish_game({
+      collected: this.collected,
+      results: this.level_results
+    });
   }
 
   handle_click() {}

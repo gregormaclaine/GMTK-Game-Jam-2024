@@ -1,17 +1,16 @@
 class GameManager {
   static SKYSPEED = 1;
 
-  constructor({ images, audio, dialogue, end_game }) {
+  constructor({ images, audio, dialogue }) {
     this.images = images;
     this.audio = audio;
     this.dialogue = dialogue;
-    this.end_game = end_game;
 
     this.pause_modal = new PauseModal();
     this.background = images['bullet-bg'];
     this.reset();
     this.level_promise = null;
-    this.on_finish_lveel = null;
+    this.on_finish_level = null;
   }
 
   reset() {
