@@ -1,7 +1,7 @@
 class GameOverScene {
   constructor(return_to_menu) {
     this.main_menu_button = new JL.Button(
-      'Go To World',
+      'Return to World',
       [width / 2, height * 0.55, 400, 100],
       return_to_menu
     );
@@ -17,7 +17,7 @@ class GameOverScene {
     textSize(90);
     fill('white');
     textAlign(CENTER, CENTER);
-    text('GAME OVER', width / 2, height * 0.4);
+    text('MISSION FAILED', width / 2, height * 0.4);
 
     fill(0);
     stroke(0);

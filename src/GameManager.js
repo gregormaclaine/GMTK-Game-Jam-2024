@@ -11,6 +11,8 @@ class GameManager {
     this.pause_modal = new PauseModal();
     this.background = images['bullet-bg'];
     this.reset();
+    this.level_promise = null;
+    this.on_finish_level = () => {};
   }
 
   reset() {
@@ -31,6 +33,19 @@ class GameManager {
       player: this.player,
       collected: this.collected
     });
+  }
+
+  async run_level(level) {
+    this.level_promise = new Promise(
+      resolve => (this.on_finish_level = resolve)
+    );
+
+    this.reset();
+    await timeout(1000);
+    await this.bullets.level1();
+    await timeout(1000);
+
+    this.on_finish_level();
   }
 
   handle_click() {

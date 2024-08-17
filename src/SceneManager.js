@@ -5,7 +5,7 @@ class SceneManager {
     this.images = images;
     this.audio = audio;
 
-    this.state = 'gameover';
+    this.state = 'menu';
 
     this.dialogue = new DialogueManager(images, audio);
 
@@ -17,7 +17,10 @@ class SceneManager {
       on_die: this.lose_game.bind(this)
     });
 
-    this.planet_scene = new PlanetScene({ dialogue: this.dialogue });
+    this.planet_scene = new PlanetScene({
+      dialogue: this.dialogue,
+      start_level: this.start_level.bind(this)
+    });
 
     this.menu_scene = new MenuScreen(
       images,
@@ -27,8 +30,7 @@ class SceneManager {
 
     this.gameover_scene = new GameOverScene(async () => {
       await this.fade('out');
-      this.game_scene.reset();
-      this.state = 'menu';
+      this.state = 'planet';
       await this.fade('in');
     });
 
@@ -37,12 +39,28 @@ class SceneManager {
     this.fade_completed = () => {};
   }
 
-  async start_game() {
+  async start_level(level) {
     await this.fade('out');
     this.state = 'game';
-    // this.audio.play_track('game.mp3');
+    this.game_scene.run_level(level);
     await this.fade('in');
-    // await this.dialogue.send(DIALOGUE.BEFORE_GAME);
+    await this.game_scene.level_promise;
+    await this.fade('out');
+    if (this.game_scene.player.health <= 0) {
+      this.state = 'gameover';
+      this.planet_scene.level_results[level] = 'lose';
+    } else {
+      this.state = 'planet';
+      this.planet_scene.level_results[level] = 'win';
+    }
+    await this.fade('in');
+  }
+
+  async start_game() {
+    await this.fade('out');
+    this.state = 'planet';
+    this.planet_scene.load_planet_1();
+    await this.fade('in');
   }
 
   async end_game() {

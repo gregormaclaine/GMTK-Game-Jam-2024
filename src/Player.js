@@ -15,7 +15,6 @@ class Player {
     this.acceleration = acceleration;
     this.damping = damping;
 
-    this.image = images['plane'];
     this.size = [100, 100];
 
     this.hitbox = new HitBox();
@@ -24,6 +23,11 @@ class Player {
     this.immune = false;
     this.ascending = false;
     this.health = 4;
+  }
+
+  get image() {
+    const index = Math.max(1, Math.min(4, this.health));
+    return images['planes'][index - 1];
   }
 
   take_damage() {

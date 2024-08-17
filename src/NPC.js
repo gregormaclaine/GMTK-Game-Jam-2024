@@ -30,6 +30,8 @@ class NPC {
       textAlign(CENTER, CENTER);
       textSize(25);
       fill(0);
+      strokeWeight(3);
+      stroke(0);
       text(
         'Press E to Interact',
         this.pos.x,

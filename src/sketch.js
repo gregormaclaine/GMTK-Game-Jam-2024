@@ -24,7 +24,12 @@ function preload() {
   fonts['bold'] = loadFont('assets/font/Oxygen-Bold.ttf');
 
   images['rocket'] = loadImage('assets/img/rocket.png');
-  images['plane'] = loadImage('assets/img/plane.png');
+  images['planes'] = [
+    loadImage('assets/img/plane/1.png'),
+    loadImage('assets/img/plane/2.png'),
+    loadImage('assets/img/plane/3.png'),
+    loadImage('assets/img/plane/4.png')
+  ];
   images['rock'] = loadImage('assets/img/rock.png');
   images['asteroid'] = loadImage('assets/img/asteroid.png');
   images['gigantium'] = loadImage('assets/img/gigantium.png');
