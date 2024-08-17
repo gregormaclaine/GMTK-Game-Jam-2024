@@ -5,7 +5,7 @@ class Bullet {
     this.speed = [speed_x, speed_y];
     this.hitbox = new HitBox(
       [this.pos.x, this.pos.y],
-      [size * 0.9, size * 0.9]
+      [size * 0.7, size * 0.7]
     );
     this.image = random() > 0.96 ? images['asteroid'] : images['rock'];
   }
@@ -100,8 +100,9 @@ class BulletHell {
       for (let i = 0; i < 10; i++) {
         const theta = 0.2 * Math.PI * i;
         this.bullets.push(
-          new Bullet(x, -100, 200, 10 * Math.cos(theta), 10 * Math.sin(theta))
+          new Bullet(x, -100, 150, 5 * Math.cos(theta), 5 * Math.sin(theta))
         );
+        await timeout(50)
       }
       await timeout(500);
     }
@@ -116,7 +117,7 @@ class BulletHell {
       const y = spawner.pos.y;
       this.bullets.push(new Bullet(x, y, 100, 5, 5));
       this.bullets.push(new Bullet(x, y, 100, -5, 5));
-      await timeout(1000);
+      await timeout(1500);
     }
   }
 
@@ -365,7 +366,7 @@ class BulletHell {
 }
 
   handle_click() {
-    this.level3();
+    this.level2();
   }
 
   show() {
