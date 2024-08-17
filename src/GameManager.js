@@ -21,61 +21,14 @@ class GameManager {
       start_pos: [width / 2, height / 2],
       collected: this.collected
     });
-    this.bullets = new BulletHell({ player: this.player });
-    this.resources = [
-      new Resource({
-        pos: createVector(200, 200),
-        image: images['gigantium'],
-        on_collect: () => {
-          this.collected.gigantium += Math.floor(random(5, 8));
-          this.collected.size += 1;
-        }
-      }),
-      new Resource({
-        pos: createVector(200, 300),
-        image: images['gigantium'],
-        on_collect: () => {
-          this.collected.gigantium += Math.floor(random(5, 8));
-          this.collected.size += 1;
-        }
-      }),
-      new Resource({
-        pos: createVector(200, 400),
-        image: images['gigantium'],
-        on_collect: () => {
-          this.collected.gigantium += Math.floor(random(5, 8));
-          this.collected.size += 1;
-        }
-      }),
-      new Resource({
-        pos: createVector(200, 500),
-        image: images['gigantium'],
-        on_collect: () => {
-          this.collected.gigantium += Math.floor(random(5, 8));
-          this.collected.size += 1;
-        }
-      }),
-      new Resource({
-        pos: createVector(200, 600),
-        image: images['gigantium'],
-        on_collect: () => {
-          this.collected.gigantium += Math.floor(random(5, 8));
-          this.collected.size += 1;
-        }
-      }),
-      new Resource({
-        pos: createVector(400, 200),
-        image: images['minimium'],
-        on_collect: () => {
-          this.collected.minimium += Math.floor(random(5, 8));
-          this.collected.size -= 1;
-        }
-      })
-    ];
+    this.bullets = new BulletHell({
+      player: this.player,
+      collected: this.collected
+    });
+
     this.sky_pos = 0;
     this.background = images['bullet-bg'];
-
-    this.health = 100;
+    this.health = 3;
   }
 
   handle_click() {
@@ -114,7 +67,6 @@ class GameManager {
     imageMode(CORNER);
     image(this.background, 0, this.sky_pos - this.background.height);
     image(this.background, 0, this.sky_pos);
-    this.resources.forEach(r => r.show());
     this.bullets.show();
     this.player.show();
     this.draw_hud();
@@ -128,12 +80,12 @@ class GameManager {
           (this.sky_pos + GameManager.SKYSPEED) % this.background.height;
         this.bullets.update();
         this.player.update();
-        this.resources.forEach(r => r.update(this.player));
-        this.resources = this.resources.filter(r => !r.gone);
 
         this.bullets.bullets.forEach(b => {
           if (b.hitbox.is_colliding(this.player.hitbox)) {
-            this.player.take_damage();
+            if (this.player.take_damage()) {
+              b.collide();
+            }
           }
         });
 

@@ -5,9 +5,10 @@ class Bullet {
     this.speed = [speed_x, speed_y];
     this.hitbox = new HitBox(
       [this.pos.x, this.pos.y],
-      [size * 0.9, size * 0.9]
+      [size * 0.8, size * 0.8]
     );
     this.image = random() > 0.96 ? images['asteroid'] : images['rock'];
+    this.has_collided = false;
   }
 
   show() {
@@ -28,6 +29,10 @@ class Bullet {
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
 
+  collide() {
+    this.has_collided = true;
+  }
+
   on_screen() {
     if (this.pos.x + this.size / 2 < 0 && this.speed[0] < 0) return false;
     if (this.pos.x - this.size / 2 > width && this.speed[0] > 0) return false;
@@ -38,9 +43,37 @@ class Bullet {
 }
 
 class BulletHell {
-  constructor({ player }) {
+  constructor({ player, collected }) {
     this.player = player;
     this.bullets = [];
+    this.collected = collected;
+
+    this.resources = [
+      new Resource({
+        pos: createVector(200, 200),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(200, 300),
+        image: images['gigantium'],
+        on_collect: () => {
+          this.collected.gigantium += Math.floor(random(5, 8));
+          this.collected.size += 1;
+        }
+      }),
+      new Resource({
+        pos: createVector(400, 200),
+        image: images['minimium'],
+        on_collect: () => {
+          this.collected.minimium += Math.floor(random(5, 8));
+          this.collected.size -= 1;
+        }
+      })
+    ];
   }
 
   // MAKE LOADS OF THESE FUNCTIONS STEPAN
@@ -369,13 +402,16 @@ class BulletHell {
   }
 
   show() {
+    this.resources.forEach(r => r.show());
     for (const bullet of this.bullets) {
       bullet.show();
     }
   }
 
   update() {
+    this.resources.forEach(r => r.update(this.player));
+    this.resources = this.resources.filter(r => !r.gone && r.on_screen());
     this.bullets.forEach(b => b.update());
-    this.bullets = this.bullets.filter(b => b.on_screen());
+    this.bullets = this.bullets.filter(b => b.on_screen() && !b.has_collided);
   }
 }

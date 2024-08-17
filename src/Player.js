@@ -20,14 +20,16 @@ class Player {
     this.update_hitbox();
 
     this.immune = false;
+    this.ascending = false;
   }
 
   take_damage() {
-    if (this.immune) return;
+    if (this.immune) return false;
     this.immune = true;
 
     audio.play_sound('boom.wav');
     setTimeout(() => (this.immune = false), 1000);
+    return true;
   }
 
   update_hitbox() {
@@ -69,6 +71,11 @@ class Player {
   }
 
   update() {
+    if (this.ascending) {
+      this.vel = createVector(0, -10);
+      this.pos.add(this.vel);
+    }
+
     const acc = createVector(
       keyIsDown(68) - keyIsDown(65),
       keyIsDown(83) - keyIsDown(87)
