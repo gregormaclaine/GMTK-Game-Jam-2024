@@ -5,7 +5,7 @@ class SceneManager {
     this.images = images;
     this.audio = audio;
 
-    this.state = 'game';
+    this.state = 'gameover';
 
     this.dialogue = new DialogueManager(images, audio);
 
@@ -13,7 +13,8 @@ class SceneManager {
       images,
       audio,
       dialogue: this.dialogue,
-      end_game: this.end_game.bind(this)
+      end_game: this.end_game.bind(this),
+      on_die: this.lose_game.bind(this)
     });
 
     this.planet_scene = new PlanetScene({ dialogue: this.dialogue });
@@ -23,6 +24,13 @@ class SceneManager {
       this.dialogue,
       this.start_game.bind(this)
     );
+
+    this.gameover_scene = new GameOverScene(async () => {
+      await this.fade('out');
+      this.game_scene.reset();
+      this.state = 'menu';
+      await this.fade('in');
+    });
 
     this.fade_mode = null;
     this.fade_progress = 0;
@@ -40,6 +48,12 @@ class SceneManager {
   async end_game() {
     await this.fade('out');
     this.state = 'menu';
+    await this.fade('in');
+  }
+
+  async lose_game() {
+    await this.fade('out');
+    this.state = 'gameover';
     await this.fade('in');
   }
 
@@ -62,6 +76,8 @@ class SceneManager {
         return this.menu_scene.handle_click();
       case 'planet':
         return this.planet_scene.handle_click();
+      case 'gameover':
+        return this.gameover_scene.handle_click();
     }
   }
 
@@ -85,6 +101,10 @@ class SceneManager {
 
       case 'planet':
         this.planet_scene.show();
+        break;
+
+      case 'gameover':
+        this.gameover_scene.show();
         break;
     }
 
@@ -118,6 +138,10 @@ class SceneManager {
 
       case 'menu':
         this.menu_scene.update();
+        break;
+
+      case 'gameover':
+        this.gameover_scene.update();
         break;
     }
   }

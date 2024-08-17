@@ -1,16 +1,21 @@
 class GameManager {
   static SKYSPEED = 1;
 
-  constructor({ images, audio, dialogue, end_game }) {
+  constructor({ images, audio, dialogue, end_game, on_die }) {
     this.images = images;
     this.audio = audio;
     this.dialogue = dialogue;
     this.end_game = end_game;
-
-    this.state = 'game';
+    this.on_die = on_die;
 
     this.pause_modal = new PauseModal();
+    this.background = images['bullet-bg'];
+    this.reset();
+  }
 
+  reset() {
+    this.sky_pos = 0;
+    this.state = 'game';
     this.collected = {
       gigantium: 0,
       minimium: 0,
@@ -19,16 +24,13 @@ class GameManager {
     };
     this.player = new Player({
       start_pos: [width / 2, height / 2],
-      collected: this.collected
+      collected: this.collected,
+      die: this.on_die
     });
     this.bullets = new BulletHell({
       player: this.player,
       collected: this.collected
     });
-
-    this.sky_pos = 0;
-    this.background = images['bullet-bg'];
-    this.health = 3;
   }
 
   handle_click() {

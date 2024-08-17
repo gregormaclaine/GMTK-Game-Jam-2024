@@ -4,10 +4,12 @@ class Player {
     collected,
     max_vel = 8,
     acceleration = 0.3,
-    damping = 0.02
+    damping = 0.02,
+    die = () => {}
   }) {
     this.pos = createVector(...start_pos);
     this.collected = collected;
+    this.die = die;
     this.vel = createVector(0, 0);
     this.max_vel = max_vel;
     this.acceleration = acceleration;
@@ -35,6 +37,12 @@ class Player {
           this.health - 1
         ]
       );
+
+    if (this.health === 0) {
+      audio.play_sound('ship_explosion.wav');
+      this.die();
+    }
+
     setTimeout(() => (this.immune = false), 1000);
     return true;
   }
