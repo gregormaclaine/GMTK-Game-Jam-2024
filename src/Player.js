@@ -2,7 +2,7 @@ class Player {
   constructor({
     start_pos,
     collected,
-    max_vel = 10,
+    max_vel = 8,
     acceleration = 0.3,
     damping = 0.02
   }) {

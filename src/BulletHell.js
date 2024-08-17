@@ -57,21 +57,18 @@ class BulletHell {
     bullet.pos.y = height + 100;
   }
 
-  async spawn_bullets() {
-    for (let i = 0; i < 5; i++) {
+  async spawn_bullets(speed, size, delta) {
+    for (let i = 0; i < 10; i++) {
       // const x = width * 0.03 + (width * 0.94 * (i % 4)) / 3;
       const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
-      this.bullets.push(new Bullet(x, -100));
-      await timeout(250);
+      this.bullets.push(new Bullet(x, -100, size, 0, speed));
+      await timeout(delta);
     }
-    this.bullets.forEach(bullet => {
-      this.split_bullet(bullet);
-    });
   }
 
   async pattern1() {
     //Makes the player zigzag
-    for (let setsdd = 0; setsdd < 10; setsdd++) {
+    for (let sets = 0; sets < 5; sets++) {
       for (let i = 0; i < 10; i++) {
         if (i % 4 != 0) {
           const x = (width / 10) * i;
@@ -117,8 +114,8 @@ class BulletHell {
     for (let i = 0; i < 20; i++) {
       const x = spawner.pos.x;
       const y = spawner.pos.y;
-      this.bullets.push(new Bullet(x, y, 150, 5, 5));
-      this.bullets.push(new Bullet(x, y, 150, -5, 5));
+      this.bullets.push(new Bullet(x, y, 100, 5, 5));
+      this.bullets.push(new Bullet(x, y, 100, -5, 5));
       await timeout(1000);
     }
   }
@@ -140,28 +137,28 @@ class BulletHell {
     for (let up = 1; up < 10; up++) {
       const x = spiral_x;
       const y = spiral_y - 150 * up;
-      this.bullets.push(new Bullet(x, y, 150, up, 0));
+      this.bullets.push(new Bullet(x, y, 100, up, 0));
       await timeout(50);
     }
     //spawn right
     for (let right = 1; right < 10; right++) {
       const x = spiral_x + 150 * right;
       const y = spiral_y;
-      this.bullets.push(new Bullet(x, y, 150, 0, right));
+      this.bullets.push(new Bullet(x, y, 100, 0, right));
       await timeout(50);
     }
     //spawn down
     for (let down = 1; down < 10; down++) {
       const x = spiral_x;
       const y = spiral_y + 150 * down;
-      this.bullets.push(new Bullet(x, y, 150, -down, 0));
+      this.bullets.push(new Bullet(x, y, 100, -down, 0));
       await timeout(50);
     }
     //spawn left
     for (let left = 1; left < 10; left++) {
       const x = spiral_x - 150 * left;
       const y = spiral_y;
-      this.bullets.push(new Bullet(x, y, 150, 0, -left));
+      this.bullets.push(new Bullet(x, y, 100, 0, -left));
       await timeout(50);
     }
     await timeout(6000);
@@ -315,19 +312,60 @@ class BulletHell {
     //Just fast sniper rocks
     for (let i = 0; i < 20; i++) {
       const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
-      this.bullets.push(new Bullet(x, -100, 100, 0, 20));
-      await timeout(200);
+      this.bullets.push(new Bullet(x, -100, 75, 0, 20));
+      await timeout(100);
     }
   }
 
   async level1() {
     await this.pattern1();
     await timeout(1000);
-    await this.pattern3();
+    for (let p3=0; p3<5;p3++){
+      this.pattern3();
+      await timeout(2000);
+    }
+    for (let p0 = 0;p0<5;p0++){
+      await this.spawn_bullets(5, 150, 300);
+    }
+    await timeout(1000);
+    await this.pattern1();
+    for (let p0 = 0;p0<3;p0++){
+      await this.spawn_bullets(5, 150, 300);
+    }
   }
 
+  async level2(){
+    for (let set = 0;set<3;set++){
+    for (let p0 = 0;p0<6;p0++){
+      await this.spawn_bullets(7, 100, 200);
+    }
+    this.pattern2();
+  }
+  for (let p3=0; p3<3;p3++){
+    this.pattern3();
+    await timeout(2000);
+  }
+    this.pattern2()
+    await timeout(1000);
+    await this.pattern1();
+    this.pattern2();
+  }
+  async level3(){
+    for (let set = 0;set <2; set++){
+    for (let p0 = 0;p0<2;p0++){
+      this.pattern4()
+      await this.spawn_bullets(2, 100, 250);
+      await timeout(1000)
+    }
+    await timeout(6000)
+    await this.pattern1()
+    this.pattern2()
+    await timeout(1000)
+  }
+}
+
   handle_click() {
-    this.pattern4();
+    this.level3();
   }
 
   show() {
