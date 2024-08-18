@@ -59,6 +59,20 @@ function preload() {
   images['dark-bg'] = loadImage('assets/img/backgrounds/dark.png');
   images['crayon-bg'] = loadImage('assets/img/backgrounds/crayon.png');
 
+  images['ending-all-bg'] = loadImage('assets/img/backgrounds/ending-all.png');
+  images['ending-no-1-bg'] = loadImage(
+    'assets/img/backgrounds/ending-no-1.png'
+  );
+  images['ending-no-2-bg'] = loadImage(
+    'assets/img/backgrounds/ending-no-2.png'
+  );
+  images['ending-no-3-bg'] = loadImage(
+    'assets/img/backgrounds/ending-no-3.png'
+  );
+  images['ending-lose-bg'] = loadImage(
+    'assets/img/backgrounds/ending-lose.png'
+  );
+
   images['you-shadow'] = loadImage('assets/img/you-shadow.png');
   images['you-shadow-dark'] = loadImage('assets/img/you-shadow-dark.png');
   images['you-profile'] = loadImage('assets/img/profiles/you.png');

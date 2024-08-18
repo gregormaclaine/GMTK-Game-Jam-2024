@@ -31,7 +31,20 @@ class CrayonPlanet extends PlanetScene {
         radius: 1.2,
         image: images['crayon-cat-3'],
         interact: async (count, reset_count) => {
-          await this.dialogue.send(DIALOGUE.CRAYON_WIZARD_CAT);
+          const result = this.level_results[3];
+          if (!result) {
+            await this.dialogue.send(DIALOGUE.CRAYON_WIZARD_CAT);
+            this.before_wizard_minimium = this.collected.minimium;
+            await this.start_level(3);
+            return;
+          }
+
+          const amount = this.collected.minimium - this.before_wizard_minimium;
+          if (result === 'win' && amount >= 20) {
+            await this.dialogue.send(DIALOGUE.CRAYON_WIZARD_CAT_WIN);
+          } else {
+            await this.dialogue.send(DIALOGUE.CRAYON_WIZARD_CAT_LOSS);
+          }
         }
       }),
       new NPC({

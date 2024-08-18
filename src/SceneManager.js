@@ -55,7 +55,8 @@ class SceneManager {
       level_results: this.level_results,
       move_world: this.move_world.bind(this),
       current_ability: () => this.game_scene.ability,
-      passives: () => this.game_scene.passives
+      passives: () => this.game_scene.passives,
+      collected: this.collected
     };
 
     if (planet === 1) {

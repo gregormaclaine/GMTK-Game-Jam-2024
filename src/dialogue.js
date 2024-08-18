@@ -91,7 +91,39 @@ const DIALOGUE = {
   CRAYON_WIZARD_CAT: [
     {
       profile: 'crayon-cat-3',
-      text: 'I am a coool cat that does magic :3'
+      text: 'Oh thank the heavens you are here sir. I really did need one fine person such as yourself to come to my aid.'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'You see I am making a truly important potion! And to complete it I need 20 untouched MINIMIUM CRYSTALS, please would you get it for me!'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'Good luck!'
+    }
+  ],
+  CRAYON_WIZARD_CAT_WIN: [
+    {
+      profile: 'crayon-cat-3',
+      text: 'Oh my oh my, thank you so very much my feline friend. You are my saviour!'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "Because you successfully returned with enough minimium crystals, nyow I can FINALLY make my potion that shrink that cat's legs. God they're ugly"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'You have done a wonderful thing'
+    }
+  ],
+  CRAYON_WIZARD_CAT_LOSS: [
+    {
+      profile: 'crayon-cat-3',
+      text: 'You are awful. A disgusting cat with no future in piloting.'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'Because of you I cannot brew the potion I needed to save my dying mother. She will die a painful death because of you. I hope you knyow that.'
     }
   ],
   CRAYON_GUN_CAT: [
