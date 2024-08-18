@@ -1,21 +1,24 @@
 const DIALOGUE = {
-  // Some filler dialogue
-  THAT_NPC: [
+  CHINA_CAT_INTRO: [
     {
-      profile: 'rocket',
-      text: "Hi there. I'm pufferfish Pete, here to explain what is going on :  ^)"
+      profile: 'china-cat-profile',
+      text: "Hi there. I'm china cat. |)"
     },
     {
-      profile: 'rock',
-      text: "Hold your fishies Pete, no one just randomly pops up and goes ~Hi there~ that's creepy."
-    },
+      profile: 'china-cat-profile',
+      text: 'I need you to choose your first ability. There are three ahead of me: the lazer shooter, the stopwatch, and the force field. Please choose what you would like to take with you on your journey'
+    }
+  ],
+  CHINA_CAT_INTRO_REPEAT: [
     {
-      jumpscare: true,
-      image: 'rock'
-    },
+      profile: 'china-cat-profile',
+      text: 'Please choose one of the three abilities that have appeared below you :)'
+    }
+  ],
+  CHINA_CAT_GOTO_LEVEL: [
     {
-      profile: 'rock',
-      text: "Whoa there bucko, sorry you had to see all that. I'll need to have a talk with them later."
+      profile: 'china-cat-profile',
+      text: 'Amazing choice sir. Now please save our galaxy with your chosen ability by dodging all the asteroids <3'
     }
   ]
 };

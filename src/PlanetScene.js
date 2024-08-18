@@ -30,30 +30,43 @@ class PlanetScene {
   }
 
   load_planet_1() {
-    this.player_pos = [width / 2, height / 2];
+    this.player_pos = [width / 2, height * 0.9];
     this.player_size = [300, 300];
     this.player_image = images['rock'];
     this.background = images['wood-bg'];
     this.invisible_ceiling = 250;
     this.npcs = [
       new NPC({
-        pos: [width * 0.8, height * 0.4],
+        pos: [width * 0.5, height * 0.3],
         image: images['china-cat-profile'],
         size: [200, 200],
         interact: async count => {
-          if (!this.level_results[1]) {
-            await this.dialogue.send(DIALOGUE.THAT_NPC, {
-              skippable: count > 0
+          if (count === 0) {
+            await this.dialogue.send(DIALOGUE.CHINA_CAT_INTRO, {
+              skippable: false
             });
-            await this.start_level(1);
+            this.planet_1_add_abilities();
           } else {
-            const result = this.level_results[1];
-            this.finish_game({});
+            if (this.npcs.length > 1) {
+              await this.dialogue.send(DIALOGUE.CHINA_CAT_INTRO_REPEAT, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.CHINA_CAT_GOTO_LEVEL, {
+                skippable: false
+              });
+              await this.start_level(1);
+            }
           }
         }
-      }),
+      })
+    ];
+  }
+
+  planet_1_add_abilities() {
+    this.npcs.push(
       new NPC({
-        pos: [150, height - 120],
+        pos: [150, height - 250],
         image: images['ability-lazer-item'],
         size: [140, 140],
         max_interactions: 1,
@@ -63,10 +76,11 @@ class PlanetScene {
         radius: 1.8,
         interact: async () => {
           this.set_ability('lazer');
+          this.npcs.splice(1, 3);
         }
       }),
       new NPC({
-        pos: [width / 2, height - 120],
+        pos: [width / 2, height - 250],
         image: images['ability-shield-item'],
         size: [140, 140],
         max_interactions: 1,
@@ -76,10 +90,11 @@ class PlanetScene {
         radius: 1.8,
         interact: async () => {
           this.set_ability('stealth');
+          this.npcs.splice(1, 3);
         }
       }),
       new NPC({
-        pos: [width - 150, height - 120],
+        pos: [width - 150, height - 250],
         image: images['ability-clock-item'],
         size: [140, 140],
         max_interactions: 1,
@@ -89,22 +104,10 @@ class PlanetScene {
         radius: 1.8,
         interact: async () => {
           this.set_ability('time');
-        }
-      }),
-      new NPC({
-        pos: [width - 350, height - 120],
-        image: images['ability-blackhole-item'],
-        size: [140, 140],
-        max_interactions: 1,
-        text: 'Press E to Pickup',
-        text_side: 'bottom',
-        text_width: 250,
-        radius: 1.8,
-        interact: async () => {
-          this.add_passive('magnet');
+          this.npcs.splice(1, 3);
         }
       })
-    ];
+    );
   }
 
   load_planet_2() {}
