@@ -6,7 +6,7 @@ class EndScene {
 
     this.main_menu_button = new JL.Button(
       'Main Menu',
-      [width / 2, height * 0.55, 400, 100],
+      [width * 0.9, height * 0.9, 400, 100],
       return_to_menu
     );
 
