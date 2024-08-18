@@ -458,7 +458,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Sure, thanks... what should I even call you?"
+      text: "Sure, thanks... what should i even call you?"
     },
     {
       profile: 'mystery-cat-profile',
@@ -468,7 +468,7 @@ const DIALOGUE = {
   MYSTERY_CAT_GOTO_LEVEL_1: [
     {
       profile: 'you-profile',
-      text: "Alright Whatever, I'm ready."
+      text: "Alright Whatever, i'm ready."
     },
     {
       profile: 'mystery-cat-profile',
@@ -519,4 +519,418 @@ const DIALOGUE = {
       text: "You can relax for a bit boss, I'll take you to the next location."
     }
   ],
+  MYSTERY_CAT_WORLD_2: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Quite the weird place we found ourselves in boss."
+    },
+    {
+      profile: 'you-profile',
+      text: "That river thing looks really strange, i want to swim in it!"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "..."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Please don't."
+    }
+  ],
+  MYSTERY_CAT_REPEAT_WORLD_2: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Have you talked to everyone yet boss? Let me know once you're ready to go out to space."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_WORLD_2: [
+    {
+      profile: 'you-profile',
+      text: "i'm ready to go!"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Good luck out there boss. Remember to keep track of how much gigantium and minimium we need."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_2: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Let me know when you want to head out for more resource gathering boss."
+    },
+    {
+      profile: 'you-profile',
+      text: "Sure, thanks, Whatever."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "..."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_1_WORLD_2: [
+    {
+      profile: 'you-profile',
+      text: "Get the meowzer ready, we're going to outer space!"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "As you wish boss. I will take care of it."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_2: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Let me know when you're ready to go back out there, boss."
+    },
+    {
+      profile: 'you-profile',
+      text: "Okay!"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "..."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_2_WORLD_2: [
+    {
+      profile: 'you-profile',
+      text: "i'm ready to go!"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Good luck out there boss. Remember to balance the size of your meowzer, or you will end up in a tough spot."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "I guess we've done all we could here."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "I just received a call for help from another planet boss. Tell me when you're ready to go there."
+    }
+  ],
+  MYSTERY_CAT_GOTO_WORLD_3: [
+    {
+      profile: 'you-profile',
+      text: "Whatever, let us commence forth."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Yes boss, let us get going. Take a break, I'll handle the journey for you."
+    },
+    {
+      profile: 'you-profile',
+      text: "Thanks! :D"
+    }
+  ],
+  BW_CAT_1: [
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Well hello there young one. Welcome to our planet, plunged into darkness centuries ago."
+    },
+    {
+      profile: 'you-profile',
+      text: "Hello there, quick question. What are those glowy things on the ground?"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "A keen eye you have there little one. You see, after our planet was plunged into darkness all those years ago, a new organism evolved and began thriving here. A parasytic organism."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "We call them glow worms. They are truly horrendous creatures. They survive by crawling into our gastrointestinal tract and feeding on our nutrients. Their excrements spread through our bodies and merge with our epithelial cells. That is to say, our skin starts glowing because of their poop."
+    },
+    {
+      profile: 'you-profile',
+      text: "Ew, that's disgusting."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Yes, but it's painless, and we don't feel it. I suppose if you excuse the intricacies the relationship can almost be described as symbiotic. They take some of our nutrients, and in return we get light so we can navigate this dark world."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "...Although it does make looking at the mirror a bit problematic."
+    },
+    {
+      profile: 'you-profile',
+      text: "i feel like this is the perfect setup for me to make a joke about your appearance, but i can't quite put my paw on it."
+    },
+    {
+      profile: 'you-profile',
+      text: "In any case, we came because we received a help signal from your planet. What's the matter?"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Well you see, our main source of light, the river you see around us, is highly poisonous. It contains heaps of incredibly dangerous bacteria, which, not unlike the worms, like to produce fluorecent byproducts."
+    },
+    {
+      profile: 'you-profile',
+      text: "What on this planet DOESN'T have glowing poop?!?"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "We use minimium to control the populations of these bacteria, along with any other parasites or organisms that want to contribute to the toxicity levels of our precious river. We of course also need some gigantium to stabilise the reactions, and for a few... other... purposes."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Please bring us the necessary amount of minimium and gigantium, the bacteria populations get out of hand very quickly and very easily. You're our last hope."
+    },
+    {
+      profile: 'you-profile',
+      text: "I'll do my best."
+    }
+  ],
+  BW_CAT_1_REPEAT: [
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Getting on with it is in your best interests too, little one. Look, even you've already begun glowing."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "You know what that means right? Better hurry, we're used to it, but outsiders aren't recommended to spend too long here. The worms can crawl through the pores on your skin."
+    },
+    {
+      profile: 'you-profile',
+      text: "Whatever! we're heading out immediately!!"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "At once, boss."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "You're a strange one."
+    }
+  ],
+  BW_CAT_1_SUCCESS: [
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Well done little one. You've done us a great service."
+    },
+    {
+      profile: 'you-profile',
+      text: "Get these worms off me!!"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Ahahah, don't worry, the effects wear off quite quickly once you leave the planet."
+    }
+  ],
+  BW_CAT_1_FAIL: [
+    {
+      profile: 'bw-cat-1-profile',
+      text: "We're doomed, and it's because of you. I hope your meowzer rejects you and fries all your nerves the next time you fly."
+    },
+    {
+      profile: 'you-profile',
+      text: "Fries.. my nerves?"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Or maybe we should just toss you into the river instead, that would be much more agonising. Don't worry, if we don't find any minimium, that fate will catch up to all of us sooner or late as well."
+    },
+    {
+      profile: 'you-profile',
+      text: "You're grim."
+    }
+  ],
+  BW_CAT_2: [
+    {
+      profile: 'bw-cat-2-profile',
+      text: "THe river iS soooo pretty eheheh. I want to touch it, I'm going to swim in it!1!!"
+    },
+    {
+      profile: 'bw-cat-2-profile',
+      text: "ehEHEHhEHEHEehehehEhehe"
+    },
+    {
+      profile: 'you-profile',
+      text: "Excuse me, mister? Are you in your right mind?!"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "Ignore Henry, the river can have a strange effect on twisted minds."
+    },
+    {
+      profile: 'bw-cat-2-profile',
+      text: "I wnat t o  SWIM in the river?!?"
+    },
+    {
+      profile: 'bw-cat-2-profile',
+      text: "Hmm? WHo is this puddle of darkness? I see you've already got accustomed to our world, it happens whether you want it or not. ThereS no EScaping the  G  L  O  W  ."
+    },
+    {
+      profile: "you-profile",
+      text: "Maybe the minimium can make him better?"
+    }
+  ],
+  BW_CAT_2_REPEAT: [
+    {
+      profile: 'bw-cat-2-profile',
+      text: "S w i m . . ."
+    },
+    {
+      profile: 'you-profile',
+      text: "R i v e r . . ?"
+    },
+    {
+      profile: 'bw-cat-2-profile',
+      text: "Want to see...... her. In ... river . . . . :("
+    },
+  ],
+  BW_CAT_2_SUCCESS: [
+    {
+      profile: 'bw-cat-2-profile',
+      text: "THanck,.. you. You are good Cat."
+    }
+  ],
+  BW_CAT_2_FAIL: [
+    {
+      profile: 'bw-cat-2-profile',
+      text: "I will be like this forever. Monster."
+    },
+    {
+      profile: 'you-profile',
+      text: "i'm sorry."
+    },
+    {
+      profile: 'bw-cat-2-profile',
+      text: "YOu, swim in river... too."
+    }
+  ],
+  BW_CAT_3: [
+    {
+      profile: 'bw-cat-3-profile',
+      text: "I'm new here, so the worms gather around me. I wouldn't recommend you to stand so close."
+    },
+    {
+      profile: 'you-profile',
+      text: "That's horrible. Why did you come here?"
+    },
+    {
+      profile: 'bw-cat-3-profile',
+      text: "I came with Fredrick, we were happy cats, travelling the nearby solar systems, until one day we crash landed on this planet."
+    },
+    {
+      profile: 'bw-cat-3-profile',
+      text: "Now all he does is just mop around all day, well there isn't such a concept as 'day' on this planet. Time seems to stop, but I suppose without a physical body it won't matter too much to you. I've seen your likes in my travels, I'm sorry for you."
+    },
+    {
+      profile: 'you-profile',
+      text: 'There are others like me?'
+    },
+    {
+      profile: 'bw-cat-3-profile',
+      text: "Few and far between, the place where Fredrick and I are from forbids the use of such punishments. It entraps the body, and soul, with irreversible consequences."
+    },
+    {
+      profile: 'you-profile',
+      text: "Punishment? i wonder what i have done in my past lives to earn such as punishment then. i was just told i had to help others and i would stop being a shadow. Can't say i remember my life any other way."
+    },
+    {
+      profile: 'bw-cat-3-profile',
+      text: "Seems you are still recovering from the amnesia, I sincerely hope you get better soon, maybe one day when you get your body back you can come back and take us with you."
+    },
+    {
+      profile: 'you-profile',
+      text: "Promise i will make it happen, i want to hear more about your adventures :)"
+    },
+    {
+      profile: 'bw-cat-3-profile',
+      text: "It's a deal then, I'll be waiting."
+    }
+  ],
+  BW_CAT_3_REPEAT: [
+    {
+      profile: 'bw-cat-3-profile',
+      text: "It pains me to see Fredrick like this all the time. Please help us."
+    },
+    {
+      profile: 'you-profile',
+      text: "I'll do all I can."
+    },
+  ],
+  BW_CAT_3_SUCCESS: [
+    {
+      profile: 'bw-cat-3-profile',
+      text: "You're so brave, I'm so pathetic. It's all hopeless, what have we become Fredrick?"
+    },
+    {
+      profile: 'you-profile',
+      text: "I'll get you guys out of here."
+    },
+  ],
+  BW_CAT_3_FAIL: [
+    {
+      profile: 'bw-cat-3-profile',
+      text: "You're just as pathetic, now there's definitely no hope for getting out of here. NEVER! *sobs*"
+    }
+  ],
+  BW_CAT_4: [
+    {
+      profile: 'bw-cat-4-profile',
+      text: "This is so disgusting. Get me out of here. I want to sleep."
+    },
+    {
+      profile: 'you-profile',
+      text: "You're.. Fredrick?"
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: "So what if I'm Fredrick. I'm tired of being Fredrick, I just want to lie here and sleep. It's all hopeless. In all our travels, I've never seen any planet drain us as much as this. How does that cat do it, she's the only one who is managing to stay sane here. If there even is such a thing as sanity on this planet..."
+    },
+    {
+      profile: 'you-profile',
+      text: "I'll find the minimium you need, it will help you remove the effects of that river. Everything is a bit messy now, but it will get better! That's what that lady cat told me anyway."
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: "I've been studying that 'lady cat' ever since we got here. All I do is watch her sit there, with that expression on her face. I don't understand how she does it, everything here just makes me want to cry."
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: "I can see Rodrick crying over there, memories of our adventures together, and not wanting to disappoint him even more are the only two things holding me together at this point."
+    },
+    {
+      profile: 'you-profile',
+      text: "i would like to tell you about my adventures, but i've lost all my memories. One thing i do remember is a planet i've been to recently with three very interesting cats. A scientist cat lady even gave me an awesome powerup for my meowzer!"
+    },
+    {
+      profile: 'you-profile',
+      text: "Their planet has very lush nature, and soil that can grow anything! i'll get you and Rodrick out of here and you can have your own wooden huts in the forest and go fishing in the nearby lake!"
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: "That sure does sound nice. I hope you're not feeding me any false delusions, little shadow cat. Thank you for giving me hope."
+    }
+  ],
+  BW_CAT_4_REPEAT: [
+    {
+      profile: 'bw-cat-4-profile',
+      text: "I'm so tired. I just want to sleep."
+    }
+  ],
+  BW_CAT_4_SUCCESS: [
+    {
+      profile: 'bw-cat-4-profile',
+      text: "You actually did it! I knew I could believe in you. Maybe my hopes and dreams aren't just worm poop after all."
+    },
+    {
+      profile: 'you-profile',
+      text: "You can count on me!"
+    }
+  ],
+  BW_CAT_4_FAIL: [
+    {
+      profile: 'bw-cat-4-profile',
+      text: "Same as always. Nothing changes. I'm so tired."
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: "You're horrible, you know that? No one was pulling your tongue to say the things you did. Don't set expectations you can't meet. Utterly pathetic fool."
+    }
+  ]
 };

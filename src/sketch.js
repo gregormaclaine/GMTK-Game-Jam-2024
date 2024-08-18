@@ -87,6 +87,18 @@ function preload() {
   images['crayon-cat-3'] = loadImage('assets/img/npcs/crayon-cat-3.png');
   images['crayon-cat-4'] = loadImage('assets/img/npcs/crayon-cat-4.png');
   
+  images['bw-cat-1'] = loadImage('assets/img/npcs/bw-cat-1.png');
+  images['bw-cat-2'] = loadImage('assets/img/npcs/bw-cat-2.png');
+  images['bw-cat-3'] = loadImage('assets/img/npcs/bw-cat-3.png');
+  images['bw-cat-4'] = loadImage('assets/img/npcs/bw-cat-4.png');
+
+  images['bw-cat-1-profile'] = loadImage('assets/img/profiles/bw-cat-1.jpg');
+  images['bw-cat-2-profile'] = loadImage('assets/img/profiles/bw-cat-2.jpg');
+  images['bw-cat-3-profile'] = loadImage('assets/img/profiles/bw-cat-3.jpg');
+  images['bw-cat-4-profile'] = loadImage('assets/img/profiles/bw-cat-4.jpg');
+
+
+  images['cat-mc'] = loadImage('assets/img/npcs/cat-mc.png');
   images['mystery-cat'] = loadImage('assets/img/npcs/mystery-cat.png');
 
   images['science-cat-profile'] = loadImage(
