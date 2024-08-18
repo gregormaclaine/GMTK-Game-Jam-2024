@@ -60,7 +60,23 @@ const DIALOGUE = {
       text: 'Watch out for splitting rocks.'
     }
   ],
+  CRAYON_COFFEE_CAT_BLOCK: [
+    {
+      profile: 'crayon-cat-1',
+      text: "Come speak to me once you've spoken to everyone here"
+    }
+  ],
   CRAYON_COFFEE_CAT: [
+    {
+      profile: 'crayon-cat-1',
+      text: 'Thanks for going over to speak to everyone.'
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "I hope you feel like you've accomplished a lot. Anyway feel free to leave and head back to your home planet. Goodbye"
+    }
+  ],
+  CRAYON_COFFEE_CAT_GOOD: [
     {
       profile: 'crayon-cat-1',
       text: 'I am a coool cat with coffee :3'
@@ -85,7 +101,21 @@ const DIALOGUE = {
   CRAYON_LEGS_CAT: [
     {
       profile: 'crayon-cat-2',
-      text: 'I am a coool cat with long legs :3'
+      text: "Hey I'm trying to make my legs longer? Think you can help me with that?"
+    },
+    {
+      profile: 'you-profile',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: 'Amazing! I need you to collect for me 15 MINIMIUM and 15 GIGANTIUM so that I can properly adjust me legs :3.\n Thanks and good luck!'
+    }
+  ],
+  CRAYON_LEGS_CAT_AFTER: [
+    {
+      profile: 'crayon-cat-2',
+      text: 'Thanks for going on that mission. Just you wait and see whats in store for me now!'
     }
   ],
   CRAYON_WIZARD_CAT: [

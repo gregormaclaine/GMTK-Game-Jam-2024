@@ -11,7 +11,9 @@ class SceneManager {
       gigantium: 0,
       minimium: 0,
       size: 0,
-      coins: 0
+      coins: 0,
+      goal_gigantium: 0,
+      goal_minimium: 0
     };
 
     this.dialogue = new DialogueManager(images, audio);

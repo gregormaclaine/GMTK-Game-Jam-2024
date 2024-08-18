@@ -13,7 +13,15 @@ class CrayonPlanet extends PlanetScene {
         radius: 1.2,
         image: images['crayon-cat-1'],
         interact: async (count, reset_count) => {
+          const result5 = this.level_results[5];
+          const result6 = this.level_results[5];
+          if (!result5 || !result6) {
+            await this.dialogue.send(DIALOGUE.CRAYON_COFFEE_CAT_BLOCK);
+            return;
+          }
+
           await this.dialogue.send(DIALOGUE.CRAYON_COFFEE_CAT);
+          this.finish_game();
         }
       }),
       new NPC({
@@ -22,7 +30,15 @@ class CrayonPlanet extends PlanetScene {
         radius: 1.2,
         image: images['crayon-cat-2'],
         interact: async (count, reset_count) => {
-          await this.dialogue.send(DIALOGUE.CRAYON_LEGS_CAT);
+          const result = this.level_results[5];
+          if (!result) {
+            await this.dialogue.send(DIALOGUE.CRAYON_LEGS_CAT);
+            await this.start_level(5);
+            this.play_track();
+            return;
+          } else {
+            await this.dialogue.send(DIALOGUE.CRAYON_LEGS_CAT_AFTER);
+          }
         }
       }),
       new NPC({
@@ -31,11 +47,13 @@ class CrayonPlanet extends PlanetScene {
         radius: 1.2,
         image: images['crayon-cat-3'],
         interact: async (count, reset_count) => {
-          const result = this.level_results[3];
+          const result = this.level_results[6];
           if (!result) {
             await this.dialogue.send(DIALOGUE.CRAYON_WIZARD_CAT);
             this.before_wizard_minimium = this.collected.minimium;
-            await this.start_level(3);
+            this.collected.goal_minimium = 20;
+            await this.start_level(6);
+            this.play_track();
             return;
           }
 
