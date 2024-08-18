@@ -1,13 +1,18 @@
 class EndScene {
-  constructor({ collected, results, return_to_menu }) {
+  constructor({ collected, results, return_to_menu, dialogue }) {
     this.collected = collected;
     this.results = results;
+    this.dialogue;
 
     this.main_menu_button = new JL.Button(
       'Main Menu',
       [width / 2, height * 0.55, 400, 100],
       return_to_menu
     );
+  }
+
+  async start() {
+    // run some dialogue
   }
 
   handle_click() {

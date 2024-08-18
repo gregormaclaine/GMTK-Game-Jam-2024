@@ -49,6 +49,9 @@ function preload() {
   images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
   images['wood-bg'] = loadImage('assets/img/wood-bg.png');
 
+  images['you-shadow'] = loadImage('assets/img/you-shadow.png');
+  images['you-profile'] = loadImage('assets/img/profiles/you.png');
+
   images['amongus'] = loadImage('assets/img/amongus.png');
   images['cat-profile'] = loadImage('assets/img/profiles/cat.png');
   images['china-cat-profile'] = loadImage('assets/img/profiles/china-cat.png');

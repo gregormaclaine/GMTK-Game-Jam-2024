@@ -1,15 +1,16 @@
 class Planet1 extends PlanetScene {
   reset() {
     this.player_pos = [width / 2, height * 0.9];
-    this.player_size = [300, 300];
-    this.player_image = images['rock'];
+    this.player_size = [200, 200];
+    this.player_image = images['you-shadow'];
     this.background = images['wood-bg'];
-    this.bounding_rect = [250, 0, 0, 0];
+    this.bounding_rect = [350, 0, 0, 0];
     this.npcs = [
       new NPC({
         pos: [width * 0.5, height * 0.3],
         image: images['china-cat-profile'],
         size: [200, 200],
+        radius: 1,
         interact: async (count, reset_count) => {
           const result = this.level_results['tutorial'];
 

@@ -88,7 +88,8 @@ class SceneManager {
         await this.fade('out');
         this.state = 'menu';
         await this.fade('in');
-      }
+      },
+      dialogue: this.dialogue
     });
     this.state = 'end';
     await this.fade('in');

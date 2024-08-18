@@ -383,13 +383,14 @@ class BulletHell {
   }
 
   async spawn_resources() {
-    for (let i = 0; i < random(2) + 1; i++) {
+    for (let i = 0; i < 2; i++) {
       this.resources.push(
         new Resource({
           pos: createVector(
             (random(1000) / 1000) * width,
             (random(1000) / 1000) * height
           ),
+          speed: [random(1.5), random(1.5)],
           image: images['gigantium'],
           on_collect: () => {
             this.collected.gigantium += Math.floor(random(5, 8));
@@ -398,12 +399,14 @@ class BulletHell {
           }
         })
       );
+      await timeout(random(900));
     }
-    for (let j = 0; j < random(random(2) + 1); j++) {
+    for (let j = 0; j < 2; j++) {
       this.resources.push(
         new Resource({
           pos: createVector(random(1000), random(1000)),
           image: images['minimium'],
+          speed: [random(1.5), random(1.5)],
           on_collect: () => {
             this.collected.minimium += Math.floor(random(5, 8));
             this.collected.size -= 0.5;
@@ -411,6 +414,7 @@ class BulletHell {
           }
         })
       );
+      await timeout(random(900));
     }
   }
 
@@ -464,23 +468,24 @@ class BulletHell {
   }
 
   async level1() {
-    await this.spawn_resources();
+    setTimeout(() => this.spawn_resources(), 1000);
     await this.pattern1();
     await timeout(1000);
     for (let p3 = 0; p3 < 5; p3++) {
       this.pattern3();
       await timeout(2000);
     }
-    await this.spawn_resources();
+    this.spawn_resources();
     for (let p0 = 0; p0 < 5; p0++) {
       await this.spawn_bullets(5, 150, 500);
     }
     await timeout(1000);
     await this.pattern1();
+    await timeout(500);
+    this.spawn_resources();
     for (let p0 = 0; p0 < 3; p0++) {
       await this.spawn_bullets(5, 150, 300);
     }
-    await this.spawn_resources();
     await timeout(4000);
   }
 
