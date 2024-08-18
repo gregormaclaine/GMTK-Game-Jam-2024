@@ -296,7 +296,6 @@ class BulletHell {
     splittable.forEach(bullet => {
       this.split_bullet(bullet, splittable);
     });
-    await console.log("split 1")
     await timeout(2000);
     splittable.forEach(bullet => {
       this.split_bullet(bullet, splittable);
@@ -619,7 +618,7 @@ class BulletHell {
     }
     await timeout(2000);
   }
-  async level4_stepan(){
+  async level7(){ //level4_stepan
     await this.spawn_resources([0,0]);
     await this.spawn_resources([0,0]);
     await this.spawn_resources([0,0]);
@@ -633,7 +632,7 @@ class BulletHell {
     }
 
   }
-  async level5_stepan(){
+  async level8(){//level5_stepan
     this.spawn_resources([0,0.5]);
     await this.pattern1();
     this.spawn_resources([0,0.5]);
@@ -650,7 +649,7 @@ class BulletHell {
     this.pattern2();
   }
 
-  async level6_stepan(){
+  async level9(){//level6_stepan
     await this.spawn_resources([0,0]);
     await this.pattern6();
     await timeout(3000);
@@ -667,9 +666,7 @@ class BulletHell {
   }
 
 
-  handle_click() {
-    this.level6_stepan();
-   }
+  handle_click() {}
 
   show() {
     this.resources.forEach(r => r.show());
