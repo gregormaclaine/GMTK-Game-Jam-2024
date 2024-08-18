@@ -68,6 +68,15 @@ class GameManager {
       case 3:
         await this.bullets.level3();
         break;
+      case 4:
+        await this.bullets.level4();
+        break;
+      case 5:
+        await this.bullets.level5();
+        break;
+      case 6:
+        await this.bullets.level6();
+        break;
     }
 
     if (this.on_finish_level) {
