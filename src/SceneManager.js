@@ -6,26 +6,23 @@ class SceneManager {
     this.audio = audio;
 
     this.state = 'menu';
+    this.level_results = {};
+    this.collected = {
+      gigantium: 0,
+      minimium: 0,
+      size: 0,
+      coins: 0,
+      goal_gigantium: 0,
+      goal_minimium: 0
+    };
 
     this.dialogue = new DialogueManager(images, audio);
 
     this.game_scene = new GameManager({
       images,
       audio,
-      dialogue: this.dialogue
-    });
-
-    this.planet_scene = new PlanetScene({
       dialogue: this.dialogue,
-      start_level: this.start_level.bind(this),
-      fade: this.fade.bind(this),
-      finish_game: this.finish_game.bind(this),
-      set_ability: ability => {
-        this.game_scene.set_ability(ability);
-      },
-      add_passive: passive => {
-        this.game_scene.add_passive(passive);
-      }
+      collected: this.collected
     });
 
     this.menu_scene = new MenuScreen(
@@ -45,6 +42,42 @@ class SceneManager {
     this.fade_completed = () => {};
   }
 
+  load_planet(planet) {
+    const planet_props = {
+      dialogue: this.dialogue,
+      audio: this.audio,
+      start_level: this.start_level.bind(this),
+      finish_game: this.finish_game.bind(this),
+      set_ability: ability => {
+        this.game_scene.set_ability(ability);
+      },
+      add_passive: passive => {
+        this.game_scene.add_passive(passive);
+      },
+      level_results: this.level_results,
+      move_world: this.move_world.bind(this),
+      current_ability: () => this.game_scene.ability,
+      passives: () => this.game_scene.passives,
+      collected: this.collected
+    };
+
+    if (planet === 1) {
+      this.planet_scene = new Planet1(planet_props);
+    } else if (planet === 2) {
+      this.planet_scene = new DarkPlanet(planet_props);
+    } else if (planet === 3) {
+      this.planet_scene = new CrayonPlanet(planet_props);
+    } else {
+      console.error('Planet not found:', planet);
+    }
+  }
+
+  async move_world(planet) {
+    await this.fade('out');
+    this.load_planet(planet);
+    await this.fade('in');
+  }
+
   async start_level(level) {
     await this.fade('out');
     this.state = 'game';
@@ -59,6 +92,7 @@ class SceneManager {
       this.state = 'planet';
       this.planet_scene.level_results[level] = 'win';
     }
+    this.planet_scene.play_track();
     await this.fade('in');
   }
 
@@ -66,8 +100,7 @@ class SceneManager {
     await this.fade('out');
     this.state = 'planet';
     this.game_scene.hard_reset();
-    this.planet_scene.reset();
-    this.planet_scene.load_planet_1();
+    this.load_planet(1);
     await this.fade('in');
   }
 
@@ -80,7 +113,8 @@ class SceneManager {
         await this.fade('out');
         this.state = 'menu';
         await this.fade('in');
-      }
+      },
+      dialogue: this.dialogue
     });
     this.state = 'end';
     await this.fade('in');

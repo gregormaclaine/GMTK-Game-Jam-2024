@@ -1,6 +1,14 @@
 const images = {};
 const audio = new JL.Audio(
-  [],
+  [
+    'hell-1.mp3',
+    'hell-2.mp3',
+    'hell-3.mp3',
+    'hell-4.mp3',
+    'planet-1.mp3',
+    'planet-2.mp3',
+    'planet-3.mp3'
+  ],
   [
     'boom.wav',
     'ability.wav',
@@ -46,11 +54,47 @@ function preload() {
   images['minimium'] = loadImage('assets/img/items/minimium.png');
   images['health-crate'] = loadImage('assets/img/items/health-crate.png');
 
-  images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
-  images['wood-bg'] = loadImage('assets/img/wood-bg.png');
+  images['bullet-bg'] = loadImage('assets/img/backgrounds/bullet.png');
+  images['wood-bg'] = loadImage('assets/img/backgrounds/wood.png');
+  images['dark-bg'] = loadImage('assets/img/backgrounds/dark.png');
+  images['crayon-bg'] = loadImage('assets/img/backgrounds/crayon.png');
 
-  images['cat-profile'] = loadImage('assets/img/profiles/cat.png');
+  images['ending-all-bg'] = loadImage('assets/img/backgrounds/ending-all.png');
+  images['ending-no-1-bg'] = loadImage(
+    'assets/img/backgrounds/ending-no-1.png'
+  );
+  images['ending-no-2-bg'] = loadImage(
+    'assets/img/backgrounds/ending-no-2.png'
+  );
+  images['ending-no-3-bg'] = loadImage(
+    'assets/img/backgrounds/ending-no-3.png'
+  );
+  images['ending-lose-bg'] = loadImage(
+    'assets/img/backgrounds/ending-lose.png'
+  );
+
+  images['you-shadow'] = loadImage('assets/img/you-shadow.png');
+  images['you-shadow-dark'] = loadImage('assets/img/you-shadow-dark.png');
+  images['you-profile'] = loadImage('assets/img/profiles/you.png');
+
+  images['amongus'] = loadImage('assets/img/npcs/amongus.png');
+  images['cat'] = loadImage('assets/img/npcs/cat.png');
+  images['science-cat'] = loadImage('assets/img/npcs/science-cat.png');
+  images['evil-cat'] = loadImage('assets/img/npcs/evil-cat.png');
+  
+  images['crayon-cat-1'] = loadImage('assets/img/npcs/crayon-cat.png');
+  images['crayon-cat-2'] = loadImage('assets/img/npcs/crayon-cat-2.png');
+  images['crayon-cat-3'] = loadImage('assets/img/npcs/crayon-cat-3.png');
+  images['crayon-cat-4'] = loadImage('assets/img/npcs/crayon-cat-4.png');
+  
+  images['mystery-cat'] = loadImage('assets/img/npcs/mystery-cat.png');
+
+  images['science-cat-profile'] = loadImage(
+    'assets/img/profiles/science-cat.png'
+  );
+  images['evil-cat-profile'] = loadImage('assets/img/profiles/evil-cat.png');
   images['china-cat-profile'] = loadImage('assets/img/profiles/china-cat.png');
+  images['mystery-cat-profile'] = loadImage('assets/img/profiles/mystery-cat.jpg');
 
   images['cat-heart'] = loadImage('assets/img/cat-heart.png');
   images['skip-button'] = loadImage('assets/img/skip-button.png');
@@ -77,6 +121,7 @@ function preload() {
   );
 
   // Main Menu
+  images['title'] = loadImage('assets/img/title.png');
   images['start-button'] = loadImage('assets/img/main_menu/start-button.png');
   images['credits-button'] = loadImage(
     'assets/img/main_menu/credits-button.png'

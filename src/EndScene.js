@@ -1,13 +1,23 @@
 class EndScene {
-  constructor({ collected, results, return_to_menu }) {
+  constructor({ collected, results, return_to_menu, dialogue }) {
     this.collected = collected;
     this.results = results;
+    this.dialogue;
 
     this.main_menu_button = new JL.Button(
       'Main Menu',
-      [width / 2, height * 0.55, 400, 100],
+      [width * 0.9, height * 0.9, 400, 100],
       return_to_menu
     );
+
+    this.show_button = false;
+    setTimeout(() => {
+      this.show_button = true;
+    }, 5000);
+  }
+
+  async start() {
+    // run some dialogue
   }
 
   handle_click() {
@@ -18,15 +28,23 @@ class EndScene {
 
   show() {
     imageMode(CORNER);
-    background(images['bullet-bg']);
-    textSize(90);
-    fill('white');
-    textAlign(CENTER, CENTER);
-    text('Thanks For Playing', width / 2, height * 0.4);
 
-    fill(0);
-    stroke(0);
-    strokeWeight(3);
-    this.main_menu_button.show();
+    const p1 = this.results['planet1'] === 'win';
+    const p2 = this.results['planet2'] === 'win';
+    const p3 = this.results['planet3'] === 'win';
+
+    if (p1 + p2 + p3 < 2) {
+      background(images['ending-lose-bg']);
+    } else if (!p1) {
+      background(images['ending-no-1-bg']);
+    } else if (!p2) {
+      background(images['ending-no-2-bg']);
+    } else if (!p3) {
+      background(images['ending-no-3-bg']);
+    } else {
+      background(images['ending-all-bg']);
+    }
+
+    if (this.show_button) this.main_menu_button.show();
   }
 }
