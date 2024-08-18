@@ -59,5 +59,45 @@ const DIALOGUE = {
       profile: 'china-cat-profile',
       text: 'Watch out for splitting rocks.'
     }
+  ],
+  CRAYON_COFFEE_CAT: [
+    {
+      profile: 'crayon-cat-1',
+      text: 'I am a coool cat with coffee :3'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'fuck you coffee cat I can cast a spell that makes ur coffee cold'
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'eat shit'
+    }
+  ],
+  CRAYON_LEGS_CAT: [
+    {
+      profile: 'crayon-cat-2',
+      text: 'I am a coool cat with long legs :3'
+    }
+  ],
+  CRAYON_WIZARD_CAT: [
+    {
+      profile: 'crayon-cat-3',
+      text: 'I am a coool cat that does magic :3'
+    }
+  ],
+  CRAYON_GUN_CAT: [
+    {
+      profile: 'crayon-cat-4',
+      text: 'I am a coool cat with a gun :3'
+    }
   ]
 };
