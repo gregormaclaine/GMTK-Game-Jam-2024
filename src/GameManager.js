@@ -86,13 +86,10 @@ class GameManager {
         this.ability_cooldown.cooldown = 2;
         break;
       case 'stealth':
-        this.ability_cooldown.cooldown = 8;
+        this.ability_cooldown.cooldown = 10;
         break;
       case 'time':
-        this.ability_cooldown.cooldown = 7;
-        break;
-      case 'magnet':
-        this.ability_cooldown.cooldown = 5;
+        this.ability_cooldown.cooldown = 9;
         break;
     }
   }
@@ -108,16 +105,20 @@ class GameManager {
         this.bullets.shoot();
         break;
       case 'stealth':
+        this.audio.play_sound('invincibility_start.wav');
         this.player.invincible = true;
         setTimeout(() => {
           this.player.invincible = false;
-        }, 1500);
+          this.audio.play_sound('invincibility_end.wav');
+        }, 2000);
         break;
       case 'time':
         this.bullets.slow = true;
+        this.audio.play_sound('time_slowdown.wav');
         setTimeout(() => {
           this.bullets.slow = false;
-        }, 3000);
+          this.audio.play_sound('time_speedup.wav');
+        }, 3500);
         break;
       // case 'magnet':
       //   this.bullets.magnetic = true;
@@ -127,6 +128,19 @@ class GameManager {
       //   break;
       default:
         return;
+    }
+  }
+
+  ability_image() {
+    switch (this.ability) {
+      case 'time':
+        return images['ability-clock'];
+      case 'stealth':
+        return images['ability-shield'];
+      case 'lazer':
+        return images['ability-lazer'];
+      default:
+        return images['rock'];
     }
   }
 
@@ -183,7 +197,7 @@ class GameManager {
 
     if (this.ability) {
       if (this.ability_cooldown.cooling_down) tint(255, 50);
-      image(images['rock'], 20, height - 100, 80, 80);
+      image(this.ability_image(), 20, height - 100, 80, 80);
       tint(255, 255);
       this.ability_cooldown.show();
     }

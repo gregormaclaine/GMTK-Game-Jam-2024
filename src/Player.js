@@ -134,6 +134,19 @@ class Player {
     image(this.image, 0, 0, this.size[0] * growth, this.size[1] * growth);
     pop();
 
+    if (this.invincible) {
+      tint(255, 200);
+      imageMode(CENTER);
+      image(
+        images['force-field'],
+        this.pos.x,
+        this.pos.y,
+        this.size[0] * growth,
+        this.size[1] * growth
+      );
+      tint(255, 255);
+    }
+
     this.hitbox.show();
   }
 }

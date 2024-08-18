@@ -12,7 +12,13 @@ const audio = new JL.Audio(
     'pickup_health_3.wav',
     'pickup_health_2.wav',
     'pickup_health_1.wav',
-    'ship_explosion.wav'
+    'ship_explosion.wav',
+    'lazer.wav',
+    'invincibility_start.wav',
+    'invincibility_end.wav',
+    'time_speedup.wav',
+    'time_slowdown.wav',
+    'asteroid_explode.wav'
   ]
 );
 let fonts = {};
@@ -49,8 +55,26 @@ function preload() {
   images['dialogue-profile'] = loadImage('assets/img/dialogue-profile.png');
   images['dialogue-box'] = loadImage('assets/img/dialogue-box.png');
 
+  images['ability-clock'] = loadImage('assets/img/abilities/clock.png');
+  images['ability-blackhole'] = loadImage('assets/img/abilities/blackhole.png');
+  images['ability-shield'] = loadImage('assets/img/abilities/shield.png');
+  images['ability-lazer'] = loadImage('assets/img/abilities/lazer.png');
+  images['force-field'] = loadImage('assets/img/abilities/force-field.png');
+
+  images['ability-clock-item'] = loadImage(
+    'assets/img/abilities/clock-item.png'
+  );
+  images['ability-lazer-item'] = loadImage(
+    'assets/img/abilities/lazer-item.png'
+  );
+  images['ability-blackhole-item'] = loadImage(
+    'assets/img/abilities/blackhole-item.png'
+  );
+  images['ability-shield-item'] = loadImage(
+    'assets/img/abilities/shield-item.png'
+  );
+
   // Main Menu
-  images['menu-bg'] = loadImage('assets/img/main_menu/background.jpg');
   images['start-button'] = loadImage('assets/img/main_menu/start-button.png');
   images['credits-button'] = loadImage(
     'assets/img/main_menu/credits-button.png'

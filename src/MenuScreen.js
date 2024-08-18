@@ -17,7 +17,7 @@ class MenuScreen {
     ];
     this.credits_rect = [
       width * 0.5,
-      height * 0.7,
+      height * 0.75,
       450,
       (450 / images['credits-button'].width) * images['credits-button'].height
     ];

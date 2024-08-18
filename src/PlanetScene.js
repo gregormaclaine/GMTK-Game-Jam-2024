@@ -53,40 +53,53 @@ class PlanetScene {
         }
       }),
       new NPC({
-        pos: [150, height - 100],
-        image: images['rock'],
-        size: [80, 80],
+        pos: [150, height - 120],
+        image: images['ability-lazer-item'],
+        size: [140, 140],
         max_interactions: 1,
         text: 'Press E to Pickup',
         text_side: 'bottom',
         text_width: 250,
-        radius: 2.5,
+        radius: 1.8,
         interact: async () => {
           this.set_ability('lazer');
         }
       }),
       new NPC({
-        pos: [width / 2, height - 100],
-        image: images['rock'],
-        size: [80, 80],
+        pos: [width / 2, height - 120],
+        image: images['ability-shield-item'],
+        size: [140, 140],
         max_interactions: 1,
         text: 'Press E to Pickup',
         text_side: 'bottom',
         text_width: 250,
-        radius: 2.5,
+        radius: 1.8,
         interact: async () => {
           this.set_ability('stealth');
         }
       }),
       new NPC({
-        pos: [width - 150, height - 100],
-        image: images['rock'],
-        size: [80, 80],
+        pos: [width - 150, height - 120],
+        image: images['ability-clock-item'],
+        size: [140, 140],
         max_interactions: 1,
         text: 'Press E to Pickup',
         text_side: 'bottom',
         text_width: 250,
-        radius: 2.5,
+        radius: 1.8,
+        interact: async () => {
+          this.set_ability('time');
+        }
+      }),
+      new NPC({
+        pos: [width - 350, height - 120],
+        image: images['ability-blackhole-item'],
+        size: [140, 140],
+        max_interactions: 1,
+        text: 'Press E to Pickup',
+        text_side: 'bottom',
+        text_width: 250,
+        radius: 1.8,
         interact: async () => {
           this.add_passive('magnet');
         }

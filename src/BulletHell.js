@@ -76,6 +76,7 @@ class BulletHell {
   shoot() {
     const dir = this.player.vel.copy();
     dir.setMag(15);
+    audio.play_sound('lazer.wav');
     this.lazers.push(
       new Lazer(this.player.pos.x, this.player.pos.y, dir.x, dir.y)
     );
@@ -459,7 +460,7 @@ class BulletHell {
         if (b.hitbox.is_colliding(l.hitbox)) {
           l.has_collided = true;
           b.has_collided = true;
-          audio.play_sound('boom.wav');
+          audio.play_sound('asteroid_explode.wav');
         }
       });
     });
