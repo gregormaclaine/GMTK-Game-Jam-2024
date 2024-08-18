@@ -57,6 +57,8 @@ class SceneManager {
 
     if (planet === 1) {
       this.planet_scene = new Planet1(planet_props);
+    } else if (planet === 2) {
+      this.planet_scene = new DarkPlanet(planet_props);
     } else {
       console.error('Planet not found:', planet);
     }
@@ -83,7 +85,7 @@ class SceneManager {
     await this.fade('out');
     this.state = 'planet';
     this.game_scene.hard_reset();
-    this.load_planet(1);
+    this.load_planet(2);
     await this.fade('in');
   }
 

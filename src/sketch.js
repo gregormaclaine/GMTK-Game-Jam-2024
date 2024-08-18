@@ -54,14 +54,18 @@ function preload() {
   images['minimium'] = loadImage('assets/img/items/minimium.png');
   images['health-crate'] = loadImage('assets/img/items/health-crate.png');
 
-  images['bullet-bg'] = loadImage('assets/img/bullet-bg.png');
-  images['wood-bg'] = loadImage('assets/img/wood-bg.png');
+  images['bullet-bg'] = loadImage('assets/img/backgrounds/bullet.png');
+  images['wood-bg'] = loadImage('assets/img/backgrounds/wood.png');
+  images['dark-bg'] = loadImage('assets/img/backgrounds/dark.png');
 
   images['you-shadow'] = loadImage('assets/img/you-shadow.png');
+  images['you-shadow-dark'] = loadImage('assets/img/you-shadow-dark.png');
   images['you-profile'] = loadImage('assets/img/profiles/you.png');
 
   images['amongus'] = loadImage('assets/img/amongus.png');
+  images['dark-cat'] = loadImage('assets/img/dark-cat.png');
   images['cat-profile'] = loadImage('assets/img/profiles/cat.png');
+  images['evil-cat-profile'] = loadImage('assets/img/profiles/evil-cat.png');
   images['china-cat-profile'] = loadImage('assets/img/profiles/china-cat.png');
 
   images['cat-heart'] = loadImage('assets/img/cat-heart.png');
