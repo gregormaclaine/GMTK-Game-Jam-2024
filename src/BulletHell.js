@@ -287,15 +287,16 @@ class BulletHell {
     //Splitting these nuts
     for (let i = 0; i < 5; i++) {
       const x = 200 + (i * width) / 5;
-      const b = new Bullet(x, -100, 200);
+      const b = new Bullet(x, -100, 200, 0, 3);
       splittable.push(b);
       this.bullets.push(b);
-      if (i < 4) await timeout(random(400, 1000));
+      if (i < 4) await timeout(random(200, 800));
     }
-    await timeout(100);
+    await timeout(10);
     splittable.forEach(bullet => {
       this.split_bullet(bullet, splittable);
     });
+    await console.log("split 1")
     await timeout(2000);
     splittable.forEach(bullet => {
       this.split_bullet(bullet, splittable);
@@ -374,7 +375,7 @@ class BulletHell {
           this.rocket(x);
         }
       }
-      await timeout(2000);
+      await timeout(2500);
     }
   }
 
@@ -667,8 +668,8 @@ class BulletHell {
 
 
   handle_click() {
-    this.level1();
-  }
+    this.level6_stepan();
+   }
 
   show() {
     this.resources.forEach(r => r.show());
