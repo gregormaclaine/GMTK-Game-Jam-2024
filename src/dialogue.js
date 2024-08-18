@@ -104,6 +104,132 @@ const DIALOGUE = {
       text: 'Watch out for splitting rocks.'
     }
   ],
+  CRAYON_COFFEE_CAT_BLOCK: [
+    {
+      profile: 'crayon-cat-1',
+      text: "Come speak to me once you've spoken to everyone here"
+    }
+  ],
+  CRAYON_COFFEE_CAT: [
+    {
+      profile: 'crayon-cat-1',
+      text: 'Thanks for going over to speak to everyone.'
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "I hope you feel like you've accomplished a lot. Anyway feel free to leave and head back to your home planet. Goodbye"
+    }
+  ],
+  CRAYON_COFFEE_CAT_GOOD: [
+    {
+      profile: 'crayon-cat-1',
+      text: 'I am a coool cat with coffee :3'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'fuck you coffee cat I can cast a spell that makes ur coffee cold'
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'eat shit'
+    }
+  ],
+  CRAYON_LEGS_CAT: [
+    {
+      profile: 'crayon-cat-2',
+      text: "Hey I'm trying to make my legs longer? Think you can help me with that?"
+    },
+    {
+      profile: 'you-profile',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: 'Amazing! I need you to collect for me 15 MINIMIUM and 15 GIGANTIUM so that I can properly adjust me legs :3.\n Thanks and good luck!'
+    }
+  ],
+  CRAYON_LEGS_CAT_AFTER: [
+    {
+      profile: 'crayon-cat-2',
+      text: 'Thanks for going on that mission. Just you wait and see whats in store for me now!'
+    }
+  ],
+  CRAYON_WIZARD_CAT: [
+    {
+      profile: 'crayon-cat-3',
+      text: 'Oh thank the heavens you are here sir. I really did need one fine person such as yourself to come to my aid.'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'You see I am making a truly important potion! And to complete it I need 20 untouched MINIMIUM CRYSTALS, please would you get it for me!'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'Good luck!'
+    }
+  ],
+  CRAYON_WIZARD_CAT_WIN: [
+    {
+      profile: 'crayon-cat-3',
+      text: 'Oh my oh my, thank you so very much my feline friend. You are my saviour!'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "Because you successfully returned with enough minimium crystals, nyow I can FINALLY make my potion that shrink that cat's legs. God they're ugly"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'You have done a wonderful thing'
+    }
+  ],
+  CRAYON_WIZARD_CAT_LOSS: [
+    {
+      profile: 'crayon-cat-3',
+      text: 'You are awful. A disgusting cat with no future in piloting.'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: 'Because of you I cannot brew the potion I needed to save my dying mother. She will die a painful death because of you. I hope you knyow that.'
+    }
+  ],
+  CRAYON_GUN_CAT: [
+    {
+      profile: 'crayon-cat-4',
+      text: 'Who goes there? ... You better not try anything. Lest I use my GUN!'
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "I became blind many years ago from a human slicing out my eye with its claws - fiesty things they are. But don't you think that that'll make me hesitant to use this thing!\n You should know that I've taken out 6 different feline foes with this!"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "I think ... I guess I never really saw them huh. Maybe you should go ask wizard cat - I heard he's been looking for a talented fighter pilot to gather him some materials for his newest potion"
+    }
+  ],
+  CRAYON_GUN_CAT_2: [
+    {
+      profile: 'crayon-cat-4',
+      text: 'I said go speak to wizard cat - he needs some help with a mission'
+    }
+  ],
+  CRAYON_GUN_CAT_3: [
+    {
+      profile: 'crayon-cat-4',
+      text: 'bro go away'
+    }
+  ],
   OLDER_BROTHER_CAT: [
     {
       profile: 'evil-cat-profile',

@@ -8,7 +8,11 @@ class PlanetScene {
     set_ability,
     add_passive,
     level_results,
-    audio
+    move_world,
+    audio,
+    current_ability,
+    passives,
+    collected
   }) {
     this.dialogue = dialogue;
     this.audio = audio;
@@ -17,6 +21,10 @@ class PlanetScene {
     this.set_ability = set_ability;
     this.add_passive = add_passive;
     this.level_results = level_results;
+    this.move_world = move_world;
+    this.current_ability = current_ability;
+    this.current_passives = passives;
+    this.collected = collected;
 
     this.reset();
     this.play_track();
@@ -48,9 +56,12 @@ class PlanetScene {
   handle_click() {}
   handle_key_press() {
     if (keyCode == 69) {
-      this.npcs.forEach(npc => {
-        if (npc.is_interactable(this.player_pos)) npc.interact();
-      });
+      for (const npc of this.npcs) {
+        if (npc.is_interactable(this.player_pos)) {
+          npc.interact();
+          break;
+        }
+      }
     }
   }
 

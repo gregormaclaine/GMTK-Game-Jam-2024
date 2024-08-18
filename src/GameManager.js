@@ -60,13 +60,28 @@ class GameManager {
         await this.bullets.tutorial_level();
         break;
       case 1:
+        this.audio.play_track('hell-2.mp3', true);
         await this.bullets.level1();
         break;
       case 2:
+        this.audio.play_track('hell-2.mp3', true);
         await this.bullets.level2();
         break;
       case 3:
+        this.audio.play_track('hell-4.mp3', true);
         await this.bullets.level3();
+        break;
+      case 4:
+        this.audio.play_track('hell-4.mp3', true);
+        await this.bullets.level4();
+        break;
+      case 5:
+        this.audio.play_track('hell-1.mp3', true);
+        await this.bullets.level5();
+        break;
+      case 6:
+        this.audio.play_track('hell-1.mp3', true);
+        await this.bullets.level6();
         break;
     }
 
@@ -167,16 +182,25 @@ class GameManager {
 
   draw_hud() {
     textSize(40);
-    textAlign(CENTER, BASELINE);
+    textAlign(LEFT, BASELINE);
     stroke(0);
     strokeWeight(0);
-    fill(255);
-    text('' + this.collected.gigantium, 70, 40);
-    text('' + this.collected.minimium, 270, 40);
+    fill(
+      this.collected.gigantium >= this.collected.goal_gigantium ? 'green' : 255
+    );
+    text(
+      `${this.collected.gigantium}/${this.collected.goal_gigantium}`,
+      70,
+      40
+    );
+    fill(
+      this.collected.minimium >= this.collected.goal_minimium ? 'green' : 255
+    );
+    text(`${this.collected.minimium}/${this.collected.goal_minimium}`, 70, 90);
 
     imageMode('center');
     image(images['gigantium'], 30, 25, 40, 40);
-    image(images['minimium'], 230, 25, 40, 40);
+    image(images['minimium'], 30, 75, 40, 40);
 
     const heart_width = 60;
     const heart_gap = 10;

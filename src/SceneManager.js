@@ -11,7 +11,9 @@ class SceneManager {
       gigantium: 0,
       minimium: 0,
       size: 0,
-      coins: 0
+      coins: 0,
+      goal_gigantium: 0,
+      goal_minimium: 0
     };
 
     this.dialogue = new DialogueManager(images, audio);
@@ -52,7 +54,11 @@ class SceneManager {
       add_passive: passive => {
         this.game_scene.add_passive(passive);
       },
-      level_results: this.level_results
+      level_results: this.level_results,
+      move_world: this.move_world.bind(this),
+      current_ability: () => this.game_scene.ability,
+      passives: () => this.game_scene.passives,
+      collected: this.collected
     };
 
     if (planet === 1) {
@@ -64,6 +70,12 @@ class SceneManager {
     } else {
       console.error('Planet not found:', planet);
     }
+  }
+
+  async move_world(planet) {
+    await this.fade('out');
+    this.load_planet(planet);
+    await this.fade('in');
   }
 
   async start_level(level) {
@@ -87,7 +99,7 @@ class SceneManager {
     await this.fade('out');
     this.state = 'planet';
     this.game_scene.hard_reset();
-    this.load_planet(1);
+    this.load_planet(3);
     await this.fade('in');
   }
 
