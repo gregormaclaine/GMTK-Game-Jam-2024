@@ -1,14 +1,14 @@
 class CrayonPlanet extends PlanetScene {
   reset() {
     this.track = 'planet-3.mp3';
-    this.player_pos = [width / 2, height * 0.9];
+    this.player_pos = [width * 0.2, height * 0.9];
     this.player_size = [200, 200];
     this.player_image = images['you-shadow'];
-    this.background = images['wood-bg'];
-    this.bounding_rect = [0, 0, 0, 0];
+    this.background = images['crayon-bg'];
+    this.bounding_rect = [400, 0, 0, 0];
     this.npcs = [
       new NPC({
-        pos: [width * 0.1, height / 2],
+        pos: [width * 0.1, height * 0.35],
         size: [200, 250],
         radius: 1.2,
         image: images['crayon-cat-1'],
@@ -17,7 +17,7 @@ class CrayonPlanet extends PlanetScene {
         }
       }),
       new NPC({
-        pos: [width * 0.3, height / 2],
+        pos: [width * 0.4, height * 0.55],
         size: [200, 250],
         radius: 1.2,
         image: images['crayon-cat-2'],
@@ -26,7 +26,7 @@ class CrayonPlanet extends PlanetScene {
         }
       }),
       new NPC({
-        pos: [width * 0.6, height / 2],
+        pos: [width * 0.9, height * 0.35],
         size: [200, 250],
         radius: 1.2,
         image: images['crayon-cat-3'],
@@ -35,7 +35,7 @@ class CrayonPlanet extends PlanetScene {
         }
       }),
       new NPC({
-        pos: [width * 0.9, height / 2],
+        pos: [width * 0.8, height * 0.85],
         size: [200, 250],
         radius: 1.2,
         image: images['crayon-cat-4'],
