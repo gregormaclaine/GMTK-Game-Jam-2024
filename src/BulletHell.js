@@ -410,7 +410,7 @@ class BulletHell {
           image: images['gigantium'],
           on_collect: () => {
             this.collected.gigantium += Math.floor(random(5, 8));
-            this.collected.size += 0.5;
+            this.collected.size += 1;
             audio.play_sound('pickup_gigantium.wav');
           }
         })
@@ -425,7 +425,7 @@ class BulletHell {
           speed: [random(1.5), random(1.5)],
           on_collect: () => {
             this.collected.minimium += Math.floor(random(5, 8));
-            this.collected.size -= 0.5;
+            this.collected.size -= 1;
             audio.play_sound('pickup_minimium.wav');
           }
         })
@@ -460,18 +460,18 @@ class BulletHell {
       on_collect: () => {}
     });
     this.resources.push(resource);
-    if (this.is_done) return;
+    if (this.is_done()) return;
     await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_1);
     await new Promise(resolve => {
       resource.on_collect = () => {
         this.collected.gigantium += Math.floor(random(5, 8));
-        this.collected.size += 0.5;
+        this.collected.size += 1;
         audio.play_sound('pickup_gigantium.wav');
         resolve();
       };
     });
     await timeout(1500);
-    if (this.is_done) return;
+    if (this.is_done()) return;
     await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_2);
     await timeout(1500);
 
@@ -482,11 +482,11 @@ class BulletHell {
     setTimeout(() => this.spawn_resources(), random(4000, 8000));
     await this.pattern1andhalf(9);
     await timeout(3000);
-    if (this.is_done) return;
+    if (this.is_done()) return;
     await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_3);
   }
 
-  async level1() {
+  async level6() {
     setTimeout(() => this.spawn_resources(), 1000);
     await this.pattern1();
     await timeout(1000);
@@ -508,7 +508,7 @@ class BulletHell {
     await timeout(4000);
   }
 
-  async level2() {
+  async level3() {
     setTimeout(() => this.spawn_resources(), random(2000, 3500));
     for (let set = 0; set < 3; set++) {
       for (let p0 = 0; p0 < 6; p0++) {
@@ -529,7 +529,7 @@ class BulletHell {
     await timeout(3000);
   }
 
-  async level3() {
+  async level5() {
     for (let set = 0; set < 2; set++) {
       setTimeout(() => this.spawn_resources(), random(5000, 10000));
       setTimeout(() => this.spawn_resources(), random(18000, 30000));
@@ -549,7 +549,7 @@ class BulletHell {
     await timeout(2000);
   }
 
-  async level4() {
+  async level2() {
     for (let big_set = 0; big_set < 2; big_set++) {
       setTimeout(() => this.spawn_resources(), random(5000, 10000));
       setTimeout(() => this.spawn_resources(), random(18000, 30000));
@@ -571,7 +571,7 @@ class BulletHell {
     await timeout(2000);
   }
 
-  async level5() {
+  async level1() {
     setTimeout(() => this.spawn_resources(), random(5000, 10000));
     setTimeout(() => this.spawn_resources(), random(18000, 30000));
     for (let set = 0; set < 3; set++) {
@@ -587,7 +587,7 @@ class BulletHell {
     await timeout(4500);
   }
 
-  async level6() {
+  async level4() {
     await this.dialogue.send(DIALOGUE.INTRODUCE_SPLITTING_ROCKS);
     for (let big_set = 0; big_set < 2; big_set++) {
       setTimeout(() => this.spawn_resources(), random(5000, 10000));
