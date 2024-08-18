@@ -511,13 +511,14 @@ class BulletHell {
     for (let set = 0; set < 2; set++) {
       for (let p0 = 0; p0 < 2; p0++) {
         this.pattern4();
-        await this.spawn_bullets(2, 100, 250);
-        await timeout(1000);
+        await this.pattern4();
+        this.spawn_bullets(2, 100, 400);
+        await timeout(2000);
       }
       await timeout(6000);
       await this.pattern1();
-      this.pattern2();
-      await timeout(1000);
+      await this.pattern2();
+      await timeout(3000);
     }
   }
 

@@ -57,9 +57,13 @@ class PlanetScene {
               await this.dialogue.send(DIALOGUE.CHINA_CAT_GOTO_LEVEL, {
                 skippable: false
               });
+              // Do it after two seconds so that it happens when ur already playing
+              setTimeout(
+                () => (this.player_pos = [width / 2, height * 0.9]),
+                2000
+              );
               await this.start_level('tutorial');
               reset_count();
-              this.player_pos = [width / 2, height * 0.9];
             }
           } else {
             await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL, {
