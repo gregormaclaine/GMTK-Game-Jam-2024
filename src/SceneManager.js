@@ -59,6 +59,8 @@ class SceneManager {
       this.planet_scene = new Planet1(planet_props);
     } else if (planet === 2) {
       this.planet_scene = new DarkPlanet(planet_props);
+    } else if (planet === 3) {
+      this.planet_scene = new CrayonPlanet(planet_props);
     } else {
       console.error('Planet not found:', planet);
     }
