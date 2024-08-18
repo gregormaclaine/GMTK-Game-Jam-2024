@@ -21,6 +21,8 @@ class CrayonPlanet extends PlanetScene {
           }
 
           await this.dialogue.send(DIALOGUE.CRAYON_COFFEE_CAT);
+          this.level_results['planet3'] =
+            result5 === 'win' || result6 === 'win' ? 'win' : 'lose';
           this.finish_game();
         }
       }),
