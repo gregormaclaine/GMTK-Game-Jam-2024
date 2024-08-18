@@ -37,7 +37,7 @@ class DialogueManager {
     return true;
   }
 
-  async send(dialogues, { wait = 0, skippable = true }) {
+  async send(dialogues, { wait = 0, skippable = true } = {}) {
     if (!dialogues.length) return;
     this.active = true;
     this.skippable = skippable;

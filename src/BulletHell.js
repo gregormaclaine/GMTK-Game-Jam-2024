@@ -7,7 +7,14 @@ class Bullet {
       [this.pos.x, this.pos.y],
       [size * 0.7, size * 0.7]
     );
-    this.image = random() > 0.96 ? images['asteroid'] : images['rock'];
+    const rock_odds = random();
+    if (rock_odds > 0.98) {
+      this.image = images['cool-rock'];
+    } else if (rock_odds > 0.94) {
+      this.image = images['asteroid'];
+    } else {
+      this.image = images['rock'];
+    }
     this.has_collided = false;
   }
 
@@ -63,14 +70,17 @@ class Lazer extends Bullet {
 }
 
 class BulletHell {
-  constructor({ player, collected, passives }) {
+  constructor({ player, collected, passives, dialogue }) {
     this.player = player;
     this.collected = collected;
+    this.dialogue = dialogue;
     this.bullets = [];
     this.resources = [];
     this.lazers = [];
     this.slow = false;
     this.magnetic = passives.includes('magnet');
+
+    window.start_level = () => this.level3();
   }
 
   shoot() {
@@ -114,20 +124,41 @@ class BulletHell {
   async pattern1() {
     //Makes the player zigzag
     for (let sets = 0; sets < 5; sets++) {
-      for (let i = 0; i < 10; i++) {
-        if (i % 4 != 0 && i % 4 != 1) {
-          const x = (width / 10) * i;
+      for (let i = 0; i < 12; i++) {
+        if (i % 4 != 0 && i % 4 != 3) {
+          const x = (width / 12) * i;
           this.bullets.push(new Bullet(x, -100, 150));
         }
       }
       await timeout(1500);
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < 12; j++) {
         if (j % 4 != 0 && j % 4 != 1) {
-          const x = (width / 10) * j + 150;
+          const x = (width / 12) * j + 150;
           this.bullets.push(new Bullet(x, -100, 150));
         }
       }
       await timeout(1500);
+    }
+  }
+
+  async pattern1andhalf(sets) {
+    const sep = 20;
+    const size = 150;
+
+    for (let i = 0; i < sets; i++) {
+      const right_side = random(size * 3 + sep * 2, width / 2);
+      const left_side = random(width / 2, width - (size * 3 + sep * 2));
+
+      this.bullets.push(
+        new Bullet(right_side - size * 0.5, -100, size),
+        new Bullet(right_side - size * 1.5 - sep, -100, size),
+        new Bullet(right_side - size * 2.5 - sep * 2, -100, size),
+
+        new Bullet(left_side + size * 0.5, -100, size),
+        new Bullet(left_side + size * 1.5 + sep, -100, size),
+        new Bullet(left_side + size * 2.5 + sep * 2, -100, size)
+      );
+      await timeout(3000);
     }
   }
 
@@ -388,6 +419,55 @@ class BulletHell {
     }
   }
 
+  spawn_random_diag(other_side) {
+    const vel = p5.Vector.fromAngle(random(PI / 8, (3 * PI) / 8), random(3, 7));
+    if (other_side) vel.rotate(PI / 2);
+    this.bullets.push(
+      new Bullet(
+        other_side
+          ? width + random(50, 150)
+          : -random(50, 150) - random(50, 150),
+        -random(50, 150),
+        80,
+        vel.x,
+        vel.y
+      )
+    );
+  }
+
+  async tutorial_level() {
+    await timeout(2000);
+    await this.pattern1andhalf(4);
+    await timeout(2000);
+    const resource = new Resource({
+      pos: createVector(width - 200, 200),
+      image: images['gigantium'],
+      on_collect: () => {}
+    });
+    this.resources.push(resource);
+    await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_1);
+    await new Promise(resolve => {
+      resource.on_collect = () => {
+        this.collected.gigantium += Math.floor(random(5, 8));
+        this.collected.size += 0.5;
+        audio.play_sound('pickup_gigantium.wav');
+        resolve();
+      };
+    });
+    await timeout(1500);
+    await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_2);
+    await timeout(1500);
+
+    for (let i = 0; i < 6; i++) {
+      setTimeout(() => this.spawn_random_diag(), random(4000, 25000));
+      setTimeout(() => this.spawn_random_diag(true), random(4000, 25000));
+    }
+    setTimeout(() => this.spawn_resources(), random(4000, 8000));
+    await this.pattern1andhalf(9);
+    await timeout(3000);
+    await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_3);
+  }
+
   async level1() {
     await this.spawn_resources();
     await this.pattern1();
@@ -406,7 +486,7 @@ class BulletHell {
       await this.spawn_bullets(5, 150, 300);
     }
     await this.spawn_resources();
-    await timeout(2000);
+    await timeout(4000);
   }
 
   async level2() {
@@ -420,11 +500,13 @@ class BulletHell {
       this.pattern3();
       await timeout(2000);
     }
-    this.pattern2();
+    await this.pattern2();
     await timeout(1000);
-    await this.pattern1();
     this.pattern2();
+    await this.pattern1();
+    await timeout(4000);
   }
+
   async level3() {
     for (let set = 0; set < 2; set++) {
       for (let p0 = 0; p0 < 2; p0++) {
@@ -439,9 +521,7 @@ class BulletHell {
     }
   }
 
-  handle_click() {
-    this.level1();
-  }
+  handle_click() {}
 
   show() {
     this.resources.forEach(r => r.show());

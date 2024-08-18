@@ -29,7 +29,7 @@ class NPC {
   interact() {
     if (this.is_hidden()) return;
     this.count++;
-    return this.on_interact(this.count);
+    return this.on_interact(this.count, () => (this.count = 0));
   }
 
   is_interactable(player_pos) {

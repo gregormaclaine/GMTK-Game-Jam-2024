@@ -46,7 +46,8 @@ class GameManager {
     this.bullets = new BulletHell({
       player: this.player,
       collected: this.collected,
-      passives: this.passives
+      passives: this.passives,
+      dialogue: this.dialogue
     });
   }
 
@@ -59,6 +60,9 @@ class GameManager {
 
     await timeout(1000);
     switch (level) {
+      case 'tutorial':
+        await this.bullets.tutorial_level();
+        break;
       case 1:
         await this.bullets.level1();
         break;
@@ -71,7 +75,6 @@ class GameManager {
     }
 
     if (this.on_finish_level) {
-      await timeout(1000);
       this.player.ascending = true;
       await new Promise(resolve => (this.player.on_ascended = resolve));
       this.on_finish_level();

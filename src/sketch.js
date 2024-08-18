@@ -37,8 +37,10 @@ function preload() {
     loadImage('assets/img/plane/3.png'),
     loadImage('assets/img/plane/4.png')
   ];
-  images['rock'] = loadImage('assets/img/rock.png');
-  images['asteroid'] = loadImage('assets/img/asteroid.png');
+
+  images['rock'] = loadImage('assets/img/rocks/rock.png');
+  images['asteroid'] = loadImage('assets/img/rocks/asteroid.png');
+  images['cool-rock'] = loadImage('assets/img/rocks/cool-rock.png');
 
   images['gigantium'] = loadImage('assets/img/items/gigantium.png');
   images['minimium'] = loadImage('assets/img/items/minimium.png');

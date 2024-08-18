@@ -100,7 +100,7 @@ class Player {
 
   update() {
     if (this.ascending) {
-      this.vel = createVector(0, -3);
+      this.vel = createVector(0, -4);
       this.pos.add(this.vel);
 
       if (this.pos.y + this.size[1] < 0) this.on_ascended();

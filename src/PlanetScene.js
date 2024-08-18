@@ -40,13 +40,15 @@ class PlanetScene {
         pos: [width * 0.5, height * 0.3],
         image: images['china-cat-profile'],
         size: [200, 200],
-        interact: async count => {
-          if (count === 0) {
+        interact: async (count, reset_count) => {
+          const result = this.level_results['tutorial'];
+
+          if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.CHINA_CAT_INTRO, {
               skippable: false
             });
             this.planet_1_add_abilities();
-          } else {
+          } else if (!result) {
             if (this.npcs.length > 1) {
               await this.dialogue.send(DIALOGUE.CHINA_CAT_INTRO_REPEAT, {
                 skippable: false
@@ -55,8 +57,14 @@ class PlanetScene {
               await this.dialogue.send(DIALOGUE.CHINA_CAT_GOTO_LEVEL, {
                 skippable: false
               });
-              await this.start_level(1);
+              await this.start_level('tutorial');
+              reset_count();
+              this.player_pos = [width / 2, height * 0.9];
             }
+          } else {
+            await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL, {
+              skippable: false
+            });
           }
         }
       })
