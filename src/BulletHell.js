@@ -19,12 +19,6 @@ class Bullet {
   }
 
   show() {
-    // strokeWeight(0);
-    // for (let i = 0; i < 5; i++) {
-    //   fill(255, 0, 0, 100);
-    //   circle(this.pos.x, this.pos.y - (5 - i) * 11, 5 + i * 3);
-    // }
-
     imageMode('center');
     image(this.image, this.pos.x, this.pos.y, this.size, this.size);
 
