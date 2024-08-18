@@ -14,6 +14,8 @@ class Planet1 extends PlanetScene {
         radius: 1,
         interact: async (count, reset_count) => {
           const result = this.level_results['tutorial'];
+          const result_1 = this.level_results[1];
+          const result_2 = this.level_results[2];
 
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.CAT_INTRO, {
@@ -44,6 +46,9 @@ class Planet1 extends PlanetScene {
         radius: 1,
         interact: async (count, reset_count) => {
           const result = this.level_results['tutorial'];
+          const result_1 = this.level_results[1];
+          const result_2 = this.level_results[2];
+
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT, {
               skippable: true
@@ -53,7 +58,7 @@ class Planet1 extends PlanetScene {
               skippable: false
             });
           } else {
-            if (result === 'fail') {
+            if (result === 'fail' || result_1 === 'fail' || result_2 == 'fail') {
             await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT_FAIL, {
               skippable: false
             });
@@ -63,7 +68,7 @@ class Planet1 extends PlanetScene {
             });
           }
         }
-        }
+      }
       }),
       new NPC({
         pos: [width * 0.65, height * 0.4],
@@ -72,6 +77,9 @@ class Planet1 extends PlanetScene {
         radius: 1,
         interact: async (count, reset_count) => {
           const result = this.level_results['tutorial'];
+          const result_1 = this.level_results[1];
+          const result_2 = this.level_results[2];
+
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT, {
               skippable: true
@@ -81,7 +89,7 @@ class Planet1 extends PlanetScene {
               skippable: false
             });
           } else {
-            if (result === 'fail') {
+            if (result === 'fail' || result_1 === 'fail' || result_2 == 'fail') {
             await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_FAIL, {
               skippable: false
             });
@@ -100,6 +108,8 @@ class Planet1 extends PlanetScene {
         radius: 1,
         interact: async (count, reset_count) => {
           const result = this.level_results['tutorial'];
+          const result_1 = this.level_results[1];
+          const result_2 = this.level_results[2];
 
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.MYSTERY_CAT, {
@@ -111,7 +121,7 @@ class Planet1 extends PlanetScene {
                 skippable: false
               });
             } else {
-              await this.dialogue.send(DIALOGUE.CAT_GOTO_LEVEL, {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL, {
                 skippable: false
               });
               // Do it after two seconds so that it happens when ur already playing
@@ -120,13 +130,51 @@ class Planet1 extends PlanetScene {
                 2000
               );
               await this.start_level('tutorial');
-              this.play_track();
               reset_count();
             }
           } else {
-            await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL, {
+            await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL_MYSTERY_CAT, {
               skippable: false
             });
+          }
+          if (result && !result_1) {
+            if (count == 0) {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_1, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1, {
+                skippable: false
+              });
+              await this.start_level(1);
+              reset_count();
+            }
+          }
+          if (result && result_1 && !result_2) {
+            if (count == 0) {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_2, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_2, {
+                skippable: false
+              });
+              await this.start_level(2);
+              reset_count();
+            }
+          }
+          if (result && result_1 && result_2) {
+            if (count == 0) {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_WORLD_2, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_2, {
+                skippable: false
+              });
+              await this.move_world(2);
+              reset_count();
+            }
           }
         }
       })

@@ -99,7 +99,7 @@ class SceneManager {
     await this.fade('out');
     this.state = 'planet';
     this.game_scene.hard_reset();
-    this.load_planet(3);
+    this.load_planet(1);
     await this.fade('in');
   }
 

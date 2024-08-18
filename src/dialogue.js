@@ -38,17 +38,33 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "i see, i've never gone out gigantium gathering before. i only recently received my meowzer, but i'll try my best."
+      text: "What does gigantium have to do with your crops?"
     },
     {
       profile: 'science-cat-profile',
-      text: "I have a little something to help you on your journey, brave Cat. My most advanced meowzer upgrades, I have spent a lifetime developing these. I can only share one with you, the other two will go to my children. For your bravery, I will let you have the first pick."
+      text: "You see, we use gigantium in agriculture to make our crops larger, and we use miniumium to stabilise the process. You can do likewise the other way around, but we generally want things to be bigger so we have a bigger need for gigantium."
+    },
+    {
+      profile: 'science-cat-profile',
+      text: "Our planet's soil is naturally very fertile, well usually, so most of our exports are agricultural. Thanks to our special soil, we can almost any organic material in our soil, and use gigantium to amplify the size. The planet's economy is very dependant on our agricultural exports, so we have found ourselves in quite the tough spot."
+    },
+    {
+      profile: 'you-profile',
+      text: "i see, i've never gone out gigantium gathering before. i only recently received my meowzer. my first trip on it was on my way here, but i'll try my best."
+    },
+    {
+      profile: 'science-cat-profile',
+      text: "That must have been exciting for you then, although then again very few pilots remember their first trip on their meowzers. I heard it takes quite the toll on the pilot's nervous system."
+    },
+    {
+      profile: 'science-cat-profile',
+      text: "In any case, I have a little something to help you on your journey, brave Cat. My most advanced meowzer upgrades, I have spent a lifetime developing these. I can only share one with you, the other two will go to my children. For your bravery, I will let you have the first pick."
     },
   ],
   CAT_INTRO_REPEAT: [
     {
       profile: 'science-cat-profile',
-      text: 'Chose wisely, brave Cat.'
+      text: "Chose your upgrade wisely, brave Cat. I don't recommend you leave without it. It's not just our planet that's at stake."
     }
   ],
   CAT_GOTO_LEVEL: [
@@ -68,12 +84,12 @@ const DIALOGUE = {
   LEVEL_1_RESOURCE_INTRO_1: [
     {
       profile: 'amongus',
-      text: "Wow you're a natural! Ooo look over there in the corner! Theres a cool new resource called GIGANTIUM."
+      text: "OooOOo look at you getting the hang of your meowzer, you're a natural! Look over there in the corner! Theres a cool new resource called GIGANTIUM."
     },
     {
       profile: 'amongus',
       text:
-        'When you collect gigantium, your ship naturally becomes a little larger. This improves your ship by making it faster and more maneuverable, but it also makes it harder to fit through small gaps. ' +
+        'When you collect gigantium, your meowzer naturally grows a little larger. This makes it faster and more manoeuvrable, but it also makes it harder to fit through small gaps. ' +
         "Go and try to pick it up. Don't worry, there shouldn't be many asteroids around here, so the coast is clear."
     }
   ],
@@ -81,20 +97,39 @@ const DIALOGUE = {
     {
       profile: 'amongus',
       text:
-        "Nice one! Notice how your ship is a little easier to steer? Neat huh. Anyway, I've heard that the terrain ahead of here gets a little trickier. " +
+        "Nice one! Notice how your meowzer is a little easier to steer? Neat huh? Anyway, I've heard that the terrain ahead of here gets a little trickier. " +
         'So watch out for smaller asteroids coming from the sides. Good luck!'
     }
   ],
   LEVEL_1_RESOURCE_INTRO_3: [
     {
       profile: 'amongus',
-      text: 'WOW! You really are the right person for the job. Now come back and speak to some of the others who also have jobs for you.'
+      text: "WOW! You really are talented. Guess it was the right choice to give you the meowzer 3000, you make a great team."
+    },
+    {
+      profile: 'amongus',
+      text: "A lot of people are counting on you kiddo, don't let them down. You do want your body back don't you? ANYwaY, I'm gonna go eat a brioche or something, see ya later!"
     }
   ],
   LEVEL_1_AFTER_TUTORIAL: [
     {
-      profile: 'amongus',
-      text: "Congrats on completing your first journey. Try and speak to the others, I've heard they have also been looking for a talented pilot to gather some materials for them..."
+      profile: 'science-cat-profile',
+      text: "Welcome back, I hope your flight went well."
+    },
+    {
+      profile: 'science-cat-profile',
+      text: "Take as long as you need to rest."
+    },
+    {
+      profile: 'you-profile',
+      text: "Thanks Cara!"
+    },
+    
+  ],
+  LEVEL_1_AFTER_TUTORIAL_MYSTERY_CAT: [
+    {
+      profile: 'mystery-cat-profile',
+      text: 'Well done out there boss.'
     }
   ],
   INTRODUCE_SPLITTING_ROCKS: [
@@ -349,7 +384,7 @@ const DIALOGUE = {
     }, 
     {
       profile: 'china-cat-profile',
-      text: "Every night I have dreams of how I walk with a level 600 gyatt walked past my whole class at school, or when I'm in class drinking my grimace rizz shake from ohio during my rizzonomics class when all of the sudden this crazy ohio bing chilling gyatt got sturdy, past my class. I was watching kai cenat hit the griddy on twitch. This is when I let my rizz take over and I became the rizzard of oz. I screamed, look at this bomboclat gyatt."
+      text: "Every night I have dreams of how I walk with a level 600 gyatt past my whole class at school, or when I'm in class drinking my grimace rizz shake from ohio during my rizzonomics class, and all of a sudden this crazy ohio bing chilling gyatt plops down next to me. I was watching kai cenat hit the griddy on twitch the other day, which is when I let my rizz take over and transformed the rizzard of oz. I screamed, look at this bomboclaAaat gyaAAtt SHEEEEESH."
     },
     {
       profile: 'china-cat-profile',
@@ -415,6 +450,73 @@ const DIALOGUE = {
       profile: 'mystery-cat-profile',
       text: "Well done boss, you've done it. Keep it up."
     }
-  ]
-
+  ],
+  MYSTERY_CAT_PREPARE_LEVEL_1: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Let me know when you're ready to go back out there boss."
+    },
+    {
+      profile: 'you-profile',
+      text: "Sure, thanks... what should I even call you?"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "You can call me whatever, boss."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_1: [
+    {
+      profile: 'you-profile',
+      text: "Alright Whatever, I'm ready."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Good luck out there boss. Remember to keep track of how much gigantium and minimium we need."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_LEVEL_2: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Let me know when you're ready to go back out there boss."
+    },
+    {
+      profile: 'you-profile',
+      text: "Sure, Whaterver :)"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "..."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_2: [
+    {
+      profile: 'you-profile',
+      text: "Let's go out there again."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Stay safe boss. Take care of your meowzer."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_WORLD_2: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "I just received a call for help from another planet boss. Tell me when you're ready to go there."
+    },
+    {
+      profile: 'you-profile',
+      text: "Will do."
+    }
+  ],
+  MYSTERY_CAT_GOTO_WORLD_2: [
+    {
+      profile: 'you-profile',
+      text: "Let's go onwards to new adventures Whatever."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "You can relax for a bit boss, I'll take you to the next location."
+    }
+  ],
 };
