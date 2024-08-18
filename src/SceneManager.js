@@ -6,6 +6,7 @@ class SceneManager {
     this.audio = audio;
 
     this.state = 'menu';
+    this.level_results = {};
 
     this.dialogue = new DialogueManager(images, audio);
 
@@ -13,19 +14,6 @@ class SceneManager {
       images,
       audio,
       dialogue: this.dialogue
-    });
-
-    this.planet_scene = new PlanetScene({
-      dialogue: this.dialogue,
-      start_level: this.start_level.bind(this),
-      fade: this.fade.bind(this),
-      finish_game: this.finish_game.bind(this),
-      set_ability: ability => {
-        this.game_scene.set_ability(ability);
-      },
-      add_passive: passive => {
-        this.game_scene.add_passive(passive);
-      }
     });
 
     this.menu_scene = new MenuScreen(
@@ -43,6 +31,27 @@ class SceneManager {
     this.fade_mode = null;
     this.fade_progress = 0;
     this.fade_completed = () => {};
+  }
+
+  load_planet(planet) {
+    const planet_props = {
+      dialogue: this.dialogue,
+      start_level: this.start_level.bind(this),
+      finish_game: this.finish_game.bind(this),
+      set_ability: ability => {
+        this.game_scene.set_ability(ability);
+      },
+      add_passive: passive => {
+        this.game_scene.add_passive(passive);
+      },
+      level_results: this.level_results
+    };
+
+    if (planet === 1) {
+      this.planet_scene = new Planet1(planet_props);
+    } else {
+      console.error('Planet not found:', planet);
+    }
   }
 
   async start_level(level) {
@@ -66,8 +75,7 @@ class SceneManager {
     await this.fade('out');
     this.state = 'planet';
     this.game_scene.hard_reset();
-    this.planet_scene.reset();
-    this.planet_scene.load_planet_1();
+    this.load_planet(1);
     await this.fade('in');
   }
 
