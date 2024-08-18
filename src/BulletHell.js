@@ -84,6 +84,10 @@ class BulletHell {
     window.start_level = () => this.level3();
   }
 
+  is_done() {
+    return this.player.health <= 0;
+  }
+
   shoot() {
     const dir = this.player.vel.copy();
     dir.setMag(15);
@@ -456,6 +460,7 @@ class BulletHell {
       on_collect: () => {}
     });
     this.resources.push(resource);
+    if (this.is_done) return;
     await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_1);
     await new Promise(resolve => {
       resource.on_collect = () => {
@@ -466,6 +471,7 @@ class BulletHell {
       };
     });
     await timeout(1500);
+    if (this.is_done) return;
     await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_2);
     await timeout(1500);
 
@@ -476,6 +482,7 @@ class BulletHell {
     setTimeout(() => this.spawn_resources(), random(4000, 8000));
     await this.pattern1andhalf(9);
     await timeout(3000);
+    if (this.is_done) return;
     await this.dialogue.send(DIALOGUE.LEVEL_1_RESOURCE_INTRO_3);
   }
 
