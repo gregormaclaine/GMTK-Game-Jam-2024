@@ -92,6 +92,7 @@ class SceneManager {
       this.state = 'planet';
       this.planet_scene.level_results[level] = 'win';
     }
+    this.planet_scene.play_track();
     await this.fade('in');
   }
 
