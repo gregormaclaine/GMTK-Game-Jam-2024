@@ -53,7 +53,9 @@ class SceneManager {
         this.game_scene.add_passive(passive);
       },
       level_results: this.level_results,
-      move_world: this.move_world.bind(this)
+      move_world: this.move_world.bind(this),
+      current_ability: () => this.game_scene.ability,
+      passives: () => this.game_scene.passives
     };
 
     if (planet === 1) {
