@@ -50,9 +50,12 @@ class PlanetScene {
   handle_click() {}
   handle_key_press() {
     if (keyCode == 69) {
-      this.npcs.forEach(npc => {
-        if (npc.is_interactable(this.player_pos)) npc.interact();
-      });
+      for (const npc of this.npcs) {
+        if (npc.is_interactable(this.player_pos)) {
+          npc.interact();
+          break;
+        }
+      }
     }
   }
 
