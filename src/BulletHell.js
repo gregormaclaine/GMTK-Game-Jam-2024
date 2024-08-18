@@ -94,16 +94,15 @@ class BulletHell {
   }
 
   // MAKE LOADS OF THESE FUNCTIONS STEPAN
-  split_bullet(bullet) {
+  split_bullet(bullet, splittable = []) {
     //Creates 2 bullets at the location of the original one
     const x = bullet.pos.x;
     const y = bullet.pos.y;
-    this.bullets.push(
-      new Bullet(x, y, bullet.size * 0.75, 2.5, bullet.speed.y)
-    );
-    this.bullets.push(
-      new Bullet(x, y, bullet.size * 0.75, -2.5, bullet.speed.y)
-    );
+    const b1 = new Bullet(x, y, bullet.size * 0.75, 2.5, bullet.speed.y);
+    const b2 = new Bullet(x, y, bullet.size * 0.75, -2.5, bullet.speed.y);
+    splittable.push(b1, b2);
+    this.bullets.push(b1, b2);
+
     bullet.pos.y = height + 100;
   }
 
@@ -270,33 +269,40 @@ class BulletHell {
   }
 
   async pattern6() {
+    let splittable = [];
     //Splitting these nuts
     for (let i = 0; i < 5; i++) {
       const x = 200 + (i * width) / 5;
-      this.bullets.push(new Bullet(x, -100, 200));
-      await timeout(random(1000));
+      const b = new Bullet(x, -100, 200);
+      splittable.push(b);
+      this.bullets.push(b);
+      if (i < 4) await timeout(random(400, 1000));
     }
     await timeout(100);
-    this.bullets.forEach(bullet => {
-      this.split_bullet(bullet);
+    splittable.forEach(bullet => {
+      this.split_bullet(bullet, splittable);
     });
-    await timeout(1000);
-    this.bullets.forEach(bullet => {
-      this.split_bullet(bullet);
+    await timeout(2000);
+    splittable.forEach(bullet => {
+      this.split_bullet(bullet, splittable);
     });
+    splittable = [];
+
     await timeout(1000);
     for (let i = 0; i < 5; i++) {
       const x = width - 200 - (i * width) / 5;
-      this.bullets.push(new Bullet(x, -100, 200));
+      const b = new Bullet(x, -100, 200);
+      splittable.push(b);
+      this.bullets.push(b);
       await timeout(random(1000));
     }
     await timeout(100);
-    this.bullets.forEach(bullet => {
-      this.split_bullet(bullet);
+    splittable.forEach(bullet => {
+      this.split_bullet(bullet, splittable);
     });
-    await timeout(1000);
-    this.bullets.forEach(bullet => {
-      this.split_bullet(bullet);
+    await timeout(2000);
+    splittable.forEach(bullet => {
+      this.split_bullet(bullet, splittable);
     });
   }
 
@@ -572,6 +578,25 @@ class BulletHell {
     }
     await this.pattern2();
     await timeout(4500);
+  }
+
+  async level6() {
+    await this.dialogue.send(DIALOGUE.INTRODUCE_SPLITTING_ROCKS);
+    for (let big_set = 0; big_set < 2; big_set++) {
+      setTimeout(() => this.spawn_resources(), random(5000, 10000));
+      setTimeout(() => this.spawn_resources(), random(18000, 30000));
+      for (let set = 0; set < 3; set++) {
+        for (let i = 0; i < 6; i++) {
+          setTimeout(() => this.spawn_random_diag(), random(500, 80000));
+          setTimeout(() => this.spawn_random_diag(true), random(500, 8000));
+        }
+        await this.pattern6();
+        await timeout(1000);
+      }
+      await this.pattern2();
+      await timeout(3500);
+    }
+    await timeout(1000);
   }
 
   handle_click() {}

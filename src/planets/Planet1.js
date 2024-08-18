@@ -9,24 +9,24 @@ class Planet1 extends PlanetScene {
     this.npcs = [
       new NPC({
         pos: [width * 0.5, height * 0.3],
-        image: images['china-cat-profile'],
-        size: [200, 200],
+        image: images['science-cat'],
+        size: [200, 300],
         radius: 1,
         interact: async (count, reset_count) => {
           const result = this.level_results['tutorial'];
 
           if (!result && count === 0) {
-            await this.dialogue.send(DIALOGUE.CHINA_CAT_INTRO, {
+            await this.dialogue.send(DIALOGUE.CAT_INTRO, {
               skippable: false
             });
             this.spawn_abilities();
           } else if (!result) {
             if (this.npcs.length > 1) {
-              await this.dialogue.send(DIALOGUE.CHINA_CAT_INTRO_REPEAT, {
+              await this.dialogue.send(DIALOGUE.CAT_INTRO_REPEAT, {
                 skippable: false
               });
             } else {
-              await this.dialogue.send(DIALOGUE.CHINA_CAT_GOTO_LEVEL, {
+              await this.dialogue.send(DIALOGUE.CAT_GOTO_LEVEL, {
                 skippable: false
               });
               // Do it after two seconds so that it happens when ur already playing
