@@ -89,6 +89,7 @@ function preload() {
   );
 
   // Main Menu
+  images['title'] = loadImage('assets/img/title.png');
   images['start-button'] = loadImage('assets/img/main_menu/start-button.png');
   images['credits-button'] = loadImage(
     'assets/img/main_menu/credits-button.png'

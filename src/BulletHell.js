@@ -3,10 +3,7 @@ class Bullet {
     this.pos = createVector(x, y);
     this.size = size;
     this.speed = [speed_x, speed_y];
-    this.hitbox = new HitBox(
-      [this.pos.x, this.pos.y],
-      [size * 0.7, size * 0.7]
-    );
+    this.hitbox = new HitBox([this.pos.x, this.pos.y], this.hitbox_size());
     const rock_odds = random();
     if (rock_odds > 0.98) {
       this.image = images['cool-rock'];
@@ -16,6 +13,15 @@ class Bullet {
       this.image = images['rock'];
     }
     this.has_collided = false;
+  }
+
+  set_size(size) {
+    this.size = size;
+    this.hitbox.size = this.hitbox_size();
+  }
+
+  hitbox_size() {
+    return [this.size * 0.7, this.size * 0.7];
   }
 
   show() {
@@ -234,29 +240,29 @@ class BulletHell {
   async pattern5() {
     //Asteroid pulsing in size
     for (let set = 0; set < 3; set++) {
-      const x = (random(1000) / 1000) * width;
+      const x = random(width);
       let mode = 0;
-      let astr = new Bullet(x, -100, 400, 0, 3);
+      let astr = new Bullet(x, -200, 400, random(-0.5, 0.5), 3);
       this.bullets.push(astr);
-      for (let i = 0; i < 300; i++) {
+      for (let i = 0; i < 300 && this.bullets.includes(astr); i++) {
         //Don't ask
         if (mode == 0) {
-          if (astr.size == 590) {
+          if (astr.size >= 590) {
             mode = 1;
           } else {
             mode = 0;
           }
         } else if (mode == 1) {
-          if (astr.size == 290) {
+          if (astr.size <= 290) {
             mode = 0;
           } else {
             mode = 1;
           }
         }
         if (mode === 0) {
-          astr.size = astr.size + 10;
+          astr.set_size(astr.size + 10);
         } else if (mode === 1) {
-          astr.size = astr.size - 10;
+          astr.set_size(astr.size - 10);
         }
         await timeout(25);
       }
@@ -363,9 +369,9 @@ class BulletHell {
     //Side to side bounce
     for (let i = 0; i < 6; i++) {
       const x = 150 + (i * (width / 10 + 100) * random(1000)) / 1000;
-      this.bullets.push(new Bullet(x, -100, 150, (-1) ** (i + 1) * 10));
+      this.bullets.push(new Bullet(x, -100, 120, (-1) ** (i + 1) * 7));
     }
-    for (let t = 0; t < 500; t++) {
+    for (let t = 0; t < 50; t++) {
       this.bullets.forEach(bullet => {
         this.bounce(bullet);
       });
@@ -512,17 +518,60 @@ class BulletHell {
 
   async level3() {
     for (let set = 0; set < 2; set++) {
+      setTimeout(() => this.spawn_resources(), random(5000, 10000));
+      setTimeout(() => this.spawn_resources(), random(18000, 30000));
       for (let p0 = 0; p0 < 2; p0++) {
         this.pattern4();
         await this.pattern4();
         this.spawn_bullets(2, 100, 400);
         await timeout(2000);
       }
-      await timeout(6000);
+      await timeout(4000);
+      this.pattern2();
+      setTimeout(() => this.pattern2(), 3500);
       await this.pattern1();
       await this.pattern2();
+      await timeout(2000);
+    }
+    await timeout(2000);
+  }
+
+  async level4() {
+    for (let big_set = 0; big_set < 2; big_set++) {
+      setTimeout(() => this.spawn_resources(), random(5000, 10000));
+      setTimeout(() => this.spawn_resources(), random(18000, 30000));
+      for (let set = 0; set < 3; set++) {
+        await this.pattern2();
+      }
+      await timeout(2000);
+
+      for (let set = 0; set < 6; set++) {
+        setTimeout(() => this.pattern8(), 1400 * set);
+      }
+      await timeout(6 * 1400);
+
+      for (let set = 0; set < 3; set++) {
+        await this.pattern2();
+      }
       await timeout(3000);
     }
+    await timeout(2000);
+  }
+
+  async level5() {
+    setTimeout(() => this.spawn_resources(), random(5000, 10000));
+    setTimeout(() => this.spawn_resources(), random(18000, 30000));
+    for (let set = 0; set < 3; set++) {
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => this.spawn_random_diag(), random(500, 80000));
+        setTimeout(() => this.spawn_random_diag(true), random(500, 8000));
+      }
+      setTimeout(() => this.pattern5(), random(1000, 4000));
+      await this.pattern1();
+      await timeout(1000);
+    }
+    await this.pattern2();
+    await timeout(4500);
   }
 
   handle_click() {}

@@ -1,9 +1,10 @@
 class GameManager {
   static SKYSPEED = 1;
 
-  constructor({ images, audio, dialogue }) {
+  constructor({ images, audio, dialogue, collected }) {
     this.images = images;
     this.audio = audio;
+    this.collected = collected;
     this.dialogue = dialogue;
 
     this.pause_modal = new PauseModal();
@@ -29,12 +30,6 @@ class GameManager {
   reset() {
     this.sky_pos = 0;
     this.state = 'game';
-    this.collected = {
-      gigantium: 0,
-      minimium: 0,
-      size: 0,
-      coins: 0
-    };
     this.player = new Player({
       start_pos: [width / 2, height / 2],
       collected: this.collected,

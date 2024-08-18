@@ -11,13 +11,13 @@ class MenuScreen {
 
     this.start_rect = [
       width * 0.5,
-      height * 0.5,
+      height * 0.55,
       450,
       (450 / images['start-button'].width) * images['start-button'].height
     ];
     this.credits_rect = [
       width * 0.5,
-      height * 0.75,
+      height * 0.8,
       450,
       (450 / images['credits-button'].width) * images['credits-button'].height
     ];
@@ -58,39 +58,40 @@ class MenuScreen {
     image(this.images['start-button'], ...this.start_rect);
     image(this.images['credits-button'], ...this.credits_rect);
 
-    textSize(60);
-    textAlign(CENTER, CENTER);
-    strokeWeight(0);
-    fill(255);
-    textFont(fonts['bold']);
-    text('You are spaceship cat!', width * 0.5, height * 0.3);
-    textFont(fonts['regular']);
+    // textSize(60);
+    // textAlign(CENTER, CENTER);
+    // strokeWeight(0);
+    // fill(255);
+    // textFont(fonts['bold']);
+    // text('You are spaceship cat!', width * 0.5, height * 0.3);
+    // textFont(fonts['regular']);
 
-    imageMode(CENTER);
-    push();
-    translate(150, 150);
-    rotate(this.cat_angle);
-    image(images['cat-profile'], 0, 0, 120, 120);
-    pop();
+    image(this.images['title'], width / 2, height * 0.3);
 
-    push();
-    translate(width - 150, 150);
-    rotate(-this.cat_angle);
-    image(images['cat-profile'], 0, 0, 120, 120);
-    pop();
+    // push();
+    // translate(150, 150);
+    // rotate(this.cat_angle);
+    // image(images['cat-profile'], 0, 0, 120, 120);
+    // pop();
 
-    imageMode(CENTER);
-    push();
-    translate(150, height - 150);
-    rotate(-this.cat_angle);
-    image(images['cat-profile'], 0, 0, 120, 120);
-    pop();
+    // push();
+    // translate(width - 150, 150);
+    // rotate(-this.cat_angle);
+    // image(images['cat-profile'], 0, 0, 120, 120);
+    // pop();
 
-    push();
-    translate(width - 150, height - 150);
-    rotate(this.cat_angle);
-    image(images['cat-profile'], 0, 0, 120, 120);
-    pop();
+    // imageMode(CENTER);
+    // push();
+    // translate(150, height - 150);
+    // rotate(-this.cat_angle);
+    // image(images['cat-profile'], 0, 0, 120, 120);
+    // pop();
+
+    // push();
+    // translate(width - 150, height - 150);
+    // rotate(this.cat_angle);
+    // image(images['cat-profile'], 0, 0, 120, 120);
+    // pop();
   }
 
   update() {

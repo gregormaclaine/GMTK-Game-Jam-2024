@@ -7,13 +7,20 @@ class SceneManager {
 
     this.state = 'menu';
     this.level_results = {};
+    this.collected = {
+      gigantium: 0,
+      minimium: 0,
+      size: 0,
+      coins: 0
+    };
 
     this.dialogue = new DialogueManager(images, audio);
 
     this.game_scene = new GameManager({
       images,
       audio,
-      dialogue: this.dialogue
+      dialogue: this.dialogue,
+      collected: this.collected
     });
 
     this.menu_scene = new MenuScreen(
