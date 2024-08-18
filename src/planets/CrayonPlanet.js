@@ -40,7 +40,13 @@ class CrayonPlanet extends PlanetScene {
         radius: 1.2,
         image: images['crayon-cat-4'],
         interact: async (count, reset_count) => {
-          await this.dialogue.send(DIALOGUE.CRAYON_GUN_CAT);
+          if (count === 0) {
+            await this.dialogue.send(DIALOGUE.CRAYON_GUN_CAT);
+          } else if (count < 4) {
+            await this.dialogue.send(DIALOGUE.CRAYON_GUN_CAT_2);
+          } else if (count === 4) {
+            await this.dialogue.send(DIALOGUE.CRAYON_GUN_CAT_3);
+          }
         }
       })
     ];

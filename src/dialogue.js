@@ -97,7 +97,31 @@ const DIALOGUE = {
   CRAYON_GUN_CAT: [
     {
       profile: 'crayon-cat-4',
-      text: 'I am a coool cat with a gun :3'
+      text: 'Who goes there? ... You better not try anything. Lest I use my GUN!'
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "I became blind many years ago from a human slicing out my eye with its claws - fiesty things they are. But don't you think that that'll make me hesitant to use this thing!\n You should know that I've taken out 6 different feline foes with this!"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: '...'
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "I think ... I guess I never really saw them huh. Maybe you should go ask wizard cat - I heard he's been looking for a talented fighter pilot to gather him some materials for his newest potion"
+    }
+  ],
+  CRAYON_GUN_CAT_2: [
+    {
+      profile: 'crayon-cat-4',
+      text: 'I said go speak to wizard cat - he needs some help with a mission'
+    }
+  ],
+  CRAYON_GUN_CAT_3: [
+    {
+      profile: 'crayon-cat-4',
+      text: 'bro go away'
     }
   ]
 };
