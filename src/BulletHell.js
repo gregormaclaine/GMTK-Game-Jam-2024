@@ -34,6 +34,7 @@ class Bullet {
   update(slow = false) {
     const vel = createVector(...this.speed);
     if (slow) vel.mult(0.25);
+    vel.mult(60 / (frameRate() || 1));
     this.pos.add(vel);
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }

@@ -101,6 +101,7 @@ class Player {
   update() {
     if (this.ascending) {
       this.vel = createVector(0, -4);
+      this.vel.mult(60 / (frameRate() || 1));
       this.pos.add(this.vel);
 
       if (this.pos.y + this.size[1] < 0) this.on_ascended();
@@ -112,13 +113,18 @@ class Player {
       keyIsDown(83) - keyIsDown(87)
     );
     acc.setMag(this.acceleration * 1.5 ** this.size_factor);
+    acc.mult(60 / (frameRate() || 1));
 
     if (acc.x === 0 && acc.y === 0)
       this.vel.mult(1 - this.damping * 1.3 ** this.size_factor);
 
     this.vel.add(acc);
     this.vel.limit(this.max_vel);
-    this.pos.add(this.vel);
+
+    const delta_adjusted_vel = this.vel.copy();
+    delta_adjusted_vel.mult(60 / (frameRate() || 1));
+
+    this.pos.add(delta_adjusted_vel);
     this.force_on_screen();
     this.update_hitbox();
   }

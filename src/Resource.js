@@ -58,6 +58,7 @@ class Resource {
       magnetic_effect.setMag(Resource.ATTRACT_SPEED);
       vel.add(magnetic_effect);
     }
+    this.vel.mult(60 / (frameRate() || 1));
     this.pos.add(vel);
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
