@@ -52,7 +52,8 @@ class SceneManager {
       add_passive: passive => {
         this.game_scene.add_passive(passive);
       },
-      level_results: this.level_results
+      level_results: this.level_results,
+      move_world: this.move_world.bind(this)
     };
 
     if (planet === 1) {
@@ -64,6 +65,12 @@ class SceneManager {
     } else {
       console.error('Planet not found:', planet);
     }
+  }
+
+  async move_world(planet) {
+    await this.fade('out');
+    this.load_planet(planet);
+    await this.fade('in');
   }
 
   async start_level(level) {

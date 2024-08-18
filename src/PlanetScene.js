@@ -8,6 +8,7 @@ class PlanetScene {
     set_ability,
     add_passive,
     level_results,
+    move_world,
     audio
   }) {
     this.dialogue = dialogue;
@@ -17,6 +18,7 @@ class PlanetScene {
     this.set_ability = set_ability;
     this.add_passive = add_passive;
     this.level_results = level_results;
+    this.move_world = move_world;
 
     this.reset();
     this.play_track();
