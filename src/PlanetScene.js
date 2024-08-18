@@ -7,9 +7,11 @@ class PlanetScene {
     finish_game,
     set_ability,
     add_passive,
-    level_results
+    level_results,
+    audio
   }) {
     this.dialogue = dialogue;
+    this.audio = audio;
     this.start_level = start_level;
     this._finish_game = finish_game;
     this.set_ability = set_ability;
@@ -17,6 +19,7 @@ class PlanetScene {
     this.level_results = level_results;
 
     this.reset();
+    this.play_track();
   }
 
   reset() {
@@ -24,10 +27,15 @@ class PlanetScene {
     this.player_size = [50, 50];
     this.player_image = images['rock'];
     this.background = images['bullet-bg'];
+    this.track = 'planet-1.mp3';
     this.npcs = [];
 
     /** Movable region padding: [top, right, bottom, left] */
     this.bounding_rect = [0, 0, 0, 0];
+  }
+
+  play_track() {
+    this.audio.play_track(this.track, true);
   }
 
   finish_game() {

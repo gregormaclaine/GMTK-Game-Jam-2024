@@ -61,6 +61,7 @@ class GameManager {
     await timeout(1000);
     switch (level) {
       case 'tutorial':
+        this.audio.play_track('hell-3.mp3', true);
         await this.bullets.tutorial_level();
         break;
       case 1:

@@ -490,6 +490,7 @@ class BulletHell {
   }
 
   async level2() {
+    setTimeout(() => this.spawn_resources(), random(2000, 3500));
     for (let set = 0; set < 3; set++) {
       for (let p0 = 0; p0 < 6; p0++) {
         await this.spawn_bullets(7, 100, 200);
@@ -500,11 +501,13 @@ class BulletHell {
       this.pattern3();
       await timeout(2000);
     }
+    this.spawn_resources();
     await this.pattern2();
     await timeout(1000);
     this.pattern2();
+    this.spawn_resources();
     await this.pattern1();
-    await timeout(4000);
+    await timeout(3000);
   }
 
   async level3() {

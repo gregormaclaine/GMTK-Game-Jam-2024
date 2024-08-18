@@ -36,6 +36,7 @@ class SceneManager {
   load_planet(planet) {
     const planet_props = {
       dialogue: this.dialogue,
+      audio: this.audio,
       start_level: this.start_level.bind(this),
       finish_game: this.finish_game.bind(this),
       set_ability: ability => {
