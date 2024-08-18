@@ -12,6 +12,7 @@ class Bullet {
     } else {
       this.image = images['rock'];
     }
+    this.rotation = random(0, 2 * PI);
     this.has_collided = false;
   }
 
@@ -26,8 +27,11 @@ class Bullet {
 
   show() {
     imageMode('center');
-    image(this.image, this.pos.x, this.pos.y, this.size, this.size);
-
+    push();
+    translate(this.pos.x, this.pos.y);
+    rotate(this.rotation);
+    image(this.image, 0, 0, this.size, this.size);
+    pop();
     this.hitbox.show();
   }
 
