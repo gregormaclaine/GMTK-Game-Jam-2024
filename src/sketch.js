@@ -78,20 +78,23 @@ function preload() {
   images['you-profile'] = loadImage('assets/img/profiles/you.png');
 
   images['amongus'] = loadImage('assets/img/npcs/amongus.png');
-  images['cat'] = loadImage('assets/img/npcs/science-cat.png');
+  images['cat'] = loadImage('assets/img/npcs/cat.png');
   images['science-cat'] = loadImage('assets/img/npcs/science-cat.png');
-  images['dark-cat'] = loadImage('assets/img/npcs/dark-cat.png');
   images['evil-cat'] = loadImage('assets/img/npcs/evil-cat.png');
+  
   images['crayon-cat-1'] = loadImage('assets/img/npcs/crayon-cat.png');
   images['crayon-cat-2'] = loadImage('assets/img/npcs/crayon-cat-2.png');
   images['crayon-cat-3'] = loadImage('assets/img/npcs/crayon-cat-3.png');
   images['crayon-cat-4'] = loadImage('assets/img/npcs/crayon-cat-4.png');
+  
+  images['mystery-cat'] = loadImage('assets/img/npcs/mystery-cat.png');
 
   images['science-cat-profile'] = loadImage(
     'assets/img/profiles/science-cat.png'
   );
   images['evil-cat-profile'] = loadImage('assets/img/profiles/evil-cat.png');
   images['china-cat-profile'] = loadImage('assets/img/profiles/china-cat.png');
+  images['mystery-cat-profile'] = loadImage('assets/img/profiles/mystery-cat.jpg');
 
   images['cat-heart'] = loadImage('assets/img/cat-heart.png');
   images['skip-button'] = loadImage('assets/img/skip-button.png');
