@@ -9,7 +9,7 @@ class DarkPlanet extends PlanetScene {
     this.npcs = [
       new NPC({
         pos: [width * 0.18, height * 0.15],
-        image: images['dark-cat'],
+        image: images['mystery-cat'],
         size: [250, 250],
         radius: 1,
         interact: async (count, reset_count) => {}

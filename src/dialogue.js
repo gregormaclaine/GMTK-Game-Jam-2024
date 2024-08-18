@@ -2,7 +2,7 @@ const DIALOGUE = {
   CAT_INTRO: [
     {
       profile: 'science-cat-profile',
-      text: "Hello there, my name is Cara. Welcome to our humble planet :3"
+      text: 'Hello there, my name is Cara. Welcome to our humble planet :3'
     },
     {
       profile: 'you-profile',
@@ -22,7 +22,7 @@ const DIALOGUE = {
     },
     {
       profile: 'science-cat-profile',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'science-cat-profile',
@@ -30,19 +30,19 @@ const DIALOGUE = {
     },
     {
       profile: 'science-cat-profile',
-      text: "The truth is, we are in dire need of gigantium. Throughout history, our soil has been rich and our harvests plentiful. But something happened this year, our crops are dying and we doubt we will make it through the winter."
+      text: 'The truth is, we are in dire need of gigantium. Throughout history, our soil has been rich and our harvests plentiful. But something happened this year, our crops are dying and we doubt we will make it through the winter.'
     },
     {
       profile: 'science-cat-profile',
-      text: "Especially with these two big mouths..."
+      text: 'Especially with these two big mouths...'
     },
     {
       profile: 'you-profile',
-      text: "What does gigantium have to do with your crops?"
+      text: 'What does gigantium have to do with your crops?'
     },
     {
       profile: 'science-cat-profile',
-      text: "You see, we use gigantium in agriculture to make our crops larger, and we use miniumium to stabilise the process. You can do likewise the other way around, but we generally want things to be bigger so we have a bigger need for gigantium."
+      text: 'You see, we use gigantium in agriculture to make our crops larger, and we use miniumium to stabilise the process. You can do likewise the other way around, but we generally want things to be bigger so we have a bigger need for gigantium.'
     },
     {
       profile: 'science-cat-profile',
@@ -58,10 +58,22 @@ const DIALOGUE = {
     },
     {
       profile: 'science-cat-profile',
-      text: "In any case, I have a little something to help you on your journey, brave Cat. My most advanced meowzer upgrades, I have spent a lifetime developing these. I can only share one with you, the other two will go to my children. For your bravery, I will let you have the first pick."
-    },
+      text: 'By the way, once i see that you truly are an experienced pilot, i have a little gift for you, so come back to speak to me after your first flight'
+    }
   ],
-  CAT_INTRO_REPEAT: [
+  CAT_INTRO_REPEAT_BEFORE_TUTORIAL: [
+    {
+      profile: 'science-cat-profile',
+      text: 'Nu uh, you only get your gift after your first flight - no shortcuts'
+    }
+  ],
+  SCIENCE_CAT_INTRO_ABILITIES: [
+    {
+      profile: 'science-cat-profile',
+      text: "Now that I see you're a talented pilot, I have a little something to help you on your journey, brave Cat. My most advanced meowzer upgrades, I have spent a lifetime developing these. I can only share one with you, the other two will go to my children. For your bravery, I will let you have the first pick."
+    }
+  ],
+  CAT_ABILITIES_REPEAT: [
     {
       profile: 'science-cat-profile',
       text: "Chose your upgrade wisely, brave Cat. I don't recommend you leave without it. It's not just our planet that's at stake."
@@ -104,7 +116,7 @@ const DIALOGUE = {
   LEVEL_1_RESOURCE_INTRO_3: [
     {
       profile: 'amongus',
-      text: "WOW! You really are talented. Guess it was the right choice to give you the meowzer 3000, you make a great team."
+      text: 'WOW! You really are talented. Guess it was the right choice to give you the meowzer 3000, you make a great team.'
     },
     {
       profile: 'amongus',
@@ -114,24 +126,18 @@ const DIALOGUE = {
   LEVEL_1_AFTER_TUTORIAL: [
     {
       profile: 'science-cat-profile',
-      text: "Welcome back, I hope your flight went well."
+      text: 'Welcome back, I hope your flight went well.'
     },
     {
       profile: 'science-cat-profile',
-      text: "Take as long as you need to rest."
+      text: 'Take as long as you need to rest.'
     },
     {
       profile: 'you-profile',
-      text: "Thanks Cara!"
-    },
-    
-  ],
-  LEVEL_1_AFTER_TUTORIAL_MYSTERY_CAT: [
-    {
-      profile: 'mystery-cat-profile',
-      text: 'Well done out there boss.'
+      text: 'Thanks Cara!'
     }
   ],
+
   INTRODUCE_SPLITTING_ROCKS: [
     // pls expand
     {
@@ -293,12 +299,12 @@ const DIALOGUE = {
     {
       profile: 'evil-cat-profile',
       text: "What did you say to me you little punk?? I don't understand your rotten language, just back off okay? Don't want to a make mess of you in front of my little sis."
-    },
+    }
   ],
   OLDER_BROTHER_CAT_REPEAT: [
     {
       profile: 'you-profile',
-      text: "Brr skibidi dop dop dop dop yes yes yes brr skibidi dip..."
+      text: 'Brr skibidi dop dop dop dop yes yes yes brr skibidi dip...'
     },
     {
       profile: 'evil-cat-profile',
@@ -306,20 +312,24 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "What a bore."
+      text: 'What a bore.'
     }
-
+  ],
+  OLDER_BROTHER_CAT_BEFORE_LEVEL_1: [
+    {
+      profile: 'evil-cat-profile',
+      text: "Huh you think that you're hot stuff just cus you did a little easy flight?? Try a real flight and then we'll your true colors"
+    }
   ],
   OLDER_BROTHER_CAT_FAIL: [
     {
       profile: 'evil-cat-profile',
-      text: "Pathetic. Get off this planet, you waste of space."
+      text: 'Pathetic. Get off this planet, you waste of space.'
     },
     {
       profile: 'you-profile',
-      text: "..."
+      text: '...'
     }
-
   ],
   OLDER_BROTHER_CAT_SUCCESS: [
     {
@@ -328,7 +338,7 @@ const DIALOGUE = {
     },
     {
       profile: 'evil-cat-profile',
-      text: "Thank you though. Punk..."
+      text: 'Thank you though. Punk...'
     }
   ],
   YOUNGER_SISTER_CAT: [
@@ -354,7 +364,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Cringe."
+      text: 'Cringe.'
     },
     {
       profile: 'china-cat-profile',
@@ -366,22 +376,22 @@ const DIALOGUE = {
     },
     {
       profile: 'china-cat-profile',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'china-cat-profile',
-      text: "..."
-    },
+      text: '...'
+    }
   ],
   YOUNGER_SISTER_CAT_REPEAT: [
     {
       profile: 'you-profile',
-      text: "Sorry for earlier."
+      text: 'Sorry for earlier.'
     },
     {
       profile: 'china-cat-profile',
-      text: "It's fine, I'm just tired of hearing about it from my brother, it's a bit of a toucuhy topic for me. I didn't choose the brainrot life, it just chose me. All these skibidis, ohio rizz, edging, mogging, it all just lives in my head rent free you know?"
-    }, 
+      text: "It's fine, I'm just tired of hearing about it from my brother, it's a bit of a touchy topic for me. I didn't choose the brainrot life, it just chose me. All these skibidis, ohio rizz, edging, mogging, it all just lives in my head rent free you know?"
+    },
     {
       profile: 'china-cat-profile',
       text: "Every night I have dreams of how I walk with a level 600 gyatt past my whole class at school, or when I'm in class drinking my grimace rizz shake from ohio during my rizzonomics class, and all of a sudden this crazy ohio bing chilling gyatt plops down next to me. I was watching kai cenat hit the griddy on twitch the other day, which is when I let my rizz take over and transformed the rizzard of oz. I screamed, look at this bomboclaAaat gyaAAtt SHEEEEESH."
@@ -392,51 +402,30 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "bruh."
+      text: 'bruh.'
     }
-
   ],
   YOUNGER_SISTER_CAT_FAIL: [
     {
       profile: 'china-cat-profile',
-      text: "You let us down. You let the whole planet down. You will never be skibidi now. Mods ban this loser immediately."
+      text: 'You let us down. You let the whole planet down. You will never be skibidi now. Mods ban this loser immediately.'
     }
-
   ],
   YOUNGER_SISTER_CAT_SUCCESS: [
     {
       profile: 'china-cat-profile',
-      text: "That was an impressive performance, well done. Alexa play Despacito."
+      text: 'That was an impressive performance, well done. Alexa play Despacito.'
     }
   ],
-  MYSTERY_CAT: [
-    {
-      profile: 'mystery-cat-profile',
-      text: "Have you you spoken to the scientist lady yet boss? I think she has something to give you."
-    },
+  MYSTERY_CAT_INTRO: [
+    { profile: 'mystery-cat-profile', text: "Let's go flying boss" },
     {
       profile: 'you-profile',
-      text: "Who are you again?"
+      text: 'Who are you again?'
     },
     {
       profile: 'mystery-cat-profile',
       text: "The first few flights on the meowzer always take a toll on the neurones, you'll get to to know me, eventually."
-    }
-  ],
-  MYSTERY_CAT_REPEAT: [
-    {
-      profile: 'mystery-cat-profile',
-      text: "Ready when you are boss, make sure to talk the lady first."
-    }
-  ],
-  MYSTERY_CAT_GOTO_LEVEL: [
-    {
-      profile: 'mystery-cat-profile',
-      text: "Guess we're good to go. Be careful out there boss."
-    },
-    {
-      profile: 'you-profile',
-      text: "Thanks."
     }
   ],
   MYSTERY_CAT_FAIL: [
@@ -445,34 +434,38 @@ const DIALOGUE = {
       text: "Unlucky boss, you'll get it next time. Take a break and try again."
     }
   ],
-  MYSTERY_CAT_SUCCESS: [
+  MYSTERY_CAT_BEFORE_ABILITY: [
     {
       profile: 'mystery-cat-profile',
-      text: "Well done boss, you've done it. Keep it up."
+      text: 'Wow ready to head back out so soon boss? This next stretch of space is a little more tricky than that cakewalk you just did'
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: 'You should go speak to the scientist lady. i think she has something to give you that might help with the flights to come...'
     }
   ],
-  MYSTERY_CAT_PREPARE_LEVEL_1: [
+  MYSTERY_CAT_REPEAT: [
     {
       profile: 'mystery-cat-profile',
-      text: "Let me know when you're ready to go back out there boss."
-    },
-    {
-      profile: 'you-profile',
-      text: "Sure, thanks... what should I even call you?"
-    },
-    {
-      profile: 'mystery-cat-profile',
-      text: "You can call me whatever, boss."
+      text: 'Ready when you are boss, make sure to talk the lady first.'
     }
   ],
   MYSTERY_CAT_GOTO_LEVEL_1: [
     {
+      profile: 'mystery-cat-profile',
+      text: 'Well done out there boss.'
+    },
+    // {
+    //   profile: 'mystery-cat-profile',
+    //   text: "Let me know when you're ready to go back out there."
+    // },
+    {
       profile: 'you-profile',
-      text: "Alright Whatever, I'm ready."
+      text: 'Sure, thanks... what should I even call you?'
     },
     {
       profile: 'mystery-cat-profile',
-      text: "Good luck out there boss. Remember to keep track of how much gigantium and minimium we need."
+      text: "You can call me whatever. Guess we're good to go. Remember to keep track of how much gigantium and minimium we need. Be careful out there boss."
     }
   ],
   MYSTERY_CAT_PREPARE_LEVEL_2: [
@@ -482,11 +475,11 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Sure, Whaterver :)"
+      text: 'Sure, Whatever :)'
     },
     {
       profile: 'mystery-cat-profile',
-      text: "..."
+      text: '...'
     }
   ],
   MYSTERY_CAT_GOTO_LEVEL_2: [
@@ -496,7 +489,7 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "Stay safe boss. Take care of your meowzer."
+      text: 'Stay safe boss. Take care of your meowzer.'
     }
   ],
   MYSTERY_CAT_PREPARE_WORLD_2: [
@@ -506,7 +499,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Will do."
+      text: 'Will do.'
     }
   ],
   MYSTERY_CAT_GOTO_WORLD_2: [
@@ -518,5 +511,5 @@ const DIALOGUE = {
       profile: 'mystery-cat-profile',
       text: "You can relax for a bit boss, I'll take you to the next location."
     }
-  ],
+  ]
 };
