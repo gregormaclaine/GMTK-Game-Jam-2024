@@ -564,7 +564,7 @@ class BulletHell {
       
       this.pattern2();
     }
-    this.spawn_resources([0,0.5]);
+    this.spawn_resources();
     for (let p3 = 0; p3 < 3; p3++) {
       this.pattern3();
       await timeout(2000);
@@ -572,7 +572,7 @@ class BulletHell {
     this.spawn_resources();
     await this.pattern2();
     await timeout(1000);
-    this.spawn_resources([0,0.5]);
+    this.spawn_resources();
     this.pattern2();
     this.spawn_resources();
     await this.pattern1();
@@ -619,10 +619,10 @@ class BulletHell {
     await timeout(2000);
   }
   async level7(){ //level4_stepan
-    await this.spawn_resources([0,0]);
-    await this.spawn_resources([0,0]);
-    await this.spawn_resources([0,0]);
-    await this.spawn_resources([0,0]);
+    await this.spawn_resources();
+    await this.spawn_resources();
+    await this.spawn_resources();
+    await this.spawn_resources();
     for(let set = 0; set<2;set++){
       this.spawn_bullets(4, 100, 200, 250);
       for(let i=0;i<3;i++){
@@ -633,11 +633,11 @@ class BulletHell {
 
   }
   async level8(){//level5_stepan
-    this.spawn_resources([0,0.5]);
+    this.spawn_resources();
     await this.pattern1();
-    this.spawn_resources([0,0.5]);
+    this.spawn_resources();
     await this.pattern1();
-    this.spawn_resources([0,0.5]);
+    this.spawn_resources();
     await this.pattern7();
     await timeout(3000)
     this.pattern4()
@@ -650,17 +650,17 @@ class BulletHell {
   }
 
   async level9(){//level6_stepan
-    await this.spawn_resources([0,0]);
+    await this.spawn_resources();
     await this.pattern6();
     await timeout(3000);
-    await this.spawn_resources([0,0]);
+    await this.spawn_resources();
     await this.pattern6();
     await timeout(3000);
-    await this.spawn_resources([0,0]);
+    await this.spawn_resources();
     await this.pattern6();
     await timeout(3000);
     await this.pattern6();
-    await this.spawn_resources([0,0]);
+    await this.spawn_resources();
     await this.pattern2();
     await this.pattern7()
   }
