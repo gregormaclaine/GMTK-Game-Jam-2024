@@ -198,22 +198,24 @@ class GameManager {
     stroke(0);
     strokeWeight(0);
     fill(
-      this.collected.gigantium >= this.collected.goal_gigantium ? 'green' : 255
+      this.collected.goal_gigantium &&
+        this.collected.gigantium >= this.collected.goal_gigantium
+        ? 'green'
+        : 255
     );
     text(
-      this.collected.goal_gigantium
-        ? `${this.collected.gigantium}/${this.collected.goal_gigantium}`
-        : `${this.collected.gigantium}`,
+      `${this.collected.gigantium}/${this.collected.goal_gigantium || '?'}`,
       70,
       40
     );
     fill(
-      this.collected.minimium >= this.collected.goal_minimium ? 'green' : 255
+      this.collected.goal_minimium &&
+        this.collected.minimium >= this.collected.goal_minimium
+        ? 'green'
+        : 255
     );
     text(
-      this.collected.goal_minimium
-        ? `${this.collected.minimium}/${this.collected.goal_minimium}`
-        : `${this.collected.minimium}`,
+      `${this.collected.minimium}/${this.collected.goal_minimium || '?'}`,
       70,
       90
     );

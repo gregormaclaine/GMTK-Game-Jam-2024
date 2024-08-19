@@ -217,7 +217,7 @@ class Planet1 extends PlanetScene {
             await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_2, {
               skippable: false
             });
-            this.save_world_completion_status('planet1');
+            this.save_world_completion_status('planet1', 30, 30);
             this.move_world(2);
           }
         }

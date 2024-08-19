@@ -93,6 +93,9 @@ class CrayonPlanet extends PlanetScene {
           const result_2 = this.level_results[8];
 
           if (!result && count === 0) {
+            this.collected.goal_minimium = 80;
+            this.collected.goal_gigantium = 80;
+
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_3, {
               skippable: false
             });
@@ -249,8 +252,8 @@ class CrayonPlanet extends PlanetScene {
               await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_3, {
                 skippable: false
               });
-              // ADD ENDINGS HERE INSTEAD OF MOVING WORLD
-              // await this.move_world(3);
+              this.save_world_completion_status('planet1', 80, 80);
+              this.finish_game();
               reset_count();
             }
           }

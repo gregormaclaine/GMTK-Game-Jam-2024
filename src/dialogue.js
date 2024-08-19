@@ -547,7 +547,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "Please bring us the necessary amount of minimium and gigantium, the bacteria populations get out of hand very quickly and very easily. You're our last hope."
+      text: "Please bring us the 50 MINIMIUM and 50 GIGANTIUM, that should be enough to prevent the bacteria populations from getting out of hand. You're our last hope."
     },
     {
       profile: 'you-profile',
@@ -1097,7 +1097,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-3',
-      text: "A kind heart, and a pure soul, will always find a way to help others. Your shape and form don't matter. I'll tell you what, bring me 50 gigantium and 50 minimium. I will use them to bring your body back."
+      text: "A kind heart, and a pure soul, will always find a way to help others. Your shape and form don't matter. I'll tell you what, bring me 80 GIGANTIUM and 80 MINIMIUM. That should be enough to keep this planet safe and in return I will use my magic to bring your body back."
     },
     {
       profile: 'you-profile',

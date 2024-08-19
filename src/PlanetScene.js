@@ -53,10 +53,9 @@ class PlanetScene {
     });
   }
 
-  save_world_completion_status(planet) {
+  save_world_completion_status(planet, req_min, req_gig) {
     const win =
-      this.collected.minimium >= this.collected.goal_minimium &&
-      this.collected.gigantium > this.collected.goal_gigantium;
+      this.collected.minimium >= req_min && this.collected.gigantium >= req_gig;
 
     this.level_results[planet] = win ? 'win' : 'lose';
 

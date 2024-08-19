@@ -18,11 +18,13 @@ class DarkPlanet extends PlanetScene {
           const result_2 = this.level_results[5];
 
           if (!result && count === 0) {
+            this.collected.goal_minimium = 50;
+            this.collected.goal_gigantium = 50;
             await this.dialogue.send(DIALOGUE.BW_CAT_1, {
               skippable: false
             });
             this.add_passive('magnet');
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.BW_CAT_1_REPEAT, {
               skippable: true
             });
@@ -237,7 +239,7 @@ class DarkPlanet extends PlanetScene {
               await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_3, {
                 skippable: false
               });
-              this.save_world_completion_status('planet2');
+              this.save_world_completion_status('planet2', 50, 50);
               await this.move_world(3);
               reset_count();
             }
