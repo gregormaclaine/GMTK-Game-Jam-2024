@@ -114,8 +114,8 @@ class BulletHell {
     bullet.pos.y = height + 100;
   }
 
-  async spawn_bullets(speed, size, delta) {
-    for (let i = 0; i < 10; i++) {
+  async spawn_bullets(speed, size, delta, n) {
+    for (let i = 0; i < n; i++) {
       // const x = width * 0.03 + (width * 0.94 * (i % 4)) / 3;
       const x = (random(1000) / 1000) * width * 0.94 + width * 0.03;
       this.bullets.push(new Bullet(x, -100, size, 0, speed));
@@ -216,28 +216,28 @@ class BulletHell {
       const x = spiral_x;
       const y = spiral_y - 150 * up;
       this.bullets.push(new Bullet(x, y, 100, up, 0));
-      await timeout(50);
+      await timeout(100);
     }
     //spawn right
     for (let right = 1; right < 10; right++) {
       const x = spiral_x + 150 * right;
       const y = spiral_y;
       this.bullets.push(new Bullet(x, y, 100, 0, right));
-      await timeout(50);
+      await timeout(100);
     }
     //spawn down
     for (let down = 1; down < 10; down++) {
       const x = spiral_x;
       const y = spiral_y + 150 * down;
       this.bullets.push(new Bullet(x, y, 100, -down, 0));
-      await timeout(50);
+      await timeout(100);
     }
     //spawn left
     for (let left = 1; left < 10; left++) {
       const x = spiral_x - 150 * left;
       const y = spiral_y;
       this.bullets.push(new Bullet(x, y, 100, 0, -left));
-      await timeout(50);
+      await timeout(100);
     }
     await timeout(6000);
     //Deletes the spawning asteroid after 6 seconds
@@ -267,9 +267,15 @@ class BulletHell {
           }
         }
         if (mode === 0) {
-          astr.set_size(astr.size + 10);
+          astr.size = astr.size + 10;
+          astr.hitbox = new HitBox(
+            [astr.pos.x, astr.pos.y],
+            [astr.size * 0.7, astr.size * 0.7])
         } else if (mode === 1) {
-          astr.set_size(astr.size - 10);
+          astr.size = astr.size - 10;
+          astr.hitbox = new HitBox(
+            [astr.pos.x, astr.pos.y],
+            [astr.size * 0.7, astr.size * 0.7]);
         }
         await timeout(25);
       }
@@ -281,12 +287,12 @@ class BulletHell {
     //Splitting these nuts
     for (let i = 0; i < 5; i++) {
       const x = 200 + (i * width) / 5;
-      const b = new Bullet(x, -100, 200);
+      const b = new Bullet(x, -100, 200, 0, 3);
       splittable.push(b);
       this.bullets.push(b);
-      if (i < 4) await timeout(random(400, 1000));
+      if (i < 4) await timeout(random(200, 800));
     }
-    await timeout(100);
+    await timeout(10);
     splittable.forEach(bullet => {
       this.split_bullet(bullet, splittable);
     });
@@ -368,7 +374,7 @@ class BulletHell {
           this.rocket(x);
         }
       }
-      await timeout(2000);
+      await timeout(2500);
     }
   }
 
@@ -416,7 +422,7 @@ class BulletHell {
             this.collected.gigantium += Math.floor(random(5, 8));
             this.collected.size += 1;
             audio.play_sound('pickup_gigantium.wav');
-          }
+          },
         })
       );
       await timeout(random(900));
@@ -553,11 +559,12 @@ class BulletHell {
   async level4() {
     setTimeout(() => this.spawn_resources(), random(2000, 3500));
     for (let set = 0; set < 3; set++) {
-      for (let p0 = 0; p0 < 6; p0++) {
-        await this.spawn_bullets(7, 100, 200);
-      }
+      this.spawn_resources();
+      await this.spawn_bullets(6, 100, 300, 60);
+      
       this.pattern2();
     }
+    this.spawn_resources();
     for (let p3 = 0; p3 < 3; p3++) {
       this.pattern3();
       await timeout(2000);
@@ -565,6 +572,7 @@ class BulletHell {
     this.spawn_resources();
     await this.pattern2();
     await timeout(1000);
+    this.spawn_resources();
     this.pattern2();
     this.spawn_resources();
     await this.pattern1();
@@ -595,20 +603,68 @@ class BulletHell {
       setTimeout(() => this.spawn_resources(), random(5000, 10000));
       setTimeout(() => this.spawn_resources(), random(18000, 30000));
       for (let p0 = 0; p0 < 2; p0++) {
-        this.pattern4();
+       await  this.pattern4();
         await this.pattern4();
-        this.spawn_bullets(2, 100, 400);
+        this.spawn_bullets(2, 100, 400, 10);
         await timeout(2000);
       }
       await timeout(4000);
       this.pattern2();
       setTimeout(() => this.pattern2(), 3500);
       await this.pattern1();
+      timeout(1000)
       await this.pattern2();
       await timeout(2000);
     }
     await timeout(2000);
   }
+  async level7(){ //level4_stepan
+    await this.spawn_resources();
+    await this.spawn_resources();
+    await this.spawn_resources();
+    await this.spawn_resources();
+    for(let set = 0; set<2;set++){
+      this.spawn_bullets(4, 100, 200, 250);
+      for(let i=0;i<3;i++){
+      await this.pattern5()
+      }
+       await (3000)
+    }
+
+  }
+  async level8(){//level5_stepan
+    this.spawn_resources();
+    await this.pattern1();
+    this.spawn_resources();
+    await this.pattern1();
+    this.spawn_resources();
+    await this.pattern7();
+    await timeout(3000)
+    this.pattern4()
+    await timeout(1000)
+    this.pattern4()
+    await timeout(1000)
+    this.pattern4()
+    await timeout(1000)
+    this.pattern2();
+  }
+
+  async level9(){//level6_stepan
+    await this.spawn_resources();
+    await this.pattern6();
+    await timeout(3000);
+    await this.spawn_resources();
+    await this.pattern6();
+    await timeout(3000);
+    await this.spawn_resources();
+    await this.pattern6();
+    await timeout(3000);
+    await this.pattern6();
+    await this.spawn_resources();
+    await this.pattern2();
+    await this.pattern7()
+  }
+
 
   handle_click() {}
 
@@ -638,3 +694,4 @@ class BulletHell {
     this.bullets = this.bullets.filter(b => b.on_screen() && !b.has_collided);
   }
 }
+``

@@ -1,5 +1,7 @@
 class Planet1 extends PlanetScene {
   reset() {
+    this.received_ability = false;
+
     this.track = 'planet-1.mp3';
     this.player_pos = [width * 0.1, height * 0.9];
     this.player_size = [200, 200];
@@ -13,30 +15,56 @@ class Planet1 extends PlanetScene {
         size: [200, 300],
         radius: 1,
         interact: async (count, reset_count) => {
-          const result = this.level_results['tutorial'];
+          const tut_result = this.level_results['tutorial'];
           const result_1 = this.level_results[1];
           const result_2 = this.level_results[2];
 
-          if (!result && count === 0) {
-            await this.dialogue.send(DIALOGUE.CAT_INTRO, {
+          // First time speaking to cat
+          if (count === 0) {
+            // If you've already done tutorial - dont say the last line
+            const d = DIALOGUE.CAT_INTRO.slice(
+              0,
+              tut_result === 'win' ? -1 : undefined
+            );
+            await this.dialogue.send(d, { skippable: false });
+          }
+
+          // Repeat talking to cat before tutorial is played
+          if (count !== 0 && tut_result !== 'win') {
+            await this.dialogue.send(DIALOGUE.CAT_INTRO_REPEAT_BEFORE_TUTORIAL);
+            return;
+          }
+
+          // speaking to cat after tutorial is played
+          if (tut_result && this.npcs.length === 4 && !this.received_ability) {
+            await this.dialogue.send(DIALOGUE.SCIENCE_CAT_INTRO_ABILITIES, {
               skippable: false
             });
             this.spawn_abilities();
-          } else if (!result) {
-            if (this.npcs.length > 4) {
-              await this.dialogue.send(DIALOGUE.CAT_INTRO_REPEAT, {
-                skippable: false
-              });
-            } else {
-              await this.dialogue.send(DIALOGUE.CAT_GOTO_LEVEL, {
-                skippable: false
-              });
-            }
-          } else {
-            await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL, {
+            return;
+          }
+
+          // None of the following text should be said on first interaction
+          if (count === 0) return;
+
+          // speaking to cat after abilities have spawned
+          if (!this.received_ability) {
+            await this.dialogue.send(DIALOGUE.CAT_ABILITIES_REPEAT);
+            return;
+          }
+
+          // speaking to cat after having chosing abilities
+          if (!result_1 && !result_2) {
+            await this.dialogue.send(DIALOGUE.CAT_GOTO_LEVEL, {
               skippable: false
             });
+            return;
           }
+
+          // after tutorials and ability pickup
+          await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL, {
+            skippable: false
+          });
         }
       }),
       new NPC({
@@ -49,16 +77,19 @@ class Planet1 extends PlanetScene {
           const result_1 = this.level_results[1];
           const result_2 = this.level_results[2];
 
-          if (!result && count === 0) {
-            await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT, {
-              skippable: true
-            });
-          } else if (!result) {  
-            await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT_REPEAT, {
-              skippable: false
-            });
-          } else {
-            if (result === 'fail' || result_1 === 'fail' || result_2 == 'fail') {
+          //  before tutorial
+          if (result !== 'win') {
+            if (count === 0) {
+              await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT, {
+                skippable: true
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT_REPEAT);
+            }
+            return;
+          }
+
+          if (result_1 === 'lose' || result_2 == 'lose') {
             await this.dialogue.send(DIALOGUE.YOUNGER_SISTER_CAT_FAIL, {
               skippable: false
             });
@@ -68,7 +99,6 @@ class Planet1 extends PlanetScene {
             });
           }
         }
-      }
       }),
       new NPC({
         pos: [width * 0.65, height * 0.4],
@@ -80,26 +110,36 @@ class Planet1 extends PlanetScene {
           const result_1 = this.level_results[1];
           const result_2 = this.level_results[2];
 
-          if (!result && count === 0) {
-            await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT, {
-              skippable: true
-            });
-          } else if (!result) {  
-            await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_REPEAT, {
-              skippable: false
-            });
+          // before tutorial is won
+          if (result !== 'win') {
+            if (count === 0) {
+              await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT, {
+                skippable: true
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_REPEAT, {
+                skippable: false
+              });
+            }
+            return;
+          }
+
+          // before level 1
+          if (!result_1) {
+            await this.dialogue.send(
+              DIALOGUE.OLDER_BROTHER_CAT_BEFORE_LEVEL_1,
+              { skippable: false }
+            );
+            return;
+          }
+
+          // after level 1 response
+          if (result_1 === 'lose' || result_2 == 'lose') {
+            await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_FAIL);
           } else {
-            if (result === 'fail' || result_1 === 'fail' || result_2 == 'fail') {
-            await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_SUCCESS, {
-              skippable: false
-            });
+            await this.dialogue.send(DIALOGUE.OLDER_BROTHER_CAT_SUCCESS);
           }
         }
-      }
       }),
       new NPC({
         pos: [width * 0.95, height * 0.55],
@@ -107,51 +147,49 @@ class Planet1 extends PlanetScene {
         size: [200, 300],
         radius: 1,
         interact: async (count, reset_count) => {
-          const result = this.level_results['tutorial'];
+          const result_tut = this.level_results['tutorial'];
           const result_1 = this.level_results[1];
           const result_2 = this.level_results[2];
 
-          if (!result && count === 0) {
-            await this.dialogue.send(DIALOGUE.MYSTERY_CAT, {
+          // first time speaking - leads to tutorial
+          if (count === 0) {
+            await this.dialogue.send(DIALOGUE.MYSTERY_CAT_INTRO, {
               skippable: false
             });
-          } else if (!result) {
-            if (this.npcs.length > 4) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_REPEAT, {
-                skippable: false
-              });
+            await this.start_level('tutorial');
+            return;
+          }
+
+          if (result_tut === 'lose') {
+            await this.dialogue.send(DIALOGUE.MYSTERY_CAT_FAIL);
+            await this.start_level('tutorial');
+            return;
+          }
+
+          // block after tutorial until received ability
+          if (!this.received_ability) {
+            if (!this.mystery_cat_introd_abilities) {
+              this.mystery_cat_introd_abilities = true;
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_BEFORE_ABILITY);
             } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL, {
-                skippable: false
-              });
-              // Do it after two seconds so that it happens when ur already playing
-              setTimeout(
-                () => (this.player_pos = [width / 2, height * 0.9]),
-                2000
-              );
-              await this.start_level('tutorial');
-              reset_count();
+              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_REPEAT);
             }
-          } else {
-            await this.dialogue.send(DIALOGUE.LEVEL_1_AFTER_TUTORIAL_MYSTERY_CAT, {
+            return;
+          }
+
+          // after ability - start level 1
+          if (!result_1) {
+            await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1, {
               skippable: false
             });
+            await this.start_level(1);
+            reset_count();
+            return;
           }
-          if (result && !result_1) {
-            if (count == 0) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_1, {
-                skippable: false
-              });
-            } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1, {
-                skippable: false
-              });
-              await this.start_level(1);
-              reset_count();
-            }
-          }
-          if (result && result_1 && !result_2) {
-            if (count == 0) {
+
+          if (!result_2) {
+            if (!this.mystery_cat_prepared_2) {
+              this.mystery_cat_prepared_2 = true;
               await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_2, {
                 skippable: false
               });
@@ -162,19 +200,19 @@ class Planet1 extends PlanetScene {
               await this.start_level(2);
               reset_count();
             }
+            return;
           }
-          if (result && result_1 && result_2) {
-            if (count == 0) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_WORLD_2, {
-                skippable: false
-              });
-            } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_2, {
-                skippable: false
-              });
-              await this.move_world(2);
-              reset_count();
-            }
+
+          if (!this.mystery_cat_prepared_world) {
+            this.mystery_cat_prepared_world = true;
+            await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_WORLD_2, {
+              skippable: false
+            });
+          } else {
+            await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_2, {
+              skippable: false
+            });
+            this.move_world(2);
           }
         }
       })
@@ -194,7 +232,8 @@ class Planet1 extends PlanetScene {
         radius: 1.8,
         interact: async () => {
           this.set_ability('lazer');
-          this.npcs.splice(4, 6);
+          this.npcs.splice(4, 3);
+          this.received_ability = true;
         }
       }),
       new NPC({
@@ -208,7 +247,8 @@ class Planet1 extends PlanetScene {
         radius: 1.8,
         interact: async () => {
           this.set_ability('stealth');
-          this.npcs.splice(4, 6);
+          this.npcs.splice(4, 3);
+          this.received_ability = true;
         }
       }),
       new NPC({
@@ -222,7 +262,8 @@ class Planet1 extends PlanetScene {
         radius: 1.8,
         interact: async () => {
           this.set_ability('time');
-          this.npcs.splice(4, 6);
+          this.npcs.splice(4, 3);
+          this.received_ability = true;
         }
       })
     );

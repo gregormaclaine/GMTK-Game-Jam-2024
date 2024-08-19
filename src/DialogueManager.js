@@ -94,7 +94,7 @@ class DialogueManager {
         rectMode(CENTER);
         fill(0);
         strokeWeight(0);
-        textSize(22);
+        textSize(25);
         textAlign(LEFT, TOP);
         const t = this.current_dialogue.text;
         const text_index = floor(lerp(0, t.length, this.progress));
