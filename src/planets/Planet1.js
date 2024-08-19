@@ -217,7 +217,7 @@ class Planet1 extends PlanetScene {
             await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_2, {
               skippable: false
             });
-            this.save_world_completion_status();
+            this.save_world_completion_status('planet1');
             this.move_world(2);
           }
         }
@@ -273,19 +273,5 @@ class Planet1 extends PlanetScene {
         }
       })
     );
-  }
-
-  save_world_completion_status() {
-    const win =
-      this.collected.minimium >= this.collected.goal_minimium &&
-      this.collected.gigantium > this.collected.goal_gigantium;
-
-    this.level_results['planet1'] = win ? 'win' : 'lose';
-
-    this.collected.minimium = 0;
-    this.collected.gigantium = 0;
-    this.collected.goal_gigantium = 0;
-    this.collected.goal_minimium = 0;
-    this.collected.size = 0;
   }
 }

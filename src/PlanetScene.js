@@ -53,7 +53,22 @@ class PlanetScene {
     });
   }
 
+  save_world_completion_status(planet) {
+    const win =
+      this.collected.minimium >= this.collected.goal_minimium &&
+      this.collected.gigantium > this.collected.goal_gigantium;
+
+    this.level_results[planet] = win ? 'win' : 'lose';
+
+    this.collected.minimium = 0;
+    this.collected.gigantium = 0;
+    this.collected.goal_gigantium = 0;
+    this.collected.goal_minimium = 0;
+    this.collected.size = 0;
+  }
+
   handle_click() {}
+
   handle_key_press() {
     if (keyCode == 69) {
       for (const npc of this.npcs) {

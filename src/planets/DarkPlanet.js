@@ -237,6 +237,7 @@ class DarkPlanet extends PlanetScene {
               await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_WORLD_3, {
                 skippable: false
               });
+              this.save_world_completion_status('planet2');
               await this.move_world(3);
               reset_count();
             }
