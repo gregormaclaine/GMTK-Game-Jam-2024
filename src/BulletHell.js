@@ -14,6 +14,14 @@ class Bullet {
     }
     this.rotation = random(0, 2 * PI);
     this.has_collided = false;
+
+    this.explosion_effect = new ParticleEffect(
+      images['explosion'],
+      size,
+      0,
+      0.3
+    );
+    this.exploded = false;
   }
 
   set_size(size) {
@@ -26,6 +34,11 @@ class Bullet {
   }
 
   show() {
+    if (this.exploded) {
+      this.explosion_effect.show(false, false, 'grow');
+      return;
+    }
+
     imageMode('center');
     push();
     translate(this.pos.x, this.pos.y);
@@ -36,6 +49,10 @@ class Bullet {
   }
 
   update(slow = false) {
+    if (this.exploded) {
+      this.explosion_effect.update();
+      return;
+    }
     const vel = createVector(...this.speed);
     if (slow) vel.mult(0.25);
     vel.mult(60 / (frameRate() || 1));
@@ -43,7 +60,11 @@ class Bullet {
     this.hitbox.set_pos([this.pos.x, this.pos.y]);
   }
 
-  collide() {
+  async collide() {
+    // move hitbox off of screen to prevent extra collisions
+    this.hitbox.set_pos([-100, -100]);
+    this.exploded = true;
+    await this.explosion_effect.trigger([this.pos.x, this.pos.y]);
     this.has_collided = true;
   }
 
@@ -692,7 +713,7 @@ class BulletHell {
       this.bullets.forEach(b => {
         if (b.hitbox.is_colliding(l.hitbox)) {
           l.has_collided = true;
-          b.has_collided = true;
+          b.collide();
           audio.play_sound('asteroid_explode.wav');
         }
       });
