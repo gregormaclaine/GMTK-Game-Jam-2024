@@ -108,7 +108,7 @@ class GameManager {
         this.ability_cooldown.cooldown = 2;
         break;
       case 'stealth':
-        this.ability_cooldown.cooldown = 10;
+        this.ability_cooldown.cooldown = 15;
         break;
       case 'time':
         this.ability_cooldown.cooldown = 9;
@@ -132,7 +132,7 @@ class GameManager {
         setTimeout(() => {
           this.player.invincible = false;
           this.audio.play_sound('invincibility_end.wav');
-        }, 2000);
+        }, 1500);
         break;
       case 'time':
         this.bullets.slow = true;

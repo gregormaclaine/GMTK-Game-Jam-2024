@@ -100,7 +100,7 @@ class SceneManager {
     await this.fade('out');
     this.state = 'planet';
     this.game_scene.hard_reset();
-    this.load_planet(2);
+    this.load_planet(1);
     await this.fade('in');
   }
 
@@ -115,10 +115,9 @@ class SceneManager {
         this.state = 'menu';
         await this.fade('in');
       },
-      dialogue: this.dialogue
+      dialogue: this.dialogue,
+      audio: this.audio
     });
-    await this.end_scene.send_dialogue();
-    this.audio.play_track('ending.mp3', true);
     this.state = 'end';
     await this.fade('in');
   }

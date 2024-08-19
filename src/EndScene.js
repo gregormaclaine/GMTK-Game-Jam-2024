@@ -1,14 +1,17 @@
 class EndScene {
-  constructor({ collected, results, return_to_menu, dialogue }) {
+  constructor({ collected, results, return_to_menu, dialogue, audio }) {
     this.collected = collected;
     this.results = results;
     this.dialogue = dialogue;
+    this.audio = audio;
 
     this.main_menu_button = new JL.Button(
       'Main Menu',
       [width * 0.85, height * 0.95, 350, 80],
       return_to_menu
     );
+
+    this.dialogue_state = null;
   }
 
   async send_dialogue() {
@@ -34,9 +37,22 @@ class EndScene {
     this.main_menu_button.handle_click();
   }
 
-  update() {}
+  update() {
+    if (this.dialogue_state === null) {
+      this.dialogue_state = 'active';
+      this.send_dialogue().then(() => {
+        this.dialogue_state = 'done';
+        this.audio.play_track('ending.mp3', true);
+      });
+    }
+  }
 
   show() {
+    if (this.dialogue_state != 'done') {
+      background(0);
+      return;
+    }
+
     imageMode(CORNER);
 
     const p1 = this.results['planet1'] === 'win';

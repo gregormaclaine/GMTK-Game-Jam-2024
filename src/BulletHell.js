@@ -550,25 +550,25 @@ class BulletHell {
   }
 
   async level3() {
-    for (let big_set = 0; big_set < 2; big_set++) {
-      setTimeout(() => this.spawn_resources(), random(5000, 10000));
-      setTimeout(() => this.spawn_resources(), random(18000, 30000));
-      for (let set = 0; set < 3; set++) {
-        await this.pattern2();
-      }
-      await timeout(2000);
-
-      for (let set = 0; set < 6; set++) {
-        setTimeout(() => this.pattern8(), 1400 * set);
-      }
-      await timeout(6 * 1400);
-
-      for (let set = 0; set < 3; set++) {
-        await this.pattern2();
-      }
-      await timeout(3000);
-    }
-    await timeout(2000);
+    //level5_stepan
+    this.spawn_resources();
+    await this.pattern1();
+    await this.pattern1();
+    await this.pattern7();
+    await timeout(3000);
+    this.spawn_resources();
+    this.pattern4();
+    await timeout(1000);
+    this.pattern4();
+    await timeout(1000);
+    this.spawn_resources();
+    this.pattern4();
+    await timeout(1000);
+    this.pattern2();
+    // extras from gregor
+    await timeout(4000);
+    await this.pattern2();
+    await timeout(5000);
   }
 
   async level4() {
@@ -594,25 +594,25 @@ class BulletHell {
   }
 
   async level5() {
-    //level5_stepan
-    this.spawn_resources();
-    await this.pattern1();
-    await this.pattern1();
-    await this.pattern7();
-    await timeout(3000);
-    this.spawn_resources();
-    this.pattern4();
-    await timeout(1000);
-    this.pattern4();
-    await timeout(1000);
-    this.spawn_resources();
-    this.pattern4();
-    await timeout(1000);
-    this.pattern2();
-    // extras from gregor
-    await timeout(4000);
-    await this.pattern2();
-    await timeout(5000);
+    for (let big_set = 0; big_set < 2; big_set++) {
+      setTimeout(() => this.spawn_resources(), random(5000, 10000));
+      setTimeout(() => this.spawn_resources(), random(18000, 30000));
+      for (let set = 0; set < 3; set++) {
+        await this.pattern2();
+      }
+      await timeout(2000);
+
+      for (let set = 0; set < 6; set++) {
+        setTimeout(() => this.pattern8(), 1400 * set);
+      }
+      await timeout(6 * 1400);
+
+      for (let set = 0; set < 3; set++) {
+        await this.pattern2();
+      }
+      await timeout(3000);
+    }
+    await timeout(2000);
   }
 
   async level6() {
