@@ -105,6 +105,14 @@ class SceneManager {
   async start_game() {
     await this.fade('out');
     this.state = 'planet';
+    this.level_results = {};
+    this.collected = {
+      gigantium: 0,
+      minimium: 0,
+      size: 0,
+      goal_gigantium: 0,
+      goal_minimium: 0
+    };
     this.game_scene.hard_reset();
     this.load_planet(1);
     await this.fade('in');
