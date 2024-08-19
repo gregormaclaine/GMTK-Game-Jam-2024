@@ -524,7 +524,7 @@ class BulletHell {
     for (let set = 0; set < 2; set++) {
       setTimeout(() => this.spawn_resources(), random(5000, 10000));
       setTimeout(() => this.spawn_resources(), random(18000, 30000));
-      this.spawn_bullets(4, 100, 200, 250);
+      this.spawn_bullets(4, 100, 200, 200);
       for (let i = 0; i < 2; i++) {
         await this.pattern5();
       }
