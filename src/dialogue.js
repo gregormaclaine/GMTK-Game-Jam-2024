@@ -816,24 +816,6 @@ const DIALOGUE = {
       text: "You're horrible, you know that? No one was pulling your tongue to say the things you did. Don't set expectations you can't meet. Utterly pathetic fool."
     }
   ],
-  PERFECT_ENDING: [
-    {
-      profile: 'amongus',
-      text: 'Well done you got the purrfect ending'
-    }
-  ],
-  GOOD_ENDING: [
-    {
-      profile: 'amongus',
-      text: 'Well done at least you saved 2/3 planets'
-    }
-  ],
-  BAD_ENDING: [
-    {
-      profile: 'amongus',
-      text: 'you suck'
-    }
-  ],
   CRAYON_CAT_1: [
     {
       profile: 'crayon-cat-1',
@@ -1413,5 +1395,63 @@ const DIALOGUE = {
       profile: 'mystery-cat-profile',
       text: "Must be the heat. Let's get going."
     }
-  ]
+  ],
+  PERFECT_ENDING: [
+    {
+      profile: 'amongus',
+      text: 'Congratulations. You managed to save everyone! You left all three planets with the resources they needed, and everyone managed to achieve their happy ending.'
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "I knew you could do it eheheh. I always love to be proven right! Continue nourishing your gentle soul, and strive for an unbreakable spirit. Do good!"
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: "Thank you for saving us! I knew we could count on you! Thanks to you we managed to escape that disgusting worm planet! We're on our way to the lush planet now, we'll be waiting for you in our wooden huts by the lake!"
+    },
+    {
+      profile: 'science-cat-profile',
+      text: "You really did put the upgrade to good use. I'm proud of you. Thanks to you, our planet is thriving again, and our economy is growing steadily. We'll be happy to welcome you back with open paws at any time!"
+    },
+    {
+      profile: 'cat-mc',
+      text: ":)"
+    },
+    {
+      profile: 'cat-mc',
+      text: "I guess I could go for a coffee right about now..."
+    }
+  ],
+  GOOD_ENDING: [
+    {
+      profile: 'amongus',
+      text: 'Not much of a perfectionist are you? You still won... I guess. But you only managed to save 2/3 planets.'
+    },
+    {
+      profile: 'amongus',
+      text: "The best part about not achieving perfection straight away, is that you have room for growth. I'm sure you'll do better next time."
+    }
+  ],
+  BAD_ENDING: [
+    {
+      profile: 'amongus',
+      text: 'Embarrassing performance. You managed to save a single planet? How pathetic. I guess it was useless to entrust such a galactic task to a whelp like you, eh?'
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "I just received a message from HQ. Our planet has succumbed to the catastrophe. You are on your own now, boss."
+    },
+    {
+      profile: 'bw-cat-3-profile',
+      text: "I cannot describe the disappointment I feel. There is nothing worse than that stinging feeling in the back of your throat after experiencing such a tragic let down. I guess it's time we take a swim, isn't that right, Fredrick?"
+    },
+    {
+      profile: 'bw-cat-4-profile',
+      text: ". . . . . . . . . . . . . I suppose. T h e r e  i s  n o  h o p e." 
+    },
+    {
+      profile: 'amongus',
+      text: "Not only did you fail all these innocent cats you promised so much to, you failed yourself. Maybe in another universe, you got your body back, and everyone was happy. But this is not that universe. Goodbye, failure."
+    }
+  ],
 };
