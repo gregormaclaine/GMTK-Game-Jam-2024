@@ -64,13 +64,17 @@ const DIALOGUE = {
   CAT_INTRO_REPEAT_BEFORE_TUTORIAL: [
     {
       profile: 'science-cat-profile',
-      text: 'Nu uh, you only get your gift after your first flight - no shortcuts'
+      text: 'Nu uh, you only get your gift after your first successful flight - no shortcuts'
     }
   ],
   SCIENCE_CAT_INTRO_ABILITIES: [
     {
       profile: 'science-cat-profile',
       text: "Now that I see you're a talented pilot, I have a little something to help you on your journey, brave Cat. My most advanced meowzer upgrades, I have spent a lifetime developing these. I can only share one with you, the other two will go to my children. For your bravery, I will let you have the first pick."
+    },
+    {
+      profile: 'science-cat-profile',
+      text: 'Also I, along with the other top scientists have deduced that we need at least 30 MINIMIUM & 30 GIGANTIUM to save our planet. Hopefully one of these items will aid you in your gathering.'
     }
   ],
   CAT_ABILITIES_REPEAT: [
@@ -431,7 +435,7 @@ const DIALOGUE = {
   MYSTERY_CAT_FAIL: [
     {
       profile: 'mystery-cat-profile',
-      text: "Unlucky boss, you'll get it next time. Take a break and try again."
+      text: "Unlucky boss, you'll get it next time. Why dont you try again?"
     }
   ],
   MYSTERY_CAT_BEFORE_ABILITY: [

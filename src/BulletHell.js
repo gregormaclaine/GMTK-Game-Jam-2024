@@ -105,12 +105,15 @@ class BulletHell {
     this.lazers = [];
     this.slow = false;
     this.magnetic = passives.includes('magnet');
+    this._done = false;
+  }
 
-    window.start_level = () => this.level3();
+  stop() {
+    this._done = true;
   }
 
   is_done() {
-    return this.player.health <= 0;
+    return this._done || this.player.health <= 0;
   }
 
   shoot() {
@@ -499,7 +502,7 @@ class BulletHell {
       resource.on_collect = () => {
         this.collected.gigantium += Math.floor(random(5, 8));
         this.collected.size += 1;
-        audio.play_sound('pickup_gigantium.wav');
+        if (!this.is_done()) audio.play_sound('pickup_gigantium.wav');
         resolve();
       };
     });

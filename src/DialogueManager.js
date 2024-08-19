@@ -61,20 +61,28 @@ class DialogueManager {
     this.active = false;
   }
 
+  manual_progress() {
+    if (!this.current_dialogue || this.current_dialogue.jumpscare) return;
+    const t = this.current_dialogue.text;
+    const text_index = floor(lerp(0, t.length, this.progress));
+    if (text_index < t.length) {
+      this.progress = 1;
+    } else {
+      this.finished_dialogue();
+    }
+  }
+
   handle_click() {
     if (this.contains_mouse()) {
-      if (!this.current_dialogue || this.current_dialogue.jumpscare) return;
-      const t = this.current_dialogue.text;
-      const text_index = floor(lerp(0, t.length, this.progress));
-      if (text_index < t.length) {
-        this.progress = 1;
-      } else {
-        this.finished_dialogue();
-      }
+      this.manual_progress();
     } else if (this.skippable && this.mouse_over_skip()) {
       this.skip = true;
       this.finished_dialogue();
     }
+  }
+
+  handle_key_press() {
+    if (keyCode === 69) this.manual_progress();
   }
 
   show() {

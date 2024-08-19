@@ -9,8 +9,6 @@ class GameManager {
 
     this.pause_modal = new PauseModal();
     this.background = images['bullet-bg'];
-    this.level_promise = null;
-    this.on_finish_level = null;
 
     this.hard_reset();
 
@@ -30,6 +28,8 @@ class GameManager {
   reset() {
     this.sky_pos = 0;
     this.state = 'game';
+    this.level_promise = null;
+    this.on_finish_level = null;
     this.player = new Player({
       start_pos: [width / 2, height / 2],
       collected: this.collected,
@@ -47,11 +47,15 @@ class GameManager {
   }
 
   async run_level(level) {
-    this.level_promise = new Promise(
-      resolve => (this.on_finish_level = resolve)
-    );
-
     this.reset();
+
+    let level_ended = { val: false };
+    this.level_promise = new Promise(resolve => {
+      this.on_finish_level = () => {
+        level_ended.val = true;
+        resolve();
+      };
+    });
 
     await timeout(1000);
     switch (level) {
@@ -93,7 +97,7 @@ class GameManager {
         break;
     }
 
-    if (this.on_finish_level) {
+    if (!level_ended.val && this.on_finish_level) {
       this.player.ascending = true;
       await new Promise(resolve => (this.player.on_ascended = resolve));
       this.on_finish_level();
@@ -197,14 +201,22 @@ class GameManager {
       this.collected.gigantium >= this.collected.goal_gigantium ? 'green' : 255
     );
     text(
-      `${this.collected.gigantium}/${this.collected.goal_gigantium}`,
+      this.collected.goal_gigantium
+        ? `${this.collected.gigantium}/${this.collected.goal_gigantium}`
+        : `${this.collected.gigantium}`,
       70,
       40
     );
     fill(
       this.collected.minimium >= this.collected.goal_minimium ? 'green' : 255
     );
-    text(`${this.collected.minimium}/${this.collected.goal_minimium}`, 70, 90);
+    text(
+      this.collected.goal_minimium
+        ? `${this.collected.minimium}/${this.collected.goal_minimium}`
+        : `${this.collected.minimium}`,
+      70,
+      90
+    );
 
     imageMode('center');
     image(images['gigantium'], 30, 25, 40, 40);
