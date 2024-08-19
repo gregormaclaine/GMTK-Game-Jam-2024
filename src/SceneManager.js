@@ -5,7 +5,7 @@ class SceneManager {
     this.images = images;
     this.audio = audio;
 
-    this.state = 'menu';
+    this.state = 'game';
     this.level_results = {};
     this.collected = {
       gigantium: 0,

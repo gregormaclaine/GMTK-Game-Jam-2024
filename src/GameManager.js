@@ -76,10 +76,18 @@ class GameManager {
         await this.bullets.level4();
         break;
       case 5:
-        this.audio.play_track('hell-1.mp3', true);
+        this.audio.play_track('hell-4.mp3', true);
         await this.bullets.level5();
         break;
       case 6:
+        this.audio.play_track('hell-1.mp3', true);
+        await this.bullets.level6();
+        break;
+      case 7:
+        this.audio.play_track('hell-1.mp3', true);
+        await this.bullets.level5();
+        break;
+      case 8:
         this.audio.play_track('hell-1.mp3', true);
         await this.bullets.level6();
         break;
