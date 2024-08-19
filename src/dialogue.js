@@ -515,15 +515,15 @@ const DIALOGUE = {
   MYSTERY_CAT_WORLD_2: [
     {
       profile: 'mystery-cat-profile',
-      text: "Quite the weird place we found ourselves in boss."
+      text: 'Quite the weird place we found ourselves in boss.'
     },
     {
       profile: 'you-profile',
-      text: "That river thing looks really strange, i want to swim in it!"
+      text: 'That river thing looks really strange, i want to swim in it!'
     },
     {
       profile: 'mystery-cat-profile',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'mystery-cat-profile',
@@ -543,21 +543,21 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "Good luck out there boss. Remember to keep track of how much gigantium and minimium we need."
+      text: 'Good luck out there boss. Remember to keep track of how much gigantium and minimium we need.'
     }
   ],
   MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_2: [
     {
       profile: 'mystery-cat-profile',
-      text: "Let me know when you want to head out for more resource gathering boss."
+      text: 'Let me know when you want to head out for more resource gathering boss.'
     },
     {
       profile: 'you-profile',
-      text: "Sure, thanks, Whatever."
+      text: 'Sure, thanks, Whatever.'
     },
     {
       profile: 'mystery-cat-profile',
-      text: "..."
+      text: '...'
     }
   ],
   MYSTERY_CAT_GOTO_LEVEL_1_WORLD_2: [
@@ -567,7 +567,7 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "As you wish boss. I will take care of it."
+      text: 'As you wish boss. I will take care of it.'
     }
   ],
   MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_2: [
@@ -577,11 +577,11 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Okay!"
+      text: 'Okay!'
     },
     {
       profile: 'mystery-cat-profile',
-      text: "..."
+      text: '...'
     }
   ],
   MYSTERY_CAT_GOTO_LEVEL_2_WORLD_2: [
@@ -591,7 +591,7 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "Good luck out there boss. Remember to balance the size of your meowzer, or you will end up in a tough spot."
+      text: 'Good luck out there boss. Remember to balance the size of your meowzer, or you will end up in a tough spot.'
     }
   ],
   MYSTERY_CAT_PREPARE_WORLD_3: [
@@ -607,7 +607,7 @@ const DIALOGUE = {
   MYSTERY_CAT_GOTO_WORLD_3: [
     {
       profile: 'you-profile',
-      text: "Whatever, let us commence forth."
+      text: 'Whatever, let us commence forth.'
     },
     {
       profile: 'mystery-cat-profile',
@@ -615,25 +615,25 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Thanks! :D"
+      text: 'Thanks! :D'
     }
   ],
   BW_CAT_1: [
     {
       profile: 'bw-cat-1-profile',
-      text: "Well hello there young one. Welcome to our planet, plunged into darkness centuries ago."
+      text: 'Well hello there young one. Welcome to our planet, plunged into darkness centuries ago.'
     },
     {
       profile: 'you-profile',
-      text: "Hello there, quick question. What are those glowy things on the ground?"
+      text: 'Hello there, quick question. What are those glowy things on the ground?'
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "A keen eye you have there little one. You see, after our planet was plunged into darkness all those years ago, a new organism evolved and began thriving here. A parasytic organism."
+      text: 'A keen eye you have there little one. You see, after our planet was plunged into darkness all those years ago, a new organism evolved and began thriving here. A parasytic organism.'
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "We call them glow worms. They are truly horrendous creatures. They survive by crawling into our gastrointestinal tract and feeding on our nutrients. Their excrements spread through our bodies and merge with our epithelial cells. That is to say, our skin starts glowing because of their poop."
+      text: 'We call them glow worms. They are truly horrendous creatures. They survive by crawling into our gastrointestinal tract and feeding on our nutrients. Their excrements spread through our bodies and merge with our epithelial cells. That is to say, our skin starts glowing because of their poop.'
     },
     {
       profile: 'you-profile',
@@ -645,7 +645,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "...Although it does make looking at the mirror a bit problematic."
+      text: '...Although it does make looking at the mirror a bit problematic.'
     },
     {
       profile: 'you-profile',
@@ -657,7 +657,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "Well you see, our main source of light, the river you see around us, is highly poisonous. It contains heaps of incredibly dangerous bacteria, which, not unlike the worms, like to produce fluorecent byproducts."
+      text: 'Well you see, our main source of light, the river you see around us, is highly poisonous. It contains heaps of incredibly dangerous bacteria, which, not unlike the worms, like to produce fluorecent byproducts.'
     },
     {
       profile: 'you-profile',
@@ -665,7 +665,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "We use minimium to control the populations of these bacteria, along with any other parasites or organisms that want to contribute to the toxicity levels of our precious river. We of course also need some gigantium to stabilise the reactions, and for a few... other... purposes."
+      text: 'We use minimium to control the populations of these bacteria, along with any other parasites or organisms that want to contribute to the toxicity levels of our precious river. We of course also need some gigantium to stabilise the reactions, and for a few... other... purposes.'
     },
     {
       profile: 'bw-cat-1-profile',
@@ -691,7 +691,7 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "At once, boss."
+      text: 'At once, boss.'
     },
     {
       profile: 'bw-cat-1-profile',
@@ -705,7 +705,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Get these worms off me!!"
+      text: 'Get these worms off me!!'
     },
     {
       profile: 'bw-cat-1-profile',
@@ -719,7 +719,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Fries.. my nerves?"
+      text: 'Fries.. my nerves?'
     },
     {
       profile: 'bw-cat-1-profile',
@@ -737,53 +737,53 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-2-profile',
-      text: "ehEHEHhEHEHEehehehEhehe"
+      text: 'ehEHEHhEHEHEehehehEhehe'
     },
     {
       profile: 'you-profile',
-      text: "Excuse me, mister? Are you in your right mind?!"
+      text: 'Excuse me, mister? Are you in your right mind?!'
     },
     {
       profile: 'bw-cat-1-profile',
-      text: "Ignore Henry, the river can have a strange effect on twisted minds."
+      text: 'Ignore Henry, the river can have a strange effect on twisted minds.'
     },
     {
       profile: 'bw-cat-2-profile',
-      text: "I wnat t o  SWIM in the river?!?"
+      text: 'I wnat t o  SWIM in the river?!?'
     },
     {
       profile: 'bw-cat-2-profile',
       text: "Hmm? WHo is this puddle of darkness? I see you've already got accustomed to our world, it happens whether you want it or not. ThereS no EScaping the  G  L  O  W  ."
     },
     {
-      profile: "you-profile",
-      text: "Maybe the minimium can make him better?"
+      profile: 'you-profile',
+      text: 'Maybe the minimium can make him better?'
     }
   ],
   BW_CAT_2_REPEAT: [
     {
       profile: 'bw-cat-2-profile',
-      text: "S w i m . . ."
+      text: 'S w i m . . .'
     },
     {
       profile: 'you-profile',
-      text: "R i v e r . . ?"
+      text: 'R i v e r . . ?'
     },
     {
       profile: 'bw-cat-2-profile',
-      text: "Want to see...... her. In ... river . . . . :("
-    },
+      text: 'Want to see...... her. In ... river . . . . :('
+    }
   ],
   BW_CAT_2_SUCCESS: [
     {
       profile: 'bw-cat-2-profile',
-      text: "THanck,.. you. You are good Cat."
+      text: 'THanck,.. you. You are good Cat.'
     }
   ],
   BW_CAT_2_FAIL: [
     {
       profile: 'bw-cat-2-profile',
-      text: "I will be like this forever. Monster."
+      text: 'I will be like this forever. Monster.'
     },
     {
       profile: 'you-profile',
@@ -791,7 +791,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-2-profile',
-      text: "YOu, swim in river... too."
+      text: 'YOu, swim in river... too.'
     }
   ],
   BW_CAT_3: [
@@ -805,7 +805,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-3-profile',
-      text: "I came with Fredrick, we were happy cats, travelling the nearby solar systems, until one day we crash landed on this planet."
+      text: 'I came with Fredrick, we were happy cats, travelling the nearby solar systems, until one day we crash landed on this planet.'
     },
     {
       profile: 'bw-cat-3-profile',
@@ -817,7 +817,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-3-profile',
-      text: "Few and far between, the place where Fredrick and I are from forbids the use of such punishments. It entraps the body, and soul, with irreversible consequences."
+      text: 'Few and far between, the place where Fredrick and I are from forbids the use of such punishments. It entraps the body, and soul, with irreversible consequences.'
     },
     {
       profile: 'you-profile',
@@ -825,11 +825,11 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-3-profile',
-      text: "Seems you are still recovering from the amnesia, I sincerely hope you get better soon, maybe one day when you get your body back you can come back and take us with you."
+      text: 'Seems you are still recovering from the amnesia, I sincerely hope you get better soon, maybe one day when you get your body back you can come back and take us with you.'
     },
     {
       profile: 'you-profile',
-      text: "Promise i will make it happen, i want to hear more about your adventures :)"
+      text: 'Promise i will make it happen, i want to hear more about your adventures :)'
     },
     {
       profile: 'bw-cat-3-profile',
@@ -839,12 +839,12 @@ const DIALOGUE = {
   BW_CAT_3_REPEAT: [
     {
       profile: 'bw-cat-3-profile',
-      text: "It pains me to see Fredrick like this all the time. Please help us."
+      text: 'It pains me to see Fredrick like this all the time. Please help us.'
     },
     {
       profile: 'you-profile',
       text: "I'll do all I can."
-    },
+    }
   ],
   BW_CAT_3_SUCCESS: [
     {
@@ -854,7 +854,7 @@ const DIALOGUE = {
     {
       profile: 'you-profile',
       text: "I'll get you guys out of here."
-    },
+    }
   ],
   BW_CAT_3_FAIL: [
     {
@@ -865,7 +865,7 @@ const DIALOGUE = {
   BW_CAT_4: [
     {
       profile: 'bw-cat-4-profile',
-      text: "This is so disgusting. Get me out of here. I want to sleep."
+      text: 'This is so disgusting. Get me out of here. I want to sleep.'
     },
     {
       profile: 'you-profile',
@@ -885,7 +885,7 @@ const DIALOGUE = {
     },
     {
       profile: 'bw-cat-4-profile',
-      text: "I can see Rodrick crying over there, memories of our adventures together, and not wanting to disappoint him even more are the only two things holding me together at this point."
+      text: 'I can see Rodrick crying over there, memories of our adventures together, and not wanting to disappoint him even more are the only two things holding me together at this point.'
     },
     {
       profile: 'you-profile',
@@ -913,7 +913,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "You can count on me!"
+      text: 'You can count on me!'
     }
   ],
   BW_CAT_4_FAIL: [
@@ -924,6 +924,24 @@ const DIALOGUE = {
     {
       profile: 'bw-cat-4-profile',
       text: "You're horrible, you know that? No one was pulling your tongue to say the things you did. Don't set expectations you can't meet. Utterly pathetic fool."
+    }
+  ],
+  PERFECT_ENDING: [
+    {
+      profile: 'amongus',
+      text: 'Well done you got the purrfect ending'
+    }
+  ],
+  GOOD_ENDING: [
+    {
+      profile: 'amongus',
+      text: 'Well done at least you saved 2/3 planets'
+    }
+  ],
+  BAD_ENDING: [
+    {
+      profile: 'amongus',
+      text: 'you suck'
     }
   ]
 };

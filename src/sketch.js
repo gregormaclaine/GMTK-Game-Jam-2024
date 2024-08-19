@@ -7,7 +7,8 @@ const audio = new JL.Audio(
     'hell-4.mp3',
     'planet-1.mp3',
     'planet-2.mp3',
-    'planet-3.mp3'
+    'planet-3.mp3',
+    'ending.mp3'
   ],
   [
     'boom.wav',

@@ -106,6 +106,7 @@ class SceneManager {
 
   async finish_game({ collected, results }) {
     await this.fade('out');
+    this.audio.stop();
     this.end_scene = new EndScene({
       collected,
       results,
@@ -116,6 +117,8 @@ class SceneManager {
       },
       dialogue: this.dialogue
     });
+    await this.end_scene.send_dialogue();
+    this.audio.play_track('ending.mp3', true);
     this.state = 'end';
     await this.fade('in');
   }
