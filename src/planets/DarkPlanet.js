@@ -240,12 +240,23 @@ class DarkPlanet extends PlanetScene {
                 skippable: false
               });
               this.save_world_completion_status('planet2', 50, 50);
-              await this.move_world(3);
-              reset_count();
+              if (this.has_failed()) {
+                this.finish_game();
+              } else {
+                await this.move_world(3);
+                reset_count();
+              }
             }
           }
         }
       })
     ];
+  }
+
+  has_failed() {
+    return (
+      this.level_results['planet1'] === 'lose' &&
+      this.level_results['planet2'] === 'lose'
+    );
   }
 }
