@@ -22,7 +22,8 @@ class ParticleEffect {
   }
 
   show(fade = true, spin = true, scale = 'shrink') {
-    const y_offset = lerp(0, this.distance, this.progress);
+    // const y_offset = lerp(0, this.distance, this.progress);
+    const y_offset = -30;
     push();
     imageMode(CENTER);
     if (fade) tint(255, lerp(255, 0, this.progress));
@@ -33,7 +34,7 @@ class ParticleEffect {
     if (scale === 'shrink') {
       scaler = x => x * lerp(1, 0.1, this.progress);
     } else if (scale === 'grow') {
-      scaler = x => x * lerp(1, 2.5, this.progress);
+      scaler = x => x * lerp(0.2, 1.5, this.progress);
     }
 
     image(this.image, 0, 0, ...this.size.map(scaler));
@@ -42,5 +43,8 @@ class ParticleEffect {
 
   update() {
     this.progress += 1 / frameRate() / this.duration;
+    if (this.progress >= 1) {
+      this.end_effect();
+    }
   }
 }

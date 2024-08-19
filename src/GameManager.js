@@ -9,8 +9,6 @@ class GameManager {
 
     this.pause_modal = new PauseModal();
     this.background = images['bullet-bg'];
-    this.level_promise = null;
-    this.on_finish_level = null;
 
     this.hard_reset();
 
@@ -30,6 +28,8 @@ class GameManager {
   reset() {
     this.sky_pos = 0;
     this.state = 'game';
+    this.level_promise = null;
+    this.on_finish_level = null;
     this.player = new Player({
       start_pos: [width / 2, height / 2],
       collected: this.collected,
@@ -47,11 +47,15 @@ class GameManager {
   }
 
   async run_level(level) {
-    this.level_promise = new Promise(
-      resolve => (this.on_finish_level = resolve)
-    );
-
     this.reset();
+
+    let level_ended = { val: false };
+    this.level_promise = new Promise(resolve => {
+      this.on_finish_level = () => {
+        level_ended.val = true;
+        resolve();
+      };
+    });
 
     await timeout(1000);
     switch (level) {
@@ -76,16 +80,24 @@ class GameManager {
         await this.bullets.level4();
         break;
       case 5:
-        this.audio.play_track('hell-1.mp3', true);
+        this.audio.play_track('hell-4.mp3', true);
         await this.bullets.level5();
         break;
       case 6:
         this.audio.play_track('hell-1.mp3', true);
         await this.bullets.level6();
         break;
+      case 7:
+        this.audio.play_track('hell-1.mp3', true);
+        await this.bullets.level7();
+        break;
+      case 8:
+        this.audio.play_track('hell-1.mp3', true);
+        await this.bullets.level8();
+        break;
     }
 
-    if (this.on_finish_level) {
+    if (!level_ended.val && this.on_finish_level) {
       this.player.ascending = true;
       await new Promise(resolve => (this.player.on_ascended = resolve));
       this.on_finish_level();
@@ -100,7 +112,7 @@ class GameManager {
         this.ability_cooldown.cooldown = 2;
         break;
       case 'stealth':
-        this.ability_cooldown.cooldown = 10;
+        this.ability_cooldown.cooldown = 15;
         break;
       case 'time':
         this.ability_cooldown.cooldown = 9;
@@ -124,7 +136,7 @@ class GameManager {
         setTimeout(() => {
           this.player.invincible = false;
           this.audio.play_sound('invincibility_end.wav');
-        }, 2000);
+        }, 1500);
         break;
       case 'time':
         this.bullets.slow = true;
@@ -189,14 +201,22 @@ class GameManager {
       this.collected.gigantium >= this.collected.goal_gigantium ? 'green' : 255
     );
     text(
-      `${this.collected.gigantium}/${this.collected.goal_gigantium}`,
+      this.collected.goal_gigantium
+        ? `${this.collected.gigantium}/${this.collected.goal_gigantium}`
+        : `${this.collected.gigantium}`,
       70,
       40
     );
     fill(
       this.collected.minimium >= this.collected.goal_minimium ? 'green' : 255
     );
-    text(`${this.collected.minimium}/${this.collected.goal_minimium}`, 70, 90);
+    text(
+      this.collected.goal_minimium
+        ? `${this.collected.minimium}/${this.collected.goal_minimium}`
+        : `${this.collected.minimium}`,
+      70,
+      90
+    );
 
     imageMode('center');
     image(images['gigantium'], 30, 25, 40, 40);

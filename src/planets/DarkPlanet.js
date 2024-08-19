@@ -27,16 +27,20 @@ class DarkPlanet extends PlanetScene {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.BW_CAT_1_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.BW_CAT_1_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.BW_CAT_1_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.BW_CAT_1_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }
         }
       }),
 
@@ -44,7 +48,7 @@ class DarkPlanet extends PlanetScene {
         pos: [width * 0.13, height * 0.85],
         image: images['bw-cat-2'],
         size: [125, 375],
-        radius: 1,
+        radius: 1.8,
         interact: async (count, reset_count) => {
           const result = this.level_results[3];
           const result_1 = this.level_results[4];
@@ -54,21 +58,25 @@ class DarkPlanet extends PlanetScene {
             await this.dialogue.send(DIALOGUE.BW_CAT_2, {
               skippable: true
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.BW_CAT_2_REPEAT, {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.BW_CAT_2_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.BW_CAT_2_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.BW_CAT_2_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.BW_CAT_2_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }
         }
       }),
 
@@ -86,21 +94,25 @@ class DarkPlanet extends PlanetScene {
             await this.dialogue.send(DIALOGUE.BW_CAT_3, {
               skippable: true
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.BW_CAT_3_REPEAT, {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.BW_CAT_3_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.BW_CAT_3_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.BW_CAT_3_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.BW_CAT_3_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }
         }
       }),
 
@@ -118,21 +130,25 @@ class DarkPlanet extends PlanetScene {
             await this.dialogue.send(DIALOGUE.BW_CAT_4, {
               skippable: true
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.BW_CAT_4_REPEAT, {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.BW_CAT_4_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.BW_CAT_4_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.BW_CAT_4_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.BW_CAT_4_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }
         }
       }),
 
@@ -158,9 +174,12 @@ class DarkPlanet extends PlanetScene {
             }
 
             if (count >= 2) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_WORLD_2, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_WORLD_2,
+                {
+                  skippable: false
+                }
+              );
 
               // Do it after two seconds so that it happens when ur already playing
               setTimeout(
@@ -173,26 +192,38 @@ class DarkPlanet extends PlanetScene {
           }
           if (result && !result_1) {
             if (count == 0) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_2, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_2,
+                {
+                  skippable: false
+                }
+              );
             } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1_WORLD_2, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1_WORLD_2,
+                {
+                  skippable: false
+                }
+              );
               await this.start_level(4);
               reset_count();
             }
           }
           if (result && result_1 && !result_2) {
             if (count == 0) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_2, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_2,
+                {
+                  skippable: false
+                }
+              );
             } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_2_WORLD_2, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_2_WORLD_2,
+                {
+                  skippable: false
+                }
+              );
               await this.start_level(5);
               reset_count();
             }
@@ -211,7 +242,7 @@ class DarkPlanet extends PlanetScene {
             }
           }
         }
-      }),
+      })
     ];
   }
 }

@@ -11,7 +11,6 @@ class SceneManager {
       gigantium: 0,
       minimium: 0,
       size: 0,
-      coins: 0,
       goal_gigantium: 0,
       goal_minimium: 0
     };
@@ -81,13 +80,20 @@ class SceneManager {
   async start_level(level) {
     await this.fade('out');
     this.state = 'game';
+
+    const previous_minimium = this.collected.minimium;
+    const previous_gigantium = this.collected.gigantium;
+
     this.game_scene.run_level(level);
     await this.fade('in');
     await this.game_scene.level_promise;
     await this.fade('out');
+    this.collected.size = 0;
     if (this.game_scene.player.health <= 0) {
       this.state = 'gameover';
       this.planet_scene.level_results[level] = 'lose';
+      this.collected.minimium = previous_minimium;
+      this.collected.gigantium = previous_gigantium;
     } else {
       this.state = 'planet';
       this.planet_scene.level_results[level] = 'win';
@@ -106,6 +112,7 @@ class SceneManager {
 
   async finish_game({ collected, results }) {
     await this.fade('out');
+    this.audio.stop();
     this.end_scene = new EndScene({
       collected,
       results,
@@ -114,7 +121,8 @@ class SceneManager {
         this.state = 'menu';
         await this.fade('in');
       },
-      dialogue: this.dialogue
+      dialogue: this.dialogue,
+      audio: this.audio
     });
     this.state = 'end';
     await this.fade('in');
@@ -148,7 +156,7 @@ class SceneManager {
 
   handle_key_press() {
     if (this.fade_mode) return;
-    if (this.dialogue.active) return;
+    if (this.dialogue.active) return this.dialogue.handle_key_press();
 
     if (this.state === 'game') this.game_scene.handle_key_press();
     if (this.state === 'planet') this.planet_scene.handle_key_press();

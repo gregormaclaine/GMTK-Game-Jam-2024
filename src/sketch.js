@@ -7,7 +7,8 @@ const audio = new JL.Audio(
     'hell-4.mp3',
     'planet-1.mp3',
     'planet-2.mp3',
-    'planet-3.mp3'
+    'planet-3.mp3',
+    'ending.mp3'
   ],
   [
     'boom.wav',
@@ -50,6 +51,8 @@ function preload() {
   images['asteroid'] = loadImage('assets/img/rocks/asteroid.png');
   images['cool-rock'] = loadImage('assets/img/rocks/cool-rock.png');
 
+  images['explosion'] = loadImage('assets/img/explosion.svg');
+
   images['gigantium'] = loadImage('assets/img/items/gigantium.png');
   images['minimium'] = loadImage('assets/img/items/minimium.png');
   images['health-crate'] = loadImage('assets/img/items/health-crate.png');
@@ -81,12 +84,12 @@ function preload() {
   images['cat'] = loadImage('assets/img/npcs/cat.png');
   images['science-cat'] = loadImage('assets/img/npcs/science-cat.png');
   images['evil-cat'] = loadImage('assets/img/npcs/evil-cat.png');
-  
+
   images['crayon-cat-1'] = loadImage('assets/img/npcs/crayon-cat.png');
   images['crayon-cat-2'] = loadImage('assets/img/npcs/crayon-cat-2.png');
   images['crayon-cat-3'] = loadImage('assets/img/npcs/crayon-cat-3.png');
   images['crayon-cat-4'] = loadImage('assets/img/npcs/crayon-cat-4.png');
-  
+
   images['bw-cat-1'] = loadImage('assets/img/npcs/bw-cat-1.png');
   images['bw-cat-2'] = loadImage('assets/img/npcs/bw-cat-2.png');
   images['bw-cat-3'] = loadImage('assets/img/npcs/bw-cat-3.png');
@@ -105,7 +108,9 @@ function preload() {
   );
   images['evil-cat-profile'] = loadImage('assets/img/profiles/evil-cat.png');
   images['china-cat-profile'] = loadImage('assets/img/profiles/china-cat.png');
-  images['mystery-cat-profile'] = loadImage('assets/img/profiles/mystery-cat.jpg');
+  images['mystery-cat-profile'] = loadImage(
+    'assets/img/profiles/mystery-cat.jpg'
+  );
 
   images['cat-heart'] = loadImage('assets/img/cat-heart.png');
   images['skip-button'] = loadImage('assets/img/skip-button.png');
