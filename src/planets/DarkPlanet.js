@@ -19,8 +19,9 @@ class DarkPlanet extends PlanetScene {
 
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.BW_CAT_1, {
-              skippable: true
+              skippable: false
             });
+            this.add_passive('magnet');
           } else if (!result) {  
             await this.dialogue.send(DIALOGUE.BW_CAT_1_REPEAT, {
               skippable: true

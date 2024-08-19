@@ -137,138 +137,12 @@ const DIALOGUE = {
       text: 'Thanks Cara!'
     }
   ],
-
   INTRODUCE_SPLITTING_ROCKS: [
     // pls expand
+    // no
     {
       profile: 'amongus',
-      text: 'Watch out for splitting rocks.'
-    }
-  ],
-  CRAYON_COFFEE_CAT_BLOCK: [
-    {
-      profile: 'crayon-cat-1',
-      text: "Come speak to me once you've spoken to everyone here"
-    }
-  ],
-  CRAYON_COFFEE_CAT: [
-    {
-      profile: 'crayon-cat-1',
-      text: 'Thanks for going over to speak to everyone.'
-    },
-    {
-      profile: 'crayon-cat-1',
-      text: "I hope you feel like you've accomplished a lot. Anyway feel free to leave and head back to your home planet. Goodbye"
-    }
-  ],
-  CRAYON_COFFEE_CAT_GOOD: [
-    {
-      profile: 'crayon-cat-1',
-      text: 'I am a coool cat with coffee :3'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: 'fuck you coffee cat I can cast a spell that makes ur coffee cold'
-    },
-    {
-      profile: 'crayon-cat-1',
-      text: '...'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: '...'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: 'eat shit'
-    }
-  ],
-  CRAYON_LEGS_CAT: [
-    {
-      profile: 'crayon-cat-2',
-      text: "Hey I'm trying to make my legs longer? Think you can help me with that?"
-    },
-    {
-      profile: 'you-profile',
-      text: '...'
-    },
-    {
-      profile: 'crayon-cat-2',
-      text: 'Amazing! I need you to collect for me 15 MINIMIUM and 15 GIGANTIUM so that I can properly adjust me legs :3.\n Thanks and good luck!'
-    }
-  ],
-  CRAYON_LEGS_CAT_AFTER: [
-    {
-      profile: 'crayon-cat-2',
-      text: 'Thanks for going on that mission. Just you wait and see whats in store for me now!'
-    }
-  ],
-  CRAYON_WIZARD_CAT: [
-    {
-      profile: 'crayon-cat-3',
-      text: 'Oh thank the heavens you are here sir. I really did need one fine person such as yourself to come to my aid.'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: 'You see I am making a truly important potion! And to complete it I need 20 untouched MINIMIUM CRYSTALS, please would you get it for me!'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: 'Good luck!'
-    }
-  ],
-  CRAYON_WIZARD_CAT_WIN: [
-    {
-      profile: 'crayon-cat-3',
-      text: 'Oh my oh my, thank you so very much my feline friend. You are my saviour!'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: "Because you successfully returned with enough minimium crystals, nyow I can FINALLY make my potion that shrink that cat's legs. God they're ugly"
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: 'You have done a wonderful thing'
-    }
-  ],
-  CRAYON_WIZARD_CAT_LOSS: [
-    {
-      profile: 'crayon-cat-3',
-      text: 'You are awful. A disgusting cat with no future in piloting.'
-    },
-    {
-      profile: 'crayon-cat-3',
-      text: 'Because of you I cannot brew the potion I needed to save my dying mother. She will die a painful death because of you. I hope you knyow that.'
-    }
-  ],
-  CRAYON_GUN_CAT: [
-    {
-      profile: 'crayon-cat-4',
-      text: 'Who goes there? ... You better not try anything. Lest I use my GUN!'
-    },
-    {
-      profile: 'crayon-cat-4',
-      text: "I became blind many years ago from a human slicing out my eye with its claws - fiesty things they are. But don't you think that that'll make me hesitant to use this thing!\n You should know that I've taken out 6 different feline foes with this!"
-    },
-    {
-      profile: 'crayon-cat-4',
-      text: '...'
-    },
-    {
-      profile: 'crayon-cat-4',
-      text: "I think ... I guess I never really saw them huh. Maybe you should go ask wizard cat - I heard he's been looking for a talented fighter pilot to gather him some materials for his newest potion"
-    }
-  ],
-  CRAYON_GUN_CAT_2: [
-    {
-      profile: 'crayon-cat-4',
-      text: 'I said go speak to wizard cat - he needs some help with a mission'
-    }
-  ],
-  CRAYON_GUN_CAT_3: [
-    {
-      profile: 'crayon-cat-4',
-      text: 'bro go away'
+      text: 'Watch out for splitting asteroids. They are dangerous.'
     }
   ],
   OLDER_BROTHER_CAT: [
@@ -674,6 +548,18 @@ const DIALOGUE = {
     {
       profile: 'you-profile',
       text: "I'll do my best."
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "I suppose I can give you something to aid you on your task, since it will benefit me, as much as it will benefit you. You're not really my type, so I won't keep you here long. Just get the resources and be on your way, little one."
+    },
+    {
+      profile: 'ability-blackhole',
+      text: "*You received the black hole augment from ???*"
+    },
+    {
+      profile: 'bw-cat-1-profile',
+      text: "With that, you will be able to collect resources much easier. Don't let me down."
     }
   ],
   BW_CAT_1_REPEAT: [
@@ -924,6 +810,586 @@ const DIALOGUE = {
     {
       profile: 'bw-cat-4-profile',
       text: "You're horrible, you know that? No one was pulling your tongue to say the things you did. Don't set expectations you can't meet. Utterly pathetic fool."
+    }
+  ],
+  CRAYON_CAT_1: [
+    {
+      profile: 'crayon-cat-1',
+      text: "Coffee."
+    },
+    {
+      profile: 'you-profile',
+      text: "Come again?"
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "It's the only thing that keeps me going in this deserted place. Hey listen, that wizard cat, he's going to ask you for some gigantium or something. I'll make you a deal, you gimme some of that good stuff, and I'll make you the most scrumptious cup of coffee you have ever tried. Deal?"
+    },
+    {
+      profile: 'you-profile',
+      text: "i'm a shadow puddle. i don't think i can drink coffee. You can pour it on me though! I'm sure I'll feel.. something?"
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "Whatever it takes, just get me that gigantium. I need more coffee."
+    },
+    {
+      profile: 'you-profile',
+      text: "Okay, guess i'll get to it then."
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "Wait, you're not getting back into that meowzer are you?"
+    },
+    {
+      profile: 'you-profile',
+      text: "How else do you expect me to gather your gigantium?"
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "I'll tell you what kid, as someone who used to work on making those things for cats like you, I would never in my life get into one of them. Even if I was stranded on glow-worm planet."
+    },
+    {
+      profile: 'you-profile',
+      text: "What's so bad about them? my meowzer and i make a pretty great team!"
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "It consumes you. You think you're in control, but you're not. It's all part of the meowzer's illusion. It's just using you. Why do you think you can't remember your life before it? They engineer you to pilot it for life, you merge, you die together. The pilot academies romanticise it, too much."
+    },
+    {
+      profile: 'crayon-cat-1',
+
+      text: "If I were you, I would save my neurones and never board that thing again. Just stay here with me, I'll make you great coffee, and we can steal some gigantium from the hitcat."
+    },
+    {
+      profile: 'you-profile',
+      text: "Stealing from a hitcat sounds worse than whatever you say goes on with my meowzer!"
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "Well, don't say I didn't try to warn you kiddo. Now go get me that gigantium."
+    }
+  ],
+
+  CRAYON_CAT_1_REPEAT: [
+    {
+      profile: 'crayon-cat-1',
+      text: "You're a lost cause kiddo, just like all the others. I'll pay in the afterlife, just get my gigantium."
+    },
+    {
+      profile: 'you-profile',
+      text: "Hmm..."
+    },
+    {
+      profile: "crayon-cat-1",
+      text: "Shoo, shoo, go annoy long legs over there or something. Don't come back without that gigantium."
+    }
+  ],
+
+  CRAYON_CAT_1_SUCCESS: [
+    {
+      profile: 'crayon-cat-1',
+      text: "Good job kiddo, I'll treat you to a coffee once you escape that meowzer. Otherwise it's no point wasting such prime goods on someone so temporary."
+    },
+    {
+      profile: 'you-profile',
+      text: "Scammed again :("
+    }
+  ],
+
+  CRAYON_CAT_1_FAIL: [
+    {
+      profile: 'crayon-cat-1',
+      text: "You're a blob of disappointment kiddo. Get out of here before I call the hitcat on you, we're on quite good terms you know. Despite all the.. well he doesn't need to know about it."
+    }
+  ],
+
+  CRAYON_CAT_2: [
+    {
+      profile: 'you-profile',
+      text: "Nice legs."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "Thanks, I know. Not something to start off a conversation with though."
+    },
+    {
+      profile: 'you-profile',
+      text: "We were taught at the academy to open conversations with a compliment when we don't know what else to say to someone."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "Did the academy teach you that you can just not talk to someone when you have nothing of substance to say?"
+    },
+    {
+      profile: 'you-profile',
+      text: "I guess not."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "Well, anywho, I happened to overhear your conversation with Coffee Guy © over there. He and I go way back."
+    },
+    {
+      profile: 'you-profile',
+      text: "Coffee Guy ©? How do you know him?"
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "That's his official name, he changed it a while back when he got really into coffee. Bro kinda made it his whole personality since he doesn't really have anything else going for him."
+    },
+    {
+      profile: 'crayon-cat-1',
+      text: "Hey I can hear you as well you know?! Also I'll have you know I changed my name again to Gigantic Coffe Nerd™️ now so I'll have to ask you to refer to me as such."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "Anyway, Coffee Cat ©️ and I used to work together at the meowzer production facility."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "E v e r y t h i n g  i s  t r u e ."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "B e w a r e  t h e  a p p a r i t i o n s ."
+    },
+    {
+      profile: 'you-profile',
+      text: "Illusions? Apparitions? You guys must have gone crazy from all this heat. I'll get you a glass of water."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "Forget the water, leave the meowzer if you know what's best for you. Those things are dangerous. They are neither alive nor dead, they mess with your mind, they get into your head. I'm sure you're convinced there's more than 5 people in total here."
+    },
+    {
+      profile: 'you-profile',
+      text: "If i could count i would definitely suspect something. It's a shame it's not a required subject at the academy."
+    }
+  ],
+  CRAYON_CAT_2_REPEAT: [
+    {
+      profile: 'crayon-cat-2',
+      text: "You should listen to us little bro, we know what's best for you, and we're NOT joking."
+    },
+    {
+      profile: 'you-profile',
+      text: "i'll keep that in mind. Not like i have much of a choice if i don't want to be a shadow blob forever."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "I suppose we all have our own curses tying us down."
+    }
+  ],
+  CRAYON_CAT_2_SUCCESS: [
+    {
+      profile: 'crayon-cat-2',
+      text: "You expect to hear congratulations? I told you, don't go near that meowzer again."
+    },
+    {
+      profile: 'you-profile',
+      text: "Your pranks are getting old."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "I hope you realise, before it's too late, the true nature of that ship. About your curse, you should talk to the wizard, maybe he can help you."
+    }
+  ],
+  CRAYON_CAT_2_FAIL: [
+    {
+      profile: 'crayon-cat-2',
+      text: "It's only a matter of time until the meowzer has enough of you. If you're so persistent on using it, make sure you don't get it hurt."
+    },
+    {
+      profile: 'you-profile',
+      text: "It was an accident."
+    },
+    {
+      profile: 'crayon-cat-2',
+      text: "I'm sure it was."
+    }
+  ],
+
+  CRAYON_CAT_2_ANNOYED: [
+    {
+      profile: 'crayon-cat-2',
+      text: "Go annoy someone else kid."
+    },
+    {
+      profile: 'you-profile',
+      text: "I'll be back"
+    }
+  ],
+
+  CRAYON_CAT_2_ANGRY: [
+    {
+      profile: 'crayon-cat-2',
+      text: "Alright that's it, I'm calling the hitman."
+    }
+  ],
+
+  CRAYON_CAT_3: [
+    {
+      profile: 'crayon-cat-3',
+      text: "Well hello there. How are you doing?"
+    },
+    {
+      profile: 'you-profile',
+      text: "I'm doing fine, how about you?"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "What a well mannered young cat. I suppose you're here because I called you?"
+    },
+    {
+      profile: 'you-profile',
+      text: "Well, yes. That would make sense. I doubt I would have been able to find this planet otherwise. It only appeared when I got really close to the signal you were transmitting."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "This planet is well hidden you see. It's a safe haven for those who have chosen to change their ways."
+    },
+    {
+      profile: 'you-profile',
+      text: "Can you help me get my body back? Being a shadow kinda really sucks. I want to try that guy's coffee!"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "You probably think that the only way to get your body back is to save everyone, be a hero, return to your home planet and get it handed to you on a silver platter?"
+    },
+    {
+      profile: 'you-profile',
+      text: "Well, yeah. That's what I was told. Didn't think it would come on a silver platter though."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "I won't bore you. I can see your soul is clear and your heart is pure. You don't deserve this fate that has been put upon you."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "I know you don't remember anything, unfortunately that's impossible for me to fix. But I can offer you your body back if you so desire."
+    },
+    {
+      profile: 'you-profile',
+      text: "Of course I want it back! I still want to help everyone though. Can I do that when I get my body back?"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "A kind heart, and a pure soul, will always find a way to help others. Your shape and form don't matter. I'll tell you what, bring me 50 gigantium and 50 minimium. I will use them to bring your body back."
+    },
+    {
+      profile: 'you-profile',
+      text: "i'll get them!"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "I'll be waiting."
+    }
+  ],
+
+  CRAYON_CAT_3_REPEAT: [
+    {
+      profile: 'crayon-cat-3',
+      text: "Don't you want me to bring your body back?"
+    },
+    {
+      profile: 'you-profile',
+      text: "i'm working on it!"
+    }
+  ],
+
+  CRAYON_CAT_3_SUCCESS: [
+    {
+      profile: 'crayon-cat-3',
+      text: "I see you came back in one piece. That's good, but you still don't have enough resources."
+    },
+    {
+      profile: 'you-profile',
+      text: "i'll get them, just wait!"
+    }
+  ],
+
+  CRAYON_CAT_3_FAIL: [
+    {
+      profile: 'crayon-cat-3',
+      text: "You came back empty handed? That's a shame..."
+    }
+  ],
+
+  CRAYON_CAT_3_COLLECTED: [
+    {
+      profile: 'crayon-cat-3',
+      text: "I see you've done as I asked. Well done."
+    },
+    {
+      profile: 'you-profile',
+      text: "Sooo... what happens now?"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "..."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur"
+    },
+    {
+      profile: 'you-profile',
+      text: "..."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "I WILL REVEAL YOUR TRUE FORM!"
+    }
+  ],
+
+  CRAYON_CAT_3_COLLECTED_CONT: [
+    {
+      profile: 'crayon-cat-3',
+      text: "Whew, so.. How do you feel?"
+    },
+    {
+      profile: 'cat-mc',
+      text: "Weird. But AMAZING!"
+    },
+    {
+      profile: 'cat-mc',
+      text: "I can really feel everything! Smell the smells, taste the.. dry, hot air. Ew."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "Betcha didn't think this would actually work did you?"
+    },
+    {
+      profile: 'you-profile',
+      text: "You think you can leave me behind like this?"
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "I couldn't get rid of all traces of your shadow. It will go away eventually... I think."
+    },
+    {
+      profile: 'cat-mc',
+      text: "It's fine, I can deal with him. It just feels amazing to finally be able to walk around in my body. Like all the other cats! Thank you kind wizard. I am forever in your debt."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "Your debt is to the universe, use your beating heart and your kind soul to help others, just like I helped you. That is all I ask."
+    },
+    {
+      profile: 'crayon-cat-3',
+      text: "If I were you, I would give some of that leftover gigantium to our resident coffee nerd, James ;)"
+    }
+  ],
+
+  CRAYON_CAT_4: [
+    {
+      profile: 'crayon-cat-4',
+      text: "..."
+    },
+    {
+      profile: 'you-profile',
+      text: "..."
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "..."
+    },
+    {
+      profile: 'you-profile',
+      text: "i like your gun mister."
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "Wanna see me use it?"
+    },
+    {
+      profile: 'you-profile',
+      text: "I feel like that's a trick question."
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "Listen son, I don't have any secret intel, or anything interesting to tell you. Go bother someone else."
+    },
+    {
+      profile: 'you-profile',
+      text: ":("
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "..."
+    }
+  ],
+  CRAYON_CAT_4_REPEAT: [
+    {
+      profile: 'crayon-cat-4',
+      text: "You're a stubborn one aren't you?"
+    },
+    {
+      profile: 'you-profile',
+      text: "i think you're hiding something."
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "..."
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "I guess I used to have things to hide. But I left that life behind. Guess being quiet's just an 'abit now."
+    },
+    {
+      profile: 'you-profile',
+      text: "Coffee Guy? Coffee Cat? Gigantic Coffee Nerd? Whatever his name is... He told me that you're on good terms. So, he's your friend?"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "Mercs don't have friends son. We just know people."
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "Although I guess James, the one you know as Coffee whatever the heck, he helped bring me out of that life."
+    },
+    {
+      profile: 'you-profile',
+      text: "Using coffee?"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "He's got nothin' else going for him eh? What else?"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "I was originally sent on a mission here to silence the two defectors from the production facility. But after a lot of hide and seek, and some help from a local wizard, I managed to leave my old life behind."
+    },
+    {
+      profile: 'you-profile',
+      text: "So you're a good cat now?"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "Nothin' I do now can make a good cat. But I'm not doing bad things anymore. Suppose I'm just looking after the place now. Like a bodyguard... heh."
+    },
+    {
+      profile: 'you-profile',
+      text: "Maybe one day I can leave my life behind too. Once I get my body back and save my home!"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "Don't always 'ave to play hero son. Sometimes it's better to just walk away from everything that's been forced on you. Live how you want to live."
+    },
+    {
+      profile: 'you-profile',
+      text: "Thanks Mr Gun Cat. I'll keep that in mind :)"
+    },
+    {
+      profile: 'crayon-cat-4',
+      text: "You do that for me son."
+    }
+  ],
+  CRAYON_CAT_4_SUCCESS: [
+    {
+      profile: 'crayon-cat-4',
+      text: "Good to see ya back son. Don't push yourself too hard."
+    }
+  ],
+  CRAYON_CAT_4_FAIL: [
+    {
+      profile: 'crayon-cat-4',
+      text: "Unlucky this time son. Don't let it get to ya. Don't let others make you feel worthless if you failed at something after giving it your best shot."
+    }
+  ],
+  MYSTERY_CAT_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "I don't like this place bozz. It's too hot, and the characters here seem suspicious. I wouldn't talk to anyone if I were you."
+    }
+  ],
+  MYSTERY_CAT_REPEAT_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "I'm not joking boszz. I've got a bad feeling about this place. Stay close to me and the meowzer, don't go too far. Let's just get them their gigantium and minimium and leave back home. I'm sure you'll be regarded as a hero, in fact I'm confident there's already a statue of you there."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "You can walk around if you really want, but just don't talk to anyone. When you're ready, let's get back on your meowzer where its cool and safe."
+    },
+    {
+      profile: 'you-profile',
+      text: "You're acting strange Whatever. I'll nbe back soon."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "...watch out that the massive dune centipedes don't get you."
+    },
+    {
+      profile: 'you-profile',
+      text: "I know you're just trying to scare me. Look that guy has a massive gun, we're safe."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "..."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "You ready to go back to the meowzer?"
+    },
+    {
+      profile: 'you-profile',
+      text: "I'm not done here yet."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_1_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "You ready to go back to the meowzer?"
+    },
+    {
+      profile: 'you-profile',
+      text: "Yes, let's go. I need to pickup some resources."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "If you say so, boszszs."
+    }
+  ],
+  MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "Don't trust what anyone's saying on this planet. They're all a bunch of frauds anyway."
+    },
+    {
+      profile: 'you-profile',
+      text: "Hmm..."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "..."
+    }
+  ],
+  MYSTERY_CAT_GOTO_LEVEL_2_WORLD_3: [
+    {
+      profile: 'mystery-cat-profile',
+      text: "You ready to go back to the meowzer?"
+    },
+    {
+      profile: 'you-profile',
+      text: "Yes, let's go. I need to pickup some resources."
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "If you say so, boszszszzssszs/."
+    },
+    {
+      profile: 'you-profile',
+      text: "Are you feeling alright Whatever?"
+    },
+    {
+      profile: 'mystery-cat-profile',
+      text: "Must be the heat. Let's get going."
     }
   ]
 };

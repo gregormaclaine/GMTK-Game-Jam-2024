@@ -97,7 +97,6 @@ function preload() {
   images['bw-cat-3-profile'] = loadImage('assets/img/profiles/bw-cat-3.jpg');
   images['bw-cat-4-profile'] = loadImage('assets/img/profiles/bw-cat-4.jpg');
 
-
   images['cat-mc'] = loadImage('assets/img/npcs/cat-mc.png');
   images['mystery-cat'] = loadImage('assets/img/npcs/mystery-cat.png');
 
