@@ -1,5 +1,5 @@
 class Resource {
-  static ATTRACT_SPEED = 0.4;
+  static ATTRACT_SPEED = 0.65;
 
   constructor({ pos, size, on_collect, image, remove, speed, sound }) {
     this.pos = pos;

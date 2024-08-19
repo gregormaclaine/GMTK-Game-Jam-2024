@@ -559,7 +559,7 @@ const DIALOGUE = {
     },
     {
       profile: 'ability-blackhole',
-      text: "*You received the black hole augment from ???*"
+      text: '*You received the black hole augment from ???*'
     },
     {
       profile: 'bw-cat-1-profile',
@@ -837,11 +837,11 @@ const DIALOGUE = {
   CRAYON_CAT_1: [
     {
       profile: 'crayon-cat-1',
-      text: "Coffee."
+      text: 'Coffee.'
     },
     {
       profile: 'you-profile',
-      text: "Come again?"
+      text: 'Come again?'
     },
     {
       profile: 'crayon-cat-1',
@@ -853,7 +853,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-1',
-      text: "Whatever it takes, just get me that gigantium. I need more coffee."
+      text: 'Whatever it takes, just get me that gigantium. I need more coffee.'
     },
     {
       profile: 'you-profile',
@@ -865,7 +865,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "How else do you expect me to gather your gigantium?"
+      text: 'How else do you expect me to gather your gigantium?'
     },
     {
       profile: 'crayon-cat-1',
@@ -886,7 +886,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Stealing from a hitcat sounds worse than whatever you say goes on with my meowzer!"
+      text: 'Stealing from a hitcat sounds worse than whatever you say goes on with my meowzer!'
     },
     {
       profile: 'crayon-cat-1',
@@ -901,10 +901,10 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Hmm..."
+      text: 'Hmm...'
     },
     {
-      profile: "crayon-cat-1",
+      profile: 'crayon-cat-1',
       text: "Shoo, shoo, go annoy long legs over there or something. Don't come back without that gigantium."
     }
   ],
@@ -916,7 +916,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Scammed again :("
+      text: 'Scammed again :('
     }
   ],
 
@@ -930,11 +930,11 @@ const DIALOGUE = {
   CRAYON_CAT_2: [
     {
       profile: 'you-profile',
-      text: "Nice legs."
+      text: 'Nice legs.'
     },
     {
       profile: 'crayon-cat-2',
-      text: "Thanks, I know. Not something to start off a conversation with though."
+      text: 'Thanks, I know. Not something to start off a conversation with though.'
     },
     {
       profile: 'you-profile',
@@ -942,19 +942,19 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-2',
-      text: "Did the academy teach you that you can just not talk to someone when you have nothing of substance to say?"
+      text: 'Did the academy teach you that you can just not talk to someone when you have nothing of substance to say?'
     },
     {
       profile: 'you-profile',
-      text: "I guess not."
+      text: 'I guess not.'
     },
     {
       profile: 'crayon-cat-2',
-      text: "Well, anywho, I happened to overhear your conversation with Coffee Guy © over there. He and I go way back."
+      text: 'Well, anywho, I happened to overhear your conversation with Coffee Guy © over there. He and I go way back.'
     },
     {
       profile: 'you-profile',
-      text: "Coffee Guy ©? How do you know him?"
+      text: 'Coffee Guy ©? How do you know him?'
     },
     {
       profile: 'crayon-cat-2',
@@ -966,15 +966,15 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-2',
-      text: "Anyway, Coffee Cat ©️ and I used to work together at the meowzer production facility."
+      text: 'Anyway, Coffee Cat ©️ and I used to work together at the meowzer production facility.'
     },
     {
       profile: 'crayon-cat-2',
-      text: "E v e r y t h i n g  i s  t r u e ."
+      text: 'E v e r y t h i n g  i s  t r u e .'
     },
     {
       profile: 'crayon-cat-2',
-      text: "B e w a r e  t h e  a p p a r i t i o n s ."
+      text: 'B e w a r e  t h e  a p p a r i t i o n s .'
     },
     {
       profile: 'you-profile',
@@ -1000,7 +1000,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-2',
-      text: "I suppose we all have our own curses tying us down."
+      text: 'I suppose we all have our own curses tying us down.'
     }
   ],
   CRAYON_CAT_2_SUCCESS: [
@@ -1010,7 +1010,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Your pranks are getting old."
+      text: 'Your pranks are getting old.'
     },
     {
       profile: 'crayon-cat-2',
@@ -1024,7 +1024,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "It was an accident."
+      text: 'It was an accident.'
     },
     {
       profile: 'crayon-cat-2',
@@ -1035,7 +1035,7 @@ const DIALOGUE = {
   CRAYON_CAT_2_ANNOYED: [
     {
       profile: 'crayon-cat-2',
-      text: "Go annoy someone else kid."
+      text: 'Go annoy someone else kid.'
     },
     {
       profile: 'you-profile',
@@ -1053,7 +1053,7 @@ const DIALOGUE = {
   CRAYON_CAT_3: [
     {
       profile: 'crayon-cat-3',
-      text: "Well hello there. How are you doing?"
+      text: 'Well hello there. How are you doing?'
     },
     {
       profile: 'you-profile',
@@ -1065,7 +1065,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Well, yes. That would make sense. I doubt I would have been able to find this planet otherwise. It only appeared when I got really close to the signal you were transmitting."
+      text: 'Well, yes. That would make sense. I doubt I would have been able to find this planet otherwise. It only appeared when I got really close to the signal you were transmitting.'
     },
     {
       profile: 'crayon-cat-3',
@@ -1077,7 +1077,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-3',
-      text: "You probably think that the only way to get your body back is to save everyone, be a hero, return to your home planet and get it handed to you on a silver platter?"
+      text: 'You probably think that the only way to get your body back is to save everyone, be a hero, return to your home planet and get it handed to you on a silver platter?'
     },
     {
       profile: 'you-profile',
@@ -1093,7 +1093,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Of course I want it back! I still want to help everyone though. Can I do that when I get my body back?"
+      text: 'Of course I want it back! I still want to help everyone though. Can I do that when I get my body back?'
     },
     {
       profile: 'crayon-cat-3',
@@ -1145,38 +1145,38 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Sooo... what happens now?"
+      text: 'Sooo... what happens now?'
     },
     {
       profile: 'crayon-cat-3',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'crayon-cat-3',
-      text: "murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur"
+      text: 'murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur murmur'
     },
     {
       profile: 'you-profile',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'crayon-cat-3',
-      text: "I WILL REVEAL YOUR TRUE FORM!"
+      text: 'I WILL REVEAL YOUR TRUE FORM!'
     }
   ],
 
   CRAYON_CAT_3_COLLECTED_CONT: [
     {
       profile: 'crayon-cat-3',
-      text: "Whew, so.. How do you feel?"
+      text: 'Whew, so.. How do you feel?'
     },
     {
       profile: 'cat-mc',
-      text: "Weird. But AMAZING!"
+      text: 'Weird. But AMAZING!'
     },
     {
       profile: 'cat-mc',
-      text: "I can really feel everything! Smell the smells, taste the.. dry, hot air. Ew."
+      text: 'I can really feel everything! Smell the smells, taste the.. dry, hot air. Ew.'
     },
     {
       profile: 'crayon-cat-3',
@@ -1184,7 +1184,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "You think you can leave me behind like this?"
+      text: 'You think you can leave me behind like this?'
     },
     {
       profile: 'crayon-cat-3',
@@ -1196,34 +1196,34 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-3',
-      text: "Your debt is to the universe, use your beating heart and your kind soul to help others, just like I helped you. That is all I ask."
+      text: 'Your debt is to the universe, use your beating heart and your kind soul to help others, just like I helped you. That is all I ask.'
     },
     {
       profile: 'crayon-cat-3',
-      text: "If I were you, I would give some of that leftover gigantium to our resident coffee nerd, James ;)"
+      text: 'If I were you, I would give some of that leftover gigantium to our resident coffee nerd, James ;)'
     }
   ],
 
   CRAYON_CAT_4: [
     {
       profile: 'crayon-cat-4',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'you-profile',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'crayon-cat-4',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'you-profile',
-      text: "i like your gun mister."
+      text: 'i like your gun mister.'
     },
     {
       profile: 'crayon-cat-4',
-      text: "Wanna see me use it?"
+      text: 'Wanna see me use it?'
     },
     {
       profile: 'you-profile',
@@ -1235,11 +1235,11 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: ":("
+      text: ':('
     },
     {
       profile: 'crayon-cat-4',
-      text: "..."
+      text: '...'
     }
   ],
   CRAYON_CAT_4_REPEAT: [
@@ -1253,7 +1253,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-4',
-      text: "..."
+      text: '...'
     },
     {
       profile: 'crayon-cat-4',
@@ -1269,11 +1269,11 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-4',
-      text: "Although I guess James, the one you know as Coffee whatever the heck, he helped bring me out of that life."
+      text: 'Although I guess James, the one you know as Coffee whatever the heck, he helped bring me out of that life.'
     },
     {
       profile: 'you-profile',
-      text: "Using coffee?"
+      text: 'Using coffee?'
     },
     {
       profile: 'crayon-cat-4',
@@ -1281,7 +1281,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-4',
-      text: "I was originally sent on a mission here to silence the two defectors from the production facility. But after a lot of hide and seek, and some help from a local wizard, I managed to leave my old life behind."
+      text: 'I was originally sent on a mission here to silence the two defectors from the production facility. But after a lot of hide and seek, and some help from a local wizard, I managed to leave my old life behind.'
     },
     {
       profile: 'you-profile',
@@ -1293,7 +1293,7 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Maybe one day I can leave my life behind too. Once I get my body back and save my home!"
+      text: 'Maybe one day I can leave my life behind too. Once I get my body back and save my home!'
     },
     {
       profile: 'crayon-cat-4',
@@ -1305,7 +1305,7 @@ const DIALOGUE = {
     },
     {
       profile: 'crayon-cat-4',
-      text: "You do that for me son."
+      text: 'You do that for me son.'
     }
   ],
   CRAYON_CAT_4_SUCCESS: [
@@ -1339,11 +1339,11 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "You're acting strange Whatever. I'll nbe back soon."
+      text: "You're acting strange Whatever. I'll be back soon."
     },
     {
       profile: 'mystery-cat-profile',
-      text: "...watch out that the massive dune centipedes don't get you."
+      text: "...watch out that the massive dune worms don't get you."
     },
     {
       profile: 'you-profile',
@@ -1351,13 +1351,13 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "..."
+      text: '...'
     }
   ],
   MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_3: [
     {
       profile: 'mystery-cat-profile',
-      text: "You ready to go back to the meowzer?"
+      text: 'You ready to go back to the meowzer?'
     },
     {
       profile: 'you-profile',
@@ -1367,7 +1367,7 @@ const DIALOGUE = {
   MYSTERY_CAT_GOTO_LEVEL_1_WORLD_3: [
     {
       profile: 'mystery-cat-profile',
-      text: "You ready to go back to the meowzer?"
+      text: 'You ready to go back to the meowzer?'
     },
     {
       profile: 'you-profile',
@@ -1375,7 +1375,7 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "If you say so, boszszs."
+      text: 'If you say so, boszszs.'
     }
   ],
   MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_3: [
@@ -1385,17 +1385,17 @@ const DIALOGUE = {
     },
     {
       profile: 'you-profile',
-      text: "Hmm..."
+      text: 'Hmm...'
     },
     {
       profile: 'mystery-cat-profile',
-      text: "..."
+      text: '...'
     }
   ],
   MYSTERY_CAT_GOTO_LEVEL_2_WORLD_3: [
     {
       profile: 'mystery-cat-profile',
-      text: "You ready to go back to the meowzer?"
+      text: 'You ready to go back to the meowzer?'
     },
     {
       profile: 'you-profile',
@@ -1403,11 +1403,11 @@ const DIALOGUE = {
     },
     {
       profile: 'mystery-cat-profile',
-      text: "If you say so, boszszszzssszs/."
+      text: 'If you say so, boszszszzssszs/.'
     },
     {
       profile: 'you-profile',
-      text: "Are you feeling alright Whatever?"
+      text: 'Are you feeling alright Whatever?'
     },
     {
       profile: 'mystery-cat-profile',

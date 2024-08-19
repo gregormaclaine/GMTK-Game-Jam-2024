@@ -21,21 +21,25 @@ class CrayonPlanet extends PlanetScene {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_1, {
               skippable: false
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_1_REPEAT, {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_1_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_1_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_1_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_1_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }
         }
       }),
       new NPC({
@@ -52,26 +56,30 @@ class CrayonPlanet extends PlanetScene {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_2, {
               skippable: false
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_REPEAT, {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }
-        if (count < 4) {
-          await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_ANNOYED);
-        } else if (count >= 4) {
-          await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_ANGRY);
-        }
+          if (count < 4) {
+            await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_ANNOYED);
+          } else if (count >= 4) {
+            await this.dialogue.send(DIALOGUE.CRAYON_CAT_2_ANGRY);
+          }
         }
       }),
       new NPC({
@@ -80,19 +88,22 @@ class CrayonPlanet extends PlanetScene {
         radius: 1,
         image: images['crayon-cat-3'],
         interact: async (count, reset_count) => {
-          const result = this.level_results[3];
-          const result_1 = this.level_results[4];
-          const result_2 = this.level_results[5];
+          const result = this.level_results[6];
+          const result_1 = this.level_results[7];
+          const result_2 = this.level_results[8];
 
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_3, {
               skippable: false
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_3_REPEAT, {
               skippable: true
             });
-          } else if (this.collected.gigantium >= 5 && this.collected.minimium >= 5) {
+          } else if (
+            this.collected.gigantium >= 5 &&
+            this.collected.minimium >= 5
+          ) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_3_COLLECTED, {
               skippable: false
             });
@@ -101,16 +112,20 @@ class CrayonPlanet extends PlanetScene {
               skippable: false
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_3_FAIL, {
-              skippable: true
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_3_SUCCESS, {
-              skippable: true
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_3_FAIL, {
+                skippable: true
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_3_SUCCESS, {
+                skippable: true
+              });
+            }
           }
-        }
         }
       }),
       new NPC({
@@ -119,29 +134,33 @@ class CrayonPlanet extends PlanetScene {
         radius: 1,
         image: images['crayon-cat-4'],
         interact: async (count, reset_count) => {
-          const result = this.level_results[3];
-          const result_1 = this.level_results[4];
-          const result_2 = this.level_results[5];
+          const result = this.level_results[6];
+          const result_1 = this.level_results[7];
+          const result_2 = this.level_results[8];
 
           if (!result && count === 0) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_4, {
               skippable: false
             });
-          } else if (!result) {  
+          } else if (!result) {
             await this.dialogue.send(DIALOGUE.CRAYON_CAT_4_REPEAT, {
               skippable: true
             });
           } else {
-            if (result === 'lose' || result_1 === 'lose' || result_2 == 'lose') {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_4_FAIL, {
-              skippable: false
-            });
-          } else {
-            await this.dialogue.send(DIALOGUE.CRAYON_CAT_4_SUCCESS, {
-              skippable: false
-            });
+            if (
+              result === 'lose' ||
+              result_1 === 'lose' ||
+              result_2 == 'lose'
+            ) {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_4_FAIL, {
+                skippable: false
+              });
+            } else {
+              await this.dialogue.send(DIALOGUE.CRAYON_CAT_4_SUCCESS, {
+                skippable: false
+              });
+            }
           }
-        }          
         }
       }),
       new NPC({
@@ -166,9 +185,12 @@ class CrayonPlanet extends PlanetScene {
             }
 
             if (count >= 2) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_WORLD_3, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_WORLD_3,
+                {
+                  skippable: false
+                }
+              );
 
               // Do it after two seconds so that it happens when ur already playing
               setTimeout(
@@ -181,26 +203,38 @@ class CrayonPlanet extends PlanetScene {
           }
           if (result && !result_1) {
             if (count == 0) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_3, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_1_WORLD_3,
+                {
+                  skippable: false
+                }
+              );
             } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1_WORLD_3, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_1_WORLD_3,
+                {
+                  skippable: false
+                }
+              );
               await this.start_level(7);
               reset_count();
             }
           }
           if (result && result_1 && !result_2) {
             if (count == 0) {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_3, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_PREPARE_LEVEL_2_WORLD_3,
+                {
+                  skippable: false
+                }
+              );
             } else {
-              await this.dialogue.send(DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_2_WORLD_3, {
-                skippable: false
-              });
+              await this.dialogue.send(
+                DIALOGUE.MYSTERY_CAT_GOTO_LEVEL_2_WORLD_3,
+                {
+                  skippable: false
+                }
+              );
               await this.start_level(8);
               reset_count();
             }
@@ -221,7 +255,7 @@ class CrayonPlanet extends PlanetScene {
             }
           }
         }
-      }),
+      })
     ];
   }
 }
